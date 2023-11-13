@@ -40,7 +40,7 @@ Ich entwickle derzeit ein serverseitiges Framework, das React auf die Serverseit
     'description.lists':
       'Eine einfache Produktivitäts-App, um zu zeigen, was Sie mit React Server erstellen können.',
     'description.reflect':
-      'Ein optimierender ES5-Compiler, geschrieben in JavaScript. (Ich habe ihn geschrieben, bevor es Babel gab, na toll...',
+      'Ein optimierender ES5-Compiler, geschrieben in JavaScript. Ich habe ihn geschrieben, bevor es Babel gab, na toll...',
     'description.mycv':
       'Mein interaktiver Online-Lebenslauf. - Ich habe es satt, Adobe Illustrator zu verwenden, um meinen Lebenslauf zu aktualisieren. Die Verwendung einer Website zur Generierung eines Lebenslaufs erscheint mir als Webentwickler natürlich.',
   },

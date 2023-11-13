@@ -52,6 +52,7 @@ const projects = [
     name: 'React Server',
     description: 'description.react-server',
     href: 'https://state-less.cloud',
+    repo: 'https://github.com/state-less/clean-starter',
     duration: 1,
     stack: ['TypeScript', 'Node.js', 'React', 'GraphQL'],
   },
@@ -59,6 +60,7 @@ const projects = [
     name: 'Lists App',
     description: 'description.lists',
     href: 'https://lists.state-less.cloud',
+    repo: 'https://github.com/C5H8NNaO4/lists-app-backend',
     duration: 1,
     stack: ['TypeScript', 'Node.js', 'React Server', 'React'],
   },
@@ -576,7 +578,7 @@ export const Projects = ({
   return (
     <Grid container spacing={1}>
       {projects.slice(from || 0, to).map((project) => {
-        const desc = t(project.description || '');
+        const desc = t(project.description || '').split(' ');
         return (
           <Grid item xs={xs} sx={{ mt: project.mt }}>
             <Card
@@ -616,8 +618,10 @@ export const Projects = ({
                   />
                 </ListItem>
               )}
-              {desc && desc?.length <= 50 && <CardContent>{desc}</CardContent>}
-              {desc && desc?.length > 50 && (
+              {desc && desc?.length <= 10 && (
+                <CardContent>{desc.join(' ')}</CardContent>
+              )}
+              {desc && desc?.length > 10 && (
                 <Accordion
                   square
                   expanded={expanded || toggled === (projectId || project.name)}
@@ -631,10 +635,10 @@ export const Projects = ({
                       )
                     }
                   >
-                    {desc?.slice(0, 50)}...
+                    {desc?.slice(0, 10).join(' ')}...
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Markdown>{'...' + desc?.slice(50)}</Markdown>
+                    <Markdown>{'...' + desc?.slice(10).join(' ')}</Markdown>
                   </AccordionDetails>
                 </Accordion>
               )}

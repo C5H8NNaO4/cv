@@ -41,7 +41,7 @@ Actualmente estoy desarrollando un framework del lado del servidor que lleva Rea
     'description.lists':
       'Una aplicación de productividad simple para mostrar lo que se puede construir con React Server.',
     'description.reflect':
-      'Un compilador optimizador de ES5, escrito en JavaScript. (Lo escribí antes de que existiera Babel, obvio...)',
+      'Un compilador optimizador de ES5, escrito en JavaScript. Lo escribí antes de que existiera Babel, obvio...',
     'description.mycv':
       'Mi currículum interactivo en línea. - Me cansé de usar Adobe Illustrator para actualizar mi currículum. Usar un sitio web para generar un currículum parece natural como desarrollador web.',
   },

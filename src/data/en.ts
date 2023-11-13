@@ -23,7 +23,7 @@ I’m currently developing a server-side framework that brings React to the serv
     'description.react-server': `An open source framework that let's you use TSX components on the backend. This allows to rapidly prototype sophisticated full-stack services using Reacts principles from the frontend on the backend.`,
     'description.lists': `A simple productivity app to showcase what you can build with React Server.`,
     'description.reflect':
-      'An optimizing ES5 compiler, written in JavaScript. (I wrote it before babel existed, duh...)',
+      'An optimizing ES5 compiler, written in JavaScript. I wrote it before babel existed, duh...',
     'description.mycv':
       'My interactive online CV. - I got tired of using Adobe Illustrator to update my CV. Using a website to generate a CV seems natural as webdev.',
   },
