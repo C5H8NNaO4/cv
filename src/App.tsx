@@ -536,7 +536,7 @@ export const Projects = ({
   return (
     <Grid container spacing={1}>
       {projects.slice(from || 0, to).map((project) => {
-        const desc = t(project.description);
+        const desc = t(project.description || '');
         return (
           <Grid item xs={xs} sx={{ mt: project.mt }}>
             <Card

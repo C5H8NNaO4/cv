@@ -23,7 +23,6 @@ i18n
     detection: {
       order: ['path', 'localStorage', 'htmlTag', 'subdomain'],
       lookupFromPathIndex: 0,
-      checkWhitelist: true,
     },
     // lng: 'en', // if you're using a language detector, do not define the lng option
     fallbackLng: 'en',
