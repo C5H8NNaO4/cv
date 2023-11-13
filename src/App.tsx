@@ -210,24 +210,28 @@ function App() {
                   />
                   <WorkHistoryEntry
                     company="Bechtle"
+                    homepage="https://www.bechtle.com"
                     position="Junior Software Engineer"
                     start="2018"
                     end="2019"
                   />
                   <WorkHistoryEntry
                     company="Spoo"
-                    position="Junior Software Engineer"
+                    position="Software Engineer"
+                    homepage="https://www.spoo-group.com"
                     start="2020"
                     end="2021"
                   />
                   <WorkHistoryEntry
                     company="Cosuno"
                     position="Senior Frontend Developer"
+                    homepage="https://www.cosuno.com"
                     start="2022"
                     end="2022"
                   />
                   <WorkHistoryEntry
                     company="Digitas Pixelpark"
+                    homepage="https://www.digitaspixelpark.com/"
                     position="Senior IT Developer"
                     start="2022"
                   />
@@ -416,9 +420,10 @@ export interface WorkHistoryEntry {
   position: string;
   start: string;
   end?: string;
+  homepage?: string;
 }
 export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
-  const { company, position, start, end } = props;
+  const { company, position, start, end, homepage } = props;
   return (
     <ListItem>
       {!end && (
@@ -428,7 +433,16 @@ export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
       )}
       <ListItemText
         primary={`${start} - ${end || ' now.'}`}
-        secondary={`${position} ${company ? `at ${company}` : ''}`}
+        secondary={
+          <span>
+            {position}
+            {position && ' at '}
+            {homepage && (
+              <Link href={homepage ? homepage : undefined}>{company}</Link>
+            )}
+            {!homepage && <span>{company}</span>}
+          </span>
+        }
       />
     </ListItem>
   );
