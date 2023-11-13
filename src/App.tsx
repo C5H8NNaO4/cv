@@ -415,6 +415,7 @@ function App() {
                 from={0}
                 to={3}
                 expanded={clsn !== ''}
+                md={12}
               />
             </Card>
           </Grid>
