@@ -392,7 +392,7 @@ function App() {
           <Grid container>
             <Projects
               projects={data.projects}
-              from={4}
+              from={3}
               expanded={clsn !== ''}
               xs={12}
             />
