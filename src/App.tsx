@@ -493,7 +493,6 @@ export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
 export default App;
 
 export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
-  const { t } = useTranslation();
   return (
     <List dense disablePadding>
       {skills
@@ -595,6 +594,7 @@ export const Projects = ({
   to?: number;
   expanded?: boolean;
   xs?: number;
+  md?: number;
 }) => {
   const [toggled, setToggled] = useState('');
   const { t } = useTranslation();
