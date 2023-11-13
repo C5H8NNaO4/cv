@@ -292,6 +292,13 @@ function App() {
                         </Link>
                       </Button>
                     </Tooltip>
+                    <Tooltip title="Book a Meeting" placement="bottom">
+                      <Button size="small" color="primary">
+                        <Link href="https://calendly.com/moritz-roessler/30min">
+                          {t('Calendly')}
+                        </Link>
+                      </Button>
+                    </Tooltip>
                   </CardActions>
                 </CardActionArea>
               )}
