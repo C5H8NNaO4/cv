@@ -259,6 +259,7 @@ function App() {
                     company={t('your company')}
                     position="Senior Fullstack Developer"
                     start="2025"
+                    end="?"
                   />
                 </List>
               </Box>
