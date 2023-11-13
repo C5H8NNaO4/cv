@@ -26,6 +26,8 @@ I’m currently developing a server-side framework that brings React to the serv
       'An optimizing ES5 compiler, written in JavaScript. I wrote it before babel existed, duh...',
     'description.mycv':
       'My interactive online CV. - I got tired of using Adobe Illustrator to update my CV. Using a website to generate a CV seems natural as webdev.',
+    'description.marketing': 'Find out how to profit from my experience.',
+    'sub.marketing': 'At 85% productivity.',
   },
 };
 

@@ -39,6 +39,7 @@ import { BIRTHDAY, CV_START, REACT_START, TRAINING_START } from './const';
 import { Project, Skill } from './types';
 import { Page } from './components/Page';
 import { differenceInBusinessDays } from 'date-fns';
+import { Chart } from './components/Chart';
 
 const projects = [
   {
@@ -178,6 +179,10 @@ function App() {
               <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Stack skills={data.skills} />
               </Box>
+            </Card>
+            <Card>
+              <CardHeader title={t('description.marketing')} subheader={t('sub.marketing')} />
+              <Chart />
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
