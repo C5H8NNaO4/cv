@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './App.css';
 import './lib/i18n';
 import EuroSymbolIcon from '@mui/icons-material/EuroSymbol';
 import HomeWorkIcon from '@mui/icons-material/HomeWork';
-import SchoolIcon from '@mui/icons-material/School';
 import Markdown from './components/Markdown/Markdown';
 import {
-  Paper,
   Grid,
   Card,
   Link,
@@ -18,7 +15,6 @@ import {
   Avatar,
   ListItemIcon,
   CircularProgress,
-  Typography,
   ListItemButton,
   Chip,
   Box,
@@ -31,9 +27,9 @@ import {
   Button,
 } from '@mui/material';
 import { capitalCase } from 'change-case';
-import { HighlightedText } from './components/HighlightedText/HighlightedText';
 import { age, durStr, duration, map, projectExperience } from './lib/util';
 import { BIRTHDAY, REACT_START, TRAINING_START } from './const';
+import { Project, Skill } from './types';
 
 const projects = [
   {
@@ -61,7 +57,12 @@ const projects = [
     duration: 1.5,
     stack: ['JavaScript'],
   },
-  { name: 'Online CV', description: 'My interactive online CV.', href: 'https://state-less.cloud/cv', stack: []},
+  {
+    name: 'Online CV',
+    description: 'My interactive online CV.',
+    href: 'https://state-less.cloud/cv',
+    stack: [],
+  },
 ];
 const data = {
   skills: [
@@ -107,10 +108,13 @@ const data = {
   projects,
 };
 
-const experience = data.skills.reduce((acc, cur) => {
-  acc[cur.name.replace(/\./g, '-')] = cur.experience || age(cur.start);
-  return acc;
-}, {});
+const experience = data.skills.reduce(
+  (acc: Record<string, number>, cur: Skill): Record<string, number> => {
+    acc[cur.name.replace(/\./g, '-')] = cur.experience || age(cur.start) || 0;
+    return acc;
+  },
+  {} as Record<string, number>
+);
 function App() {
   return (
     <>
@@ -279,7 +283,7 @@ export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
 };
 export default App;
 
-export const Skills = ({ skills, tag }) => {
+export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
   return (
     <List dense disablePadding>
       {skills
@@ -301,17 +305,17 @@ export const Skills = ({ skills, tag }) => {
   );
 };
 
-export const Stack = ({ skills }) => {
+export const Stack = ({ skills }: { skills: Skill[] }) => {
   return (
     <Box sx={{ m: 1, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
       {skills
-        .sort((a, b) => b.experience - a.experience)
+        .sort((a, b) => (b.experience || 0) - (a.experience || 0))
         .filter((skill) => skill.stack)
         .map((skill) => {
           return (
             <Chip
               label={skill.name}
-              color={skill.experience > 10 ? 'primary' : 'secondary'}
+              color={(skill.experience || 0) > 10 ? 'primary' : 'secondary'}
             />
           );
         })}
@@ -319,24 +323,26 @@ export const Stack = ({ skills }) => {
   );
 };
 
-const chunks = (arr, n) => {
-  return arr.reduce((acc, item, i) => {
+const chunks = (arr: string[], n: number) => {
+  return arr.reduce((acc: string[][], item: string, i: number) => {
     acc[i % n] = [...(acc[i % n] || []), item];
     return acc;
-  }, []);
+  }, [] as string[][]);
 };
-export const SkillCards = ({ skills }) => {
-  const tags = [
-    ...new Set(skills.reduce((acc, skill) => [...acc, ...skill.tags], [])),
-  ];
+export const SkillCards = ({ skills }: { skills: Skill[] }) => {
+  const allTags = skills.reduce(
+    (acc, skill) => [...acc, ...skill.tags],
+    [] as string[]
+  );
+  const tags = [...new Set(allTags)];
 
   const chunked = chunks(tags, 2);
   return (
     <Grid item container xs={12} spacing={1}>
-      {chunked.map((chunk) => {
+      {chunked.map((chunk: string[]) => {
         return (
           <Grid item container xs={6} spacing={1} alignContent={'start'}>
-            {chunk.map((tag) => {
+            {chunk.map((tag: string) => {
               return (
                 <Grid item xs={12} spacing={1}>
                   <Card square>
@@ -353,7 +359,7 @@ export const SkillCards = ({ skills }) => {
   );
 };
 
-export const Projects = ({ projects }) => {
+export const Projects = ({ projects }: { projects: Project[] }) => {
   return (
     <Card>
       <Grid container spacing={1}>
@@ -368,7 +374,7 @@ export const Projects = ({ projects }) => {
                   )}
                 />
                 <Box sx={{ m: 1, gap: 0.5, display: 'flex', flexWrap: 'wrap' }}>
-                  {project.stack.map((tech) => {
+                  {project.stack.map((tech: string) => {
                     return <Chip label={tech} size="small" />;
                   })}
                 </Box>
