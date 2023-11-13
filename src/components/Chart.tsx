@@ -16,7 +16,7 @@ const inflate = (ts: number, years: number) =>
   Math.ceil(ts * (1 + inc * years));
 const vk = (ts: number) => (5 * 52 - 30) * ts * 0.85;
 const b = 100000;
-const year = getYear(new Date());
+const year = getYear(new Date()) + 1;
 const data = [
   { name: year + 1, salary: b, yield: vk(ts[0]), profit: vk(ts[0]) - 100000 },
   {
