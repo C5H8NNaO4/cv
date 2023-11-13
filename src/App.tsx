@@ -136,7 +136,7 @@ function App() {
     <div id="root" className={clsn} ref={targetRef}>
       <Page exporting={exporting}>
         <Grid container spacing={2}>
-          <Grid item xs={8}>
+          <Grid item xs={12} md={8}>
             <Card square>
               <CardHeader
                 avatar={<Avatar src="/pp.jpg" />}
@@ -144,6 +144,12 @@ function App() {
                 subheader="Senior Fullstack Developer"
                 action={
                   <IconButton
+                    sx={{
+                      display: {
+                        xs: 'none',
+                        md: 'flex',
+                      },
+                    }}
                     onClick={() => {
                       setClsn('exporting');
                       setTimeout(() => {
@@ -169,7 +175,7 @@ function App() {
               </Box>
             </Card>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} md={4}>
             <Card square>
               <CardHeader title={t('Education')} />
               <List>
@@ -300,7 +306,7 @@ function App() {
       </Page>
       <Page exporting={exporting}>
         <Grid container spacing={2}>
-          <Grid item xs={8}>
+          <Grid item xs={12} md={8}>
             <Card square>
               <CardHeader title="Skills" />
               <Grid container spacing={1}>
@@ -367,7 +373,7 @@ function App() {
               </Grid>
             </Card>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} md={4}>
             <Card>
               <CardHeader title="Portfolio"></CardHeader>
               <Projects
@@ -514,7 +520,14 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
     <Grid item container xs={12} spacing={1}>
       {chunked.map((chunk: string[]) => {
         return (
-          <Grid item container xs={6} spacing={1} alignContent={'start'}>
+          <Grid
+            item
+            container
+            xs={12}
+            md={6}
+            spacing={1}
+            alignContent={'start'}
+          >
             {chunk.map((tag: string) => {
               return (
                 <Grid item xs={12} spacing={1}>
