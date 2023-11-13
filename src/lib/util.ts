@@ -1,5 +1,6 @@
 import { Project } from '@/types';
 import { differenceInYears } from 'date-fns';
+import i18next from 'i18next';
 
 /**
  *
@@ -47,9 +48,10 @@ export const map = (
 };
 
 export const durStr = (duration: number) => {
-  if (duration > 1) return `${duration} years`;
-  if (duration === 1) return '1 year';
-  if (duration >= 3 / 12) return `${duration * 12} months`;
-  if (duration >= 3 / 52) return `${duration} weeks`;
-  if (duration >= (3 * 7) / 365) return `${duration} days`;
+  const t = i18next.t;
+  if (duration > 1) return `${duration} ${t('years')}`;
+  if (duration === 1) return `1 ${t('year')}`;
+  if (duration >= 3 / 12) return `${duration * 12} ${t('months')}`;
+  if (duration >= 3 / 52) return `${duration} ${t('weeks')}`;
+  if (duration >= (3 * 7) / 365) return `${duration} ${t('days')}`;
 };

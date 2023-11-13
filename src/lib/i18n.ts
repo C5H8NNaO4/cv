@@ -1,24 +1,31 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+import de from '../data/de';
 import en from '../data/en';
+import es from '../data/es.ts';
 // import fr from 'data/fr.ts';
-// import es from 'data/es.ts';
-// import de from 'data/de.ts';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
+  .use(LanguageDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     // the translations
     // (tip move them in a JSON file and import them,
     // or even better, manage them via a UI: https://react.i18next.com/guides/multiple-translation-files#manage-your-translations-with-a-management-gui)
     resources: {
+      de,
       en,
+      es,
       //   fr,
-      //   es,
-      //   de,
     },
-    lng: 'en', // if you're using a language detector, do not define the lng option
+    detection: {
+      order: ['path', 'localStorage', 'htmlTag', 'subdomain'],
+      lookupFromPathIndex: 0,
+      checkWhitelist: true,
+    },
+    // lng: 'en', // if you're using a language detector, do not define the lng option
     fallbackLng: 'en',
 
     interpolation: {

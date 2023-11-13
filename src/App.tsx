@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 import { useState } from 'react';
 import './App.css';
 import { usePDF } from 'react-to-pdf';
@@ -41,36 +42,35 @@ import { Page } from './components/Page';
 const projects = [
   {
     name: 'maxon online presence',
-    description: `A modern website for the maxon company to showcase and sell their products. A world-wide digital presence using state of art technology to power the website. Coremedia as CMS and Salesforce as commerce engine ensure a scalable backend infrastructure. Next.js and React provide a modern headless frontend.`,
+    description: 'description.maxon',
     href: 'https://preview.maxongroup.com/de-de',
     duration: 2.5,
     stack: ['TypeScript', 'Node.js', 'React', 'Next.js', 'GraphQL'],
   },
   {
     name: 'React Server',
-    description: `An open source framework that let's you use TSX components on the backend. This allows to rapidly prototype sophisticated full-stack services using Reacts principles from the frontend on the backend.`,
+    description: 'description.react-server',
     href: 'https://state-less.cloud',
     duration: 1,
     stack: ['TypeScript', 'Node.js', 'React', 'GraphQL'],
   },
   {
     name: 'Lists App',
-    description: `A simple productivity app to showcase what you can build with React Server.`,
+    description: 'description.lists',
     href: 'https://lists.state-less.cloud',
     duration: 1,
     stack: ['TypeScript', 'Node.js', 'React Server', 'React'],
   },
   {
     name: 'Reflect.js',
-    description: `An optimizing ES5 compiler, written in JavaScript. (I wrote it before babel existed, duh...)`,
+    description: 'description.reflect',
     repo: 'https://github.com/C5H8NNaO4/reflect.js',
     duration: 1.5,
     stack: ['JavaScript'],
   },
   {
     name: 'Online CV',
-    description:
-      'My interactive online CV. - I got tired of using Adobe Illustrator to update my CV. Using a website to generate a CV seems natural as webdev.',
+    description: 'description.mycv',
     href: 'https://justmycv.com',
     stack: [],
   },
@@ -131,10 +131,11 @@ function App() {
   const { toPDF, targetRef } = usePDF({ filename: 'CV - Moritz Roessler.pdf' });
   const [clsn, setClsn] = useState('');
   const exporting = clsn === 'exporting';
+  const { t } = useTranslation();
   return (
     <div id="root" className={clsn} ref={targetRef}>
       <Page exporting={exporting}>
-        <Grid container spacing={1}>
+        <Grid container spacing={2}>
           <Grid item xs={8}>
             <Card square>
               <CardHeader
@@ -170,7 +171,7 @@ function App() {
           </Grid>
           <Grid item xs={4}>
             <Card square>
-              <CardHeader title="Education" />
+              <CardHeader title={t('Education')} />
               <List>
                 <EducationEntry
                   degree="FIAE"
@@ -187,7 +188,7 @@ function App() {
               </List>
             </Card>
             <Card square sx={{ mt: 1 }}>
-              <CardHeader title="Work History" />
+              <CardHeader title={t('Work History')} />
               <Box>
                 <List>
                   <EducationEntry
@@ -234,7 +235,7 @@ function App() {
               </Box>
             </Card>
             <Card square sx={{ mt: 1 }}>
-              <CardHeader title="Expected Benefits" />
+              <CardHeader title={t('Expected Benefits')} />
               <ListItem>
                 <ListItemIcon>
                   <EuroSymbolIcon />
@@ -265,7 +266,7 @@ function App() {
                   <CardActions>
                     <Tooltip title="+4917620350106" placement="bottom">
                       <Button size="small" color="primary">
-                        <Link href="tel://+4917620350106">Call</Link>
+                        <Link href="tel://+4917620350106">{t('Call')}</Link>
                       </Button>
                     </Tooltip>
                     <Tooltip
@@ -274,7 +275,7 @@ function App() {
                     >
                       <Button size="small" color="primary">
                         <Link href="mailto://moritz.roessler@gmail.com">
-                          Contact
+                          {t('Contact')}
                         </Link>
                       </Button>
                     </Tooltip>
@@ -302,9 +303,19 @@ function App() {
                 <SkillCards skills={data.skills} />
                 <Grid item xs={12}>
                   <Card square>
-                    <CardHeader title="Spoken" subheader="Languages" />
+                    <CardHeader
+                      title={capitalCase(t('spoken'))}
+                      subheader={capitalCase(t('languages'))}
+                    />
                     <List sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                      <ListItem sx={{ flexShrink: 1, width: '50%' }}>
+                      <ListItemButton
+                        selected={i18n.language === 'de'}
+                        sx={{ flexShrink: 1, width: '50%' }}
+                        onClick={() => {
+                          i18n.changeLanguage('de');
+                          window.history.replaceState({}, '', '/de');
+                        }}
+                      >
                         <ListItemIcon>
                           <Avatar sx={{ mr: '-40px' }}>G</Avatar>
                           <CircularProgress
@@ -312,23 +323,40 @@ function App() {
                             variant="determinate"
                           ></CircularProgress>
                         </ListItemIcon>
-                        <ListItemText primary="German" secondary="Native" />
-                      </ListItem>
-                      <ListItem sx={{ flexShrink: 1, width: '50%' }}>
+                        <ListItemText
+                          primary={t('German')}
+                          secondary="Native"
+                        />
+                      </ListItemButton>
+                      <ListItemButton
+                        selected={i18n.language === 'en'}
+                        sx={{ flexShrink: 1, width: '50%' }}
+                        onClick={() => {
+                          i18n.changeLanguage('en');
+                          window.history.replaceState({}, '', '/en');
+                        }}
+                      >
                         <ListItemIcon>
                           <Avatar sx={{ mr: '-40px' }}>E</Avatar>
                           <CircularProgress value={80} variant="determinate" />
                         </ListItemIcon>
-                        <ListItemText primary="English" secondary="C1" />
-                      </ListItem>
-                      <ListItem sx={{ flexShrink: 1, width: '50%' }}>
+                        <ListItemText primary={t('English')} secondary="C1" />
+                      </ListItemButton>
+                      <ListItemButton
+                        selected={i18n.language === 'es'}
+                        sx={{ flexShrink: 1, width: '50%' }}
+                        onClick={() => {
+                          i18n.changeLanguage('es');
+                          window.history.replaceState({}, '', '/es');
+                        }}
+                      >
                         <ListItemIcon>
                           <Avatar sx={{ mr: '-40px' }}>S</Avatar>
 
                           <CircularProgress value={50} variant="determinate" />
                         </ListItemIcon>
-                        <ListItemText primary="Spanish" secondary="B1" />
-                      </ListItem>
+                        <ListItemText primary={t('Spanish')} secondary="B1" />
+                      </ListItemButton>
                     </List>
                   </Card>
                 </Grid>
@@ -408,6 +436,7 @@ export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
 export default App;
 
 export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
+  const { t } = useTranslation();
   return (
     <List dense disablePadding>
       {skills
@@ -420,7 +449,9 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
               <ListItemText
                 sx={{ my: 0 }}
                 primary={skill.name}
-                secondary={`${skill.experience || age(skill.start)} years`}
+                secondary={`${skill.experience || age(skill.start)} ${t(
+                  'years'
+                )}`}
               ></ListItemText>
             </ListItemButton>
           );
@@ -501,9 +532,11 @@ export const Projects = ({
   xs?: number;
 }) => {
   const [toggled, setToggled] = useState(false);
+  const { t } = useTranslation();
   return (
     <Grid container spacing={1}>
       {projects.slice(from || 0, to).map((project) => {
+        const desc = t(project.description);
         return (
           <Grid item xs={xs} sx={{ mt: project.mt }}>
             <Card
@@ -542,18 +575,14 @@ export const Projects = ({
                   />
                 </ListItem>
               )}
-              {project.description && project.description?.length <= 50 && (
-                <CardContent>{project.description}</CardContent>
-              )}
-              {project.description && project.description?.length > 50 && (
+              {desc && desc?.length <= 50 && <CardContent>{desc}</CardContent>}
+              {desc && desc?.length > 50 && (
                 <Accordion expanded={expanded || toggled}>
                   <AccordionSummary onClick={() => setToggled(!toggled)}>
-                    {project.description?.slice(0, 50)}...
+                    {desc?.slice(0, 50)}...
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Markdown>
-                      {'...' + project.description?.slice(50)}
-                    </Markdown>
+                    <Markdown>{'...' + desc?.slice(50)}</Markdown>
                   </AccordionDetails>
                 </Accordion>
               )}
