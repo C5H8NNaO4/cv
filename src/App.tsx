@@ -35,9 +35,10 @@ import {
 } from '@mui/material';
 import { capitalCase } from 'change-case';
 import { age, durStr, duration, map, projectExperience } from './lib/util';
-import { BIRTHDAY, REACT_START, TRAINING_START } from './const';
+import { BIRTHDAY, CV_START, REACT_START, TRAINING_START } from './const';
 import { Project, Skill } from './types';
 import { Page } from './components/Page';
+import { differenceInBusinessDays } from 'date-fns';
 
 const projects = [
   {
@@ -72,7 +73,8 @@ const projects = [
     name: 'Online CV',
     description: 'description.mycv',
     href: 'https://justmycv.com',
-    stack: [],
+    duration: differenceInBusinessDays(new Date(), new Date(CV_START)) / 365,
+    stack: ['TypeScript', 'React', 'MUI'],
   },
 ];
 const data = {
@@ -387,7 +389,7 @@ function App() {
         </Grid>
       </Page>
       <Page exporting={exporting}>
-        <Card>
+        <Card sx={{ pb: 2 }}>
           <CardHeader title="Portfolio"></CardHeader>
           <Grid container>
             <Projects
@@ -604,7 +606,7 @@ export const Projects = ({
               )}
               {desc && desc?.length <= 50 && <CardContent>{desc}</CardContent>}
               {desc && desc?.length > 50 && (
-                <Accordion expanded={expanded || toggled}>
+                <Accordion square expanded={expanded || toggled}>
                   <AccordionSummary onClick={() => setToggled(!toggled)}>
                     {desc?.slice(0, 50)}...
                   </AccordionSummary>
