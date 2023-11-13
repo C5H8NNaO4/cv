@@ -6,6 +6,7 @@ export type Project = {
   stack: string[];
   description?: string;
   href?: string;
+  mt?: number;
 };
 
 export type Skill = {

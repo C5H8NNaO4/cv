@@ -1,10 +1,15 @@
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 import './App.css';
+import { usePDF } from 'react-to-pdf';
 import './lib/i18n';
 import EuroSymbolIcon from '@mui/icons-material/EuroSymbol';
+import DownloadIcon from '@mui/icons-material/Download';
+import StarIcon from '@mui/icons-material/StarBorder';
 import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import Markdown from './components/Markdown/Markdown';
 import {
+  IconButton,
   Grid,
   Card,
   Link,
@@ -25,11 +30,13 @@ import {
   CardActionArea,
   CardActions,
   Button,
+  Tooltip,
 } from '@mui/material';
 import { capitalCase } from 'change-case';
 import { age, durStr, duration, map, projectExperience } from './lib/util';
 import { BIRTHDAY, REACT_START, TRAINING_START } from './const';
 import { Project, Skill } from './types';
+import { Page } from './components/Page';
 
 const projects = [
   {
@@ -41,26 +48,30 @@ const projects = [
   },
   {
     name: 'React Server',
+    description: `An open source framework that let's you use TSX components on the backend. This allows to rapidly prototype sophisticated full-stack services using Reacts principles from the frontend on the backend.`,
     href: 'https://state-less.cloud',
     duration: 1,
     stack: ['TypeScript', 'Node.js', 'React', 'GraphQL'],
   },
   {
     name: 'Lists App',
+    description: `A simple productivity app to showcase what you can build with React Server.`,
     href: 'https://lists.state-less.cloud',
     duration: 1,
     stack: ['TypeScript', 'Node.js', 'React Server', 'React'],
   },
   {
     name: 'Reflect.js',
-    repo: 'https://lists.state-less.cloud',
+    description: `An optimizing ES5 compiler, written in JavaScript. (I wrote it before babel existed, duh...)`,
+    repo: 'https://github.com/C5H8NNaO4/reflect.js',
     duration: 1.5,
     stack: ['JavaScript'],
   },
   {
     name: 'Online CV',
-    description: 'My interactive online CV.',
-    href: 'https://state-less.cloud/cv',
+    description:
+      'My interactive online CV. - I got tired of using Adobe Illustrator to update my CV. Using a website to generate a CV seems natural as webdev.',
+    href: 'https://justmycv.com',
     stack: [],
   },
 ];
@@ -104,6 +115,7 @@ const data = {
     { name: 'Git', experience: 11, tags: ['misc'] },
     { name: 'ESLint', experience: 10, tags: ['misc'] },
     { name: 'Docker', experience: 5, tags: ['misc'] },
+    { name: 'Kubernetes', experience: 2, tags: ['misc'] },
   ],
   projects,
 };
@@ -116,133 +128,240 @@ const experience = data.skills.reduce(
   {} as Record<string, number>
 );
 function App() {
+  const { toPDF, targetRef } = usePDF({ filename: 'CV - Moritz Roessler.pdf' });
+  const [clsn, setClsn] = useState('');
+  const exporting = clsn === 'exporting';
   return (
-    <>
-      <Grid container spacing={1}>
-        <Grid item xs={8}>
-          <Card square>
-            <CardHeader
-              avatar={<Avatar src="/pp.jpg" />}
-              title="Moritz Roessler"
-              subheader="Senior Fullstack Developer"
-            />
-          </Card>
-          <Card square>
-            <CardContent>
-              <Description />
-            </CardContent>
-          </Card>
-          <Card square>
-            <CardHeader title="Stack"></CardHeader>
-            <Stack skills={data.skills} />
-          </Card>
+    <div id="root" className={clsn} ref={targetRef}>
+      <Page exporting={exporting}>
+        <Grid container spacing={1}>
+          <Grid item xs={8}>
+            <Card square>
+              <CardHeader
+                avatar={<Avatar src="/pp.jpg" />}
+                title="Moritz Roessler"
+                subheader="Senior Fullstack Developer"
+                action={
+                  <IconButton
+                    onClick={() => {
+                      setClsn('exporting');
+                      setTimeout(() => {
+                        toPDF();
+                        setClsn('');
+                      }, 0);
+                    }}
+                  >
+                    <DownloadIcon></DownloadIcon>
+                  </IconButton>
+                }
+              />
+            </Card>
+            <Card square>
+              <CardContent>
+                <Description />
+              </CardContent>
+            </Card>
+            <Card square>
+              <CardHeader title="Stack"></CardHeader>
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Stack skills={data.skills} />
+              </Box>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card square>
+              <CardHeader title="Education" />
+              <List>
+                <EducationEntry
+                  degree="FIAE"
+                  end="2015"
+                  school="Walther Rhathenau"
+                  start="2012"
+                />
+                <EducationEntry
+                  degree="Fachhochschulreife"
+                  end="2009"
+                  school="Kepler Gymnasium"
+                  start="2001"
+                />
+              </List>
+            </Card>
+            <Card square sx={{ mt: 1 }}>
+              <CardHeader title="Work History" />
+              <Box>
+                <List>
+                  <EducationEntry
+                    degree="FIAE"
+                    end="2015"
+                    school="Bechtle"
+                    start="2012"
+                  />
+                  <WorkHistoryEntry
+                    company="Bechtle"
+                    position="Junior Software Engineer"
+                    end="2016"
+                    start="2015"
+                  />
+                  <WorkHistoryEntry
+                    position="Living abroad in Chile"
+                    start="2016"
+                    end="2017"
+                  />
+                  <WorkHistoryEntry
+                    company="Bechtle"
+                    position="Junior Software Engineer"
+                    start="2018"
+                    end="2019"
+                  />
+                  <WorkHistoryEntry
+                    company="Spoo"
+                    position="Junior Software Engineer"
+                    start="2020"
+                    end="2021"
+                  />
+                  <WorkHistoryEntry
+                    company="Cosuno"
+                    position="Senior Frontend Developer"
+                    start="2022"
+                    end="2022"
+                  />
+                  <WorkHistoryEntry
+                    company="Digitas Pixelpark"
+                    position="Senior IT Developer"
+                    start="2022"
+                  />
+                </List>
+              </Box>
+            </Card>
+            <Card square sx={{ mt: 1 }}>
+              <CardHeader title="Expected Benefits" />
+              <ListItem>
+                <ListItemIcon>
+                  <EuroSymbolIcon />
+                </ListItemIcon>
+                <ListItemText primary="100k €" secondary="Salary" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <HomeWorkIcon />
+                </ListItemIcon>
+                <ListItemText primary="100% Remote" secondary="Homeoffice" />
+              </ListItem>
+              {exporting && (
+                <List>
+                  <ListItem>
+                    <ListItemText primary="+4917620350106" secondary="Phone" />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText
+                      primary="moritz.roessler@gmail.com"
+                      secondary="E-Mail"
+                    />
+                  </ListItem>
+                </List>
+              )}
+              {!exporting && (
+                <CardActionArea>
+                  <CardActions>
+                    <Tooltip title="+4917620350106" placement="bottom">
+                      <Button size="small" color="primary">
+                        <Link href="tel://+4917620350106">Call</Link>
+                      </Button>
+                    </Tooltip>
+                    <Tooltip
+                      title="moritz.roessler@gmail.com"
+                      placement="bottom"
+                    >
+                      <Button size="small" color="primary">
+                        <Link href="mailto://moritz.roessler@gmail.com">
+                          Contact
+                        </Link>
+                      </Button>
+                    </Tooltip>
+                  </CardActions>
+                </CardActionArea>
+              )}
+            </Card>
+            {/* <Card square sx={{ p: '1px', mt: 1, border: 'unset' }}>
+              <CardHeader title="Portfolio"></CardHeader>
+              <Projects
+                projects={data.projects}
+                to={2}
+                expanded={clsn !== ''}
+                />
+            </Card> */}
+          </Grid>
+        </Grid>
+      </Page>
+      <Page exporting={exporting}>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <Card square>
+              <CardHeader title="Skills" />
+              <Grid container spacing={1}>
+                <SkillCards skills={data.skills} />
+                <Grid item xs={12}>
+                  <Card square>
+                    <CardHeader title="Spoken" subheader="Languages" />
+                    <List sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                      <ListItem sx={{ flexShrink: 1, width: '50%' }}>
+                        <ListItemIcon>
+                          <Avatar sx={{ mr: '-40px' }}>G</Avatar>
+                          <CircularProgress
+                            value={100}
+                            variant="determinate"
+                          ></CircularProgress>
+                        </ListItemIcon>
+                        <ListItemText primary="German" secondary="Native" />
+                      </ListItem>
+                      <ListItem sx={{ flexShrink: 1, width: '50%' }}>
+                        <ListItemIcon>
+                          <Avatar sx={{ mr: '-40px' }}>E</Avatar>
+                          <CircularProgress value={80} variant="determinate" />
+                        </ListItemIcon>
+                        <ListItemText primary="English" secondary="C1" />
+                      </ListItem>
+                      <ListItem sx={{ flexShrink: 1, width: '50%' }}>
+                        <ListItemIcon>
+                          <Avatar sx={{ mr: '-40px' }}>S</Avatar>
 
-          <Card square>
-            <CardHeader title="Skills" />
-            <Grid container spacing={1}>
-              <SkillCards skills={data.skills} />
-              <Grid item xs={12}>
-                <Card square>
-                  <CardHeader title="Spoken" subheader="Languages" />
-                  <List sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                    <ListItem sx={{ flexShrink: 1, width: '50%' }}>
-                      <ListItemIcon>
-                        <Avatar sx={{ mr: '-40px' }}>G</Avatar>
-                        <CircularProgress
-                          value={100}
-                          variant="determinate"
-                        ></CircularProgress>
-                      </ListItemIcon>
-                      <ListItemText primary="German" secondary="Native" />
-                    </ListItem>
-                    <ListItem sx={{ flexShrink: 1, width: '50%' }}>
-                      <ListItemIcon>
-                        <Avatar sx={{ mr: '-40px' }}>E</Avatar>
-                        <CircularProgress value={80} variant="determinate" />
-                      </ListItemIcon>
-                      <ListItemText primary="English" secondary="C1" />
-                    </ListItem>
-                    <ListItem sx={{ flexShrink: 1, width: '50%' }}>
-                      <ListItemIcon>
-                        <Avatar sx={{ mr: '-40px' }}>S</Avatar>
-
-                        <CircularProgress value={50} variant="determinate" />
-                      </ListItemIcon>
-                      <ListItemText primary="Spanish" secondary="B1" />
-                    </ListItem>
-                  </List>
-                </Card>
+                          <CircularProgress value={50} variant="determinate" />
+                        </ListItemIcon>
+                        <ListItemText primary="Spanish" secondary="B1" />
+                      </ListItem>
+                    </List>
+                  </Card>
+                </Grid>
               </Grid>
-            </Grid>
-          </Card>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card>
+              <CardHeader title="Portfolio"></CardHeader>
+              <Projects
+                projects={data.projects}
+                from={0}
+                to={3}
+                expanded={clsn !== ''}
+              />
+            </Card>
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <Card square>
-            <CardHeader title="Education" />
-            <List>
-              <EducationEntry
-                degree="FIAE"
-                end="2012"
-                school="Walther Rhathenau"
-                start="2019"
-              />
-              <EducationEntry
-                degree="Fachhochschulreife"
-                end="2009"
-                school="Kepler Gymnasium"
-                start="2001"
-              />
-            </List>
-          </Card>
-          <Card>
-            <CardHeader title="Work History" />
-            <List>
-              <EducationEntry
-                degree="FIAE"
-                end="2012"
-                school="Walther Rhathenau"
-                start="2019"
-              />
-              <WorkHistoryEntry
-                company="Bechtle"
-                position="Trainee"
-                end="2012"
-                start="2014"
-              />
-            </List>
-          </Card>
-          <Card square>
-            <CardHeader title="Portfolio"></CardHeader>
-            <Projects projects={data.projects} />
-          </Card>
-          <Card square sx={{ mt: 1 }}>
-            <CardHeader title="Expected Benefits" />
-            <ListItem>
-              <ListItemIcon>
-                <EuroSymbolIcon />
-              </ListItemIcon>
-              <ListItemText primary="100k €" secondary="Salary" />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <HomeWorkIcon />
-              </ListItemIcon>
-              <ListItemText primary="100% Remote" secondary="Homeoffice" />
-            </ListItem>
-            <CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  <Link href="tel://+4917620350106">Call</Link>
-                </Button>
-                <Button size="small" color="primary">
-                  <Link href="mailto://moritz.roessler@gmail.com">Contact</Link>
-                </Button>
-              </CardActions>
-            </CardActionArea>
-          </Card>
-        </Grid>
-      </Grid>
-    </>
+      </Page>
+      <Page exporting={exporting}>
+        <Card>
+          <CardHeader title="Portfolio"></CardHeader>
+          <Grid container>
+            <Projects
+              projects={data.projects}
+              from={4}
+              expanded={clsn !== ''}
+              xs={12}
+            />
+          </Grid>
+        </Card>
+      </Page>
+    </div>
   );
 }
 
@@ -268,15 +387,20 @@ export interface WorkHistoryEntry {
   company: string;
   position: string;
   start: string;
-  end: string;
+  end?: string;
 }
 export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
   const { company, position, start, end } = props;
   return (
     <ListItem>
+      {!end && (
+        <ListItemIcon>
+          <StarIcon />
+        </ListItemIcon>
+      )}
       <ListItemText
-        primary={`${start} - ${end}`}
-        secondary={`${position} at ${company}`}
+        primary={`${start} - ${end || ' now.'}`}
+        secondary={`${position} ${company ? `at ${company}` : ''}`}
       />
     </ListItem>
   );
@@ -307,16 +431,18 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
 
 export const Stack = ({ skills }: { skills: Skill[] }) => {
   return (
-    <Box sx={{ m: 1, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+    <Box sx={{ m: 2, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
       {skills
         .sort((a, b) => (b.experience || 0) - (a.experience || 0))
         .filter((skill) => skill.stack)
         .map((skill) => {
           return (
-            <Chip
-              label={skill.name}
-              color={(skill.experience || 0) > 10 ? 'primary' : 'secondary'}
-            />
+            <Tooltip title={durStr(skill.experience || age(skill.start))}>
+              <Chip
+                label={skill.name}
+                color={(skill.experience || 0) >= 7 ? 'primary' : 'secondary'}
+              />
+            </Tooltip>
           );
         })}
     </Box>
@@ -334,7 +460,9 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
     (acc, skill) => [...acc, ...skill.tags],
     [] as string[]
   );
-  const tags = [...new Set(allTags)];
+  const tags = [
+    ...new Set(allTags.filter((skill) => !['framework'].includes(skill))),
+  ];
 
   const chunked = chunks(tags, 2);
   return (
@@ -359,50 +487,81 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
   );
 };
 
-export const Projects = ({ projects }: { projects: Project[] }) => {
+export const Projects = ({
+  projects,
+  from,
+  to,
+  expanded,
+  xs = 12,
+}: {
+  projects: Project[];
+  from?: number;
+  to?: number;
+  expanded?: boolean;
+  xs?: number;
+}) => {
+  const [toggled, setToggled] = useState(false);
   return (
-    <Card>
-      <Grid container spacing={1}>
-        {projects.map((project) => {
-          return (
-            <Grid item xs={12}>
-              <Card>
-                <CardHeader
-                  title={project.name}
-                  subheader={durStr(
-                    project.duration || duration(project.start, project.end)
-                  )}
-                />
-                <Box sx={{ m: 1, gap: 0.5, display: 'flex', flexWrap: 'wrap' }}>
-                  {project.stack.map((tech: string) => {
-                    return <Chip label={tech} size="small" />;
-                  })}
-                </Box>
+    <Grid container spacing={1}>
+      {projects.slice(from || 0, to).map((project) => {
+        return (
+          <Grid item xs={xs} sx={{ mt: project.mt }}>
+            <Card
+              square
+              sx={{
+                border: expanded ? '1px solid black' : 'unset',
+                m: expanded ? '-1px' : 0,
+                zIndex: 2,
+              }}
+            >
+              <CardHeader
+                title={project.name}
+                subheader={durStr(
+                  project.duration || duration(project.start, project.end)
+                )}
+              />
+              <Box sx={{ m: 1, gap: 0.5, display: 'flex', flexWrap: 'wrap' }}>
+                {project.stack.map((tech: string) => {
+                  return <Chip label={tech} size="small" />;
+                })}
+              </Box>
 
+              {project.href && (
                 <ListItem dense>
                   <ListItemText
                     primary={<Link href={project.href}>{project.href}</Link>}
                     secondary={'Website'}
                   />
                 </ListItem>
-                {project.description && (
-                  <Accordion>
-                    <AccordionSummary>
-                      {project.description?.slice(0, 50)}...
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Markdown>
-                        {'...' + project.description?.slice(50)}
-                      </Markdown>
-                    </AccordionDetails>
-                  </Accordion>
-                )}
-              </Card>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Card>
+              )}
+              {project.repo && (
+                <ListItem dense>
+                  <ListItemText
+                    primary={<Link href={project.repo}>{project.repo}</Link>}
+                    secondary={'Repo'}
+                  />
+                </ListItem>
+              )}
+              {project.description && project.description?.length <= 50 && (
+                <CardContent>{project.description}</CardContent>
+              )}
+              {project.description && project.description?.length > 50 && (
+                <Accordion expanded={expanded || toggled}>
+                  <AccordionSummary onClick={() => setToggled(!toggled)}>
+                    {project.description?.slice(0, 50)}...
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Markdown>
+                      {'...' + project.description?.slice(50)}
+                    </Markdown>
+                  </AccordionDetails>
+                </Accordion>
+              )}
+            </Card>
+          </Grid>
+        );
+      })}
+    </Grid>
   );
 };
 
