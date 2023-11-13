@@ -394,7 +394,7 @@ function App() {
               projects={data.projects}
               from={3}
               expanded={clsn !== ''}
-              xs={12}
+              xs={6}
             />
           </Grid>
         </Card>
