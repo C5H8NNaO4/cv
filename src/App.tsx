@@ -44,7 +44,7 @@ import {
 } from './const';
 import { Project, Skill } from './types';
 import { Page } from './components/Page';
-import { differenceInBusinessDays, getYear } from 'date-fns';
+import { getYear } from 'date-fns';
 import { Chart } from './components/Chart';
 
 const projects = [
