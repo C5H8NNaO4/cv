@@ -38,7 +38,7 @@ import { age, durStr, duration, map, projectExperience } from './lib/util';
 import { BIRTHDAY, CV_START, REACT_START, TRAINING_START } from './const';
 import { Project, Skill } from './types';
 import { Page } from './components/Page';
-import { differenceInBusinessDays } from 'date-fns';
+import { differenceInBusinessDays, getYear } from 'date-fns';
 import { Chart } from './components/Chart';
 
 const projects = [
@@ -122,6 +122,7 @@ const data = {
     { name: 'ESLint', experience: 10, tags: ['misc'] },
     { name: 'Docker', experience: 5, tags: ['misc'] },
     { name: 'Kubernetes', experience: 2, tags: ['misc'] },
+    { name: 'Your needed skill', experience: 0, tags: ['Grow together'] },
   ],
   projects,
 };
@@ -181,7 +182,10 @@ function App() {
               </Box>
             </Card>
             <Card>
-              <CardHeader title={t('description.marketing')} subheader={t('sub.marketing')} />
+              <CardHeader
+                title={t('description.marketing')}
+                subheader={t('sub.marketing')}
+              />
               <Chart />
             </Card>
           </Grid>
@@ -250,6 +254,11 @@ function App() {
                     homepage="https://www.digitaspixelpark.com/"
                     position="Senior IT Developer"
                     start="2022"
+                  />
+                  <WorkHistoryEntry
+                    company={t('your company')}
+                    position="Senior Fullstack Developer"
+                    start="2025"
                   />
                 </List>
               </Box>
@@ -450,7 +459,7 @@ export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
   const { company, position, start, end, homepage } = props;
   return (
     <ListItem>
-      {!end && (
+      {!end && getYear(new Date(start)) < getYear(new Date()) && (
         <ListItemIcon>
           <StarIcon />
         </ListItemIcon>
@@ -460,7 +469,7 @@ export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
         secondary={
           <span>
             {position}
-            {position && ' at '}
+            {company && ' at '}
             {homepage && (
               <Link href={homepage ? homepage : undefined}>{company}</Link>
             )}
