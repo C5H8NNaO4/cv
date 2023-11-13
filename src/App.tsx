@@ -82,8 +82,7 @@ const projects = [
     name: 'Online CV',
     description: 'description.mycv',
     href: 'https://justmycv.com',
-    duration:
-      differenceInBusinessDays(new Date(), new Date(CV_START)) + 1 / 365,
+    duration: age(CV_START),
     stack: ['TypeScript', 'React', 'MUI'],
   },
 ];
