@@ -422,7 +422,8 @@ function App() {
               projects={data.projects}
               from={3}
               expanded={clsn !== ''}
-              xs={6}
+              xs={12}
+              md={6}
             />
           </Grid>
         </Card>
@@ -580,6 +581,7 @@ export const Projects = ({
   to,
   expanded,
   xs = 12,
+  md = 6,
 }: {
   projects: Project[];
   projectId?: string;
@@ -595,7 +597,7 @@ export const Projects = ({
       {projects.slice(from || 0, to).map((project) => {
         const desc = t(project.description || '').split(' ');
         return (
-          <Grid item xs={xs} sx={{ mt: project.mt }}>
+          <Grid item xs={xs} md={md} sx={{ mt: project.mt }}>
             <Card
               square
               sx={{
