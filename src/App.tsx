@@ -44,7 +44,7 @@ const projects = [
     name: 'maxon online presence',
     description: 'description.maxon',
     href: 'https://preview.maxongroup.com/de-de',
-    duration: 2.5,
+    duration: 1.5,
     stack: ['TypeScript', 'Node.js', 'React', 'Next.js', 'GraphQL'],
   },
   {
