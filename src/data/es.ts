@@ -24,7 +24,7 @@ Actualmente estoy desarrollando un framework del lado del servidor que lleva Rea
     months: 'meses',
     weeks: 'semanas',
     days: 'días',
-    spoken: 'hablante',
+    spoken: 'hablados',
     languages: 'idiomas',
     Education: 'Educación',
     'Work History': 'Experiencia Laboral',
