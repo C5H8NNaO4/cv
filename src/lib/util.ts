@@ -49,7 +49,7 @@ export const map = (
 
 export const durStr = (duration: number) => {
   const t = i18next.t;
-  if (duration > 1) return `${Math.round(duration)} ${t('years')}`;
+  if (duration > 1) return `${Math.round(duration * 10) / 10} ${t('years')}`;
   if (duration === 1) return `1 ${t('year')}`;
   if (duration >= 3 / 12) return `${Math.round(duration * 12)} ${t('months')}`;
   if (duration >= 3 / 52) return `${Math.round(duration * 52)} ${t('weeks')}`;
