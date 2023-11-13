@@ -560,7 +560,7 @@ export const Projects = ({
   expanded?: boolean;
   xs?: number;
 }) => {
-  const [toggled, setToggled] = useState(false);
+  const [toggled, setToggled] = useState('');
   const { t } = useTranslation();
   return (
     <Grid container spacing={1}>
@@ -571,6 +571,7 @@ export const Projects = ({
             <Card
               square
               sx={{
+                height: '100%',
                 border: expanded ? '1px solid black' : 'unset',
                 m: expanded ? '-1px' : 0,
                 zIndex: 2,
@@ -606,8 +607,15 @@ export const Projects = ({
               )}
               {desc && desc?.length <= 50 && <CardContent>{desc}</CardContent>}
               {desc && desc?.length > 50 && (
-                <Accordion square expanded={expanded || toggled}>
-                  <AccordionSummary onClick={() => setToggled(!toggled)}>
+                <Accordion
+                  square
+                  expanded={expanded || toggled === project.name}
+                >
+                  <AccordionSummary
+                    onClick={() =>
+                      setToggled(toggled === project.name ? '' : project.name)
+                    }
+                  >
                     {desc?.slice(0, 50)}...
                   </AccordionSummary>
                   <AccordionDetails>
