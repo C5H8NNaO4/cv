@@ -51,7 +51,10 @@ export const durStr = (duration: number) => {
   const t = i18next.t;
   if (duration > 1) return `${duration} ${t('years')}`;
   if (duration === 1) return `1 ${t('year')}`;
-  if (duration >= 3 / 12) return `${duration * 12} ${t('months')}`;
-  if (duration >= 3 / 52) return `${duration} ${t('weeks')}`;
-  if (duration >= (3 * 7) / 365) return `${duration} ${t('days')}`;
+  if (duration >= 3 / 12) return `${Math.round(duration * 12)} ${t('months')}`;
+  if (duration >= 3 / 52) return `${Math.round(duration * 52)} ${t('weeks')}`;
+  if (duration >= (3 * 7) / 365)
+    return `${Math.round(duration * 365)} ${t('days')}`;
+  if (duration < (3 * 7) / 365)
+    return `${Math.round(duration * 365)} ${t('days')}`;
 };

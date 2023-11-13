@@ -73,7 +73,8 @@ const projects = [
     name: 'Online CV',
     description: 'description.mycv',
     href: 'https://justmycv.com',
-    duration: differenceInBusinessDays(new Date(), new Date(CV_START)) / 365,
+    duration:
+      differenceInBusinessDays(new Date(), new Date(CV_START)) + 1 / 365,
     stack: ['TypeScript', 'React', 'MUI'],
   },
 ];
@@ -393,6 +394,7 @@ function App() {
           <CardHeader title="Portfolio"></CardHeader>
           <Grid container>
             <Projects
+              projectId="below"
               projects={data.projects}
               from={3}
               expanded={clsn !== ''}
@@ -549,12 +551,14 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
 
 export const Projects = ({
   projects,
+  projectId,
   from,
   to,
   expanded,
   xs = 12,
 }: {
   projects: Project[];
+  projectId: string;
   from?: number;
   to?: number;
   expanded?: boolean;
@@ -609,11 +613,15 @@ export const Projects = ({
               {desc && desc?.length > 50 && (
                 <Accordion
                   square
-                  expanded={expanded || toggled === project.name}
+                  expanded={expanded || toggled === (projectId || project.name)}
                 >
                   <AccordionSummary
                     onClick={() =>
-                      setToggled(toggled === project.name ? '' : project.name)
+                      setToggled(
+                        toggled === (projectId || project.name)
+                          ? ''
+                          : projectId || project.name
+                      )
                     }
                   >
                     {desc?.slice(0, 50)}...
