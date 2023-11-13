@@ -558,7 +558,7 @@ export const Projects = ({
   xs = 12,
 }: {
   projects: Project[];
-  projectId: string;
+  projectId?: string;
   from?: number;
   to?: number;
   expanded?: boolean;
