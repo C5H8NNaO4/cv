@@ -7,6 +7,7 @@ export type Project = {
   description?: string;
   href?: string;
   mt?: number;
+  repo?: string;
 };
 
 export type Skill = {

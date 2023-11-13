@@ -384,7 +384,7 @@ export const EducationEntry = (props: EducationEntry) => {
 };
 
 export interface WorkHistoryEntry {
-  company: string;
+  company?: string;
   position: string;
   start: string;
   end?: string;
