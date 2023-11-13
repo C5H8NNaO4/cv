@@ -2,7 +2,7 @@ const translation = {
   translation: {
     description: `
 I'm a {{age}}-year-old software developer from Germany. 
-My favorite language is without a doubt <del>JavaScript</del><mark>TypeScript</mark>. It's the language I grew up with, learning to code and still love to use on a daily basis {{consts.TRAINING_START}} years later. 
+My favorite language is without a doubt <del>JavaScript</del><mark>TypeScript</mark>. It's the language I grew up with, learning to code and still love to use on a daily basis {{consts.TRAINING_START}} later. 
 I'm really happy to see the language evolve, driven by the community, and see tools like Babel grow from an experiment to the leading standard for transpiling JavaScript. 
 I have about <mark>{{experience.JavaScript}} years</mark> of in-depth knowledge in <mark>JavaScript</mark> and can handle complex tasks like writing a compiler.
 I spent about {{experience.Node-js}} years on Node.js and have experience with a variety of frameworks like {{tags.frameworks}}, etc... 

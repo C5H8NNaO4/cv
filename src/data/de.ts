@@ -2,7 +2,7 @@ const translation = {
   translation: {
     description: `
 Ich bin ein {{age}} Jahre alter Softwareentwickler aus Deutschland.
-Meine Lieblingssprache ist ohne Zweifel <del>JavaScript</del><mark>TypeScript</mark>. Es ist die Sprache, mit der ich aufgewachsen bin, das Programmieren gelernt habe und die ich auch heute noch gerne täglich {{consts.TRAINING_START}} Jahre später verwende.
+Meine Lieblingssprache ist ohne Zweifel <del>JavaScript</del><mark>TypeScript</mark>. Es ist die Sprache, mit der ich aufgewachsen bin, das Programmieren gelernt habe und die ich auch heute noch gerne täglich {{consts.TRAINING_START}} später verwende.
 Ich freue mich wirklich, die Weiterentwicklung der Sprache zu sehen, getrieben von der Community, und sehe, wie Tools wie Babel von einem Experiment zu dem führenden Standard für das Transpilieren von JavaScript werden.
 Ich habe ungefähr <mark>{{experience.JavaScript}} Jahre</mark> tiefgehende Kenntnisse in <mark>JavaScript</mark> und kann komplexe Aufgaben wie das Schreiben eines Compilers bewältigen.
 Ich habe etwa {{experience.Node-js}} Jahre mit Node.js verbracht und Erfahrung mit verschiedenen Frameworks wie {{tags.frameworks}}, etc...

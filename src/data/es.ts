@@ -2,7 +2,7 @@ const translation = {
   translation: {
     description: `
 Soy un desarrollador de software de {{age}} años de Alemania.
-Mi lenguaje favorito es sin duda <del>JavaScript</del><mark>TypeScript</mark>. Es el lenguaje con el que crecí, aprendí a programar y aún me encanta usar a diario {{consts.TRAINING_START}} años después.
+Mi lenguaje favorito es sin duda <del>JavaScript</del><mark>TypeScript</mark>. Es el lenguaje con el que crecí, aprendí a programar y aún me encanta usar a diario {{consts.TRAINING_START}} después.
 Me alegra ver la evolución del lenguaje, impulsada por la comunidad, y ver herramientas como Babel crecer desde un experimento hasta el estándar líder para transpilar JavaScript.
 Tengo aproximadamente <mark>{{experience.JavaScript}} años</mark> de conocimiento profundo en <mark>JavaScript</mark> y puedo manejar tareas complejas como escribir un compilador.
 Pasé alrededor de {{experience.Node-js}} años en Node.js y tengo experiencia con una variedad de frameworks como {{tags.frameworks}}, etc.
@@ -41,7 +41,7 @@ Actualmente estoy desarrollando un framework del lado del servidor que lleva Rea
     'description.lists':
       'Una aplicación de productividad simple para mostrar lo que se puede construir con React Server.',
     'description.reflect':
-      'Un compilador optimizador de ES5, escrito en JavaScript. Lo escribí antes de que existiera Babel, obvio...',
+      'Un compilador optimizador de ES5, escrito en JavaScript. Lo escribí antes de que existiera Babel, obvio...)',
     'description.mycv':
       'Mi currículum interactivo en línea. - Me cansé de usar Adobe Illustrator para actualizar mi currículum. Usar un sitio web para generar un currículum parece natural como desarrollador web.',
   },

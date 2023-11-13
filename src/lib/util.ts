@@ -1,5 +1,5 @@
 import { Project } from '@/types';
-import { differenceInYears } from 'date-fns';
+import { differenceInCalendarDays, differenceInYears } from 'date-fns';
 import i18next from 'i18next';
 
 /**
@@ -8,7 +8,7 @@ import i18next from 'i18next';
  * @returns - The difference in years between the current date and the given date.
  */
 export const age = (birthday: string = new Date().toISOString()): number => {
-  return differenceInYears(new Date(), new Date(birthday));
+  return differenceInCalendarDays(new Date(), new Date(birthday)) / 365;
 };
 
 export const duration = (
@@ -49,7 +49,7 @@ export const map = (
 
 export const durStr = (duration: number) => {
   const t = i18next.t;
-  if (duration > 1) return `${duration} ${t('years')}`;
+  if (duration > 1) return `${Math.round(duration)} ${t('years')}`;
   if (duration === 1) return `1 ${t('year')}`;
   if (duration >= 3 / 12) return `${Math.round(duration * 12)} ${t('months')}`;
   if (duration >= 3 / 52) return `${Math.round(duration * 52)} ${t('weeks')}`;

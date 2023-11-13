@@ -35,7 +35,13 @@ import {
 } from '@mui/material';
 import { capitalCase } from 'change-case';
 import { age, durStr, duration, map, projectExperience } from './lib/util';
-import { BIRTHDAY, CV_START, REACT_START, TRAINING_START } from './const';
+import {
+  BIRTHDAY,
+  CV_START,
+  REACT_START,
+  RUST_START,
+  TRAINING_START,
+} from './const';
 import { Project, Skill } from './types';
 import { Page } from './components/Page';
 import { differenceInBusinessDays, getYear } from 'date-fns';
@@ -85,6 +91,7 @@ const data = {
   skills: [
     { name: 'TypeScript', experience: 7, stack: true, tags: ['language'] },
     { name: 'JavaScript', start: TRAINING_START, tags: ['language'] },
+    { name: 'Rust', start: RUST_START, tags: ['language'] },
     {
       name: 'React',
       experience: age(REACT_START),
@@ -129,7 +136,8 @@ const data = {
 
 const experience = data.skills.reduce(
   (acc: Record<string, number>, cur: Skill): Record<string, number> => {
-    acc[cur.name.replace(/\./g, '-')] = cur.experience || age(cur.start) || 0;
+    acc[cur.name.replace(/\./g, '-')] =
+      cur.experience || Math.round(age(cur.start)) || 0;
     return acc;
   },
   {} as Record<string, number>
@@ -498,9 +506,7 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
               <ListItemText
                 sx={{ my: 0 }}
                 primary={skill.name}
-                secondary={`${skill.experience || age(skill.start)} ${t(
-                  'years'
-                )}`}
+                secondary={durStr(skill.experience || age(skill.start))}
               ></ListItemText>
             </ListItemButton>
           );
@@ -672,9 +678,11 @@ export const Description = () => {
   return (
     <Markdown>
       {t('description', {
-        age: age(BIRTHDAY),
+        age: Math.floor(age(BIRTHDAY)),
         experience,
-        consts: map({ BIRTHDAY, TRAINING_START }, (date: string) => age(date)),
+        consts: map({ BIRTHDAY, TRAINING_START }, (date: string) =>
+          durStr(age(date))
+        ),
         tags: {
           frameworks: data.skills
             .filter((skill) => {
