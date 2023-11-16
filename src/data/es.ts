@@ -1,5 +1,12 @@
 const translation = {
   translation: {
+    "This is what I'm looking to work with":
+      'Esto es con lo que quisiera estar trabajando',
+    'https://justmycv.com/': 'https://justmycv.com/es',
+    'Recent experience': 'Experiencia reciente.',
+    'Part of my stack': 'Parte de mi pila.',
+    'Grow together': 'En Futuro',
+    'Your needed skill': 'Tu habilidad necesaria.',
     description: `
 Soy un desarrollador de software de {{age}} años de Alemania.
 Mi lenguaje favorito es sin duda <del>JavaScript</del><mark>TypeScript</mark>. Es el lenguaje con el que crecí, aprendí a programar y aún me encanta usar a diario {{consts.TRAINING_START}} después.
@@ -7,7 +14,7 @@ Me alegra ver la evolución del lenguaje, impulsada por la comunidad, y ver herr
 Tengo aproximadamente <mark>{{experience.JavaScript}} años</mark> de conocimiento profundo en <mark>JavaScript</mark> y puedo manejar tareas complejas como escribir un compilador.
 Pasé alrededor de {{experience.Node-js}} años en Node.js y tengo experiencia con una variedad de frameworks como {{tags.frameworks}}, etc.
 <mark>React</mark> es definitivamente mi framework favorito de los últimos años y ha sido lo que me ha mantenido fascinado durante los últimos años.
-Tengo experiencia trabajando con equipos remotos experimentados de desarrolladores senior en un entorno ágil utilizando Scrum.
+Tengo experiencia trabajando con equipos remotos experimentados de desarrolladores senior en un entorno ágil utilizando Scrum.  
 Valoro la <mark>calidad del código</mark> sobre la cantidad y tengo experiencia en trabajar con y mantener una base de código de alta calidad.
 Como equipo, aprovechamos pruebas unitarias, pruebas de extremo a extremo y pruebas de regresión visual para asegurar la calidad y reducir la carga de trabajo de QA. Como en la mayoría de los equipos experimentados de Scrum, los entornos escalonados, las tuberías <mark>CI/CD</mark> y las revisiones de código exhaustivas son estándar.
 Me encanta programar, y aprecio mucho el código de calidad. Prefiero TypeScript sobre JS porque la seguridad de tipos es una herramienta valiosa para reducir en gran medida la posibilidad de introducir errores.
@@ -31,6 +38,7 @@ Actualmente estoy desarrollando un framework del lado del servidor que lleva Rea
     'Expected Benefits': 'Beneficios Esperados',
     Call: 'Llamar',
     Contact: 'Contacto',
+    eMail: 'E-Mail',
     German: 'Alemán',
     English: 'Inglés',
     Spanish: 'Español',

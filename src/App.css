@@ -13,7 +13,8 @@
 
 .exporting .MuiCard-root {
   border: 1px solid black;
-  margin: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
 }
 
 p {

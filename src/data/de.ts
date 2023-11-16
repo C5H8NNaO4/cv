@@ -1,5 +1,11 @@
 const translation = {
   translation: {
+    "This is what I'm looking to work with": 'Damit würde ich gerne arbeiten',
+    'https://justmycv.com/': 'https://justmycv.com/de',
+    'Recent experience': 'Frische Erfahrung.',
+    'Part of my stack': 'Teil meines Stacks.',
+    'Grow together': 'Zukünftig',
+    'Your needed skill': 'Ihre benötigten Fähigkeiten',
     description: `
 Ich bin ein {{age}} Jahre alter Softwareentwickler aus Deutschland.
 Meine Lieblingssprache ist ohne Zweifel <del>JavaScript</del><mark>TypeScript</mark>. Es ist die Sprache, mit der ich aufgewachsen bin, das Programmieren gelernt habe und die ich auch heute noch gerne täglich {{consts.TRAINING_START}} später verwende.
@@ -30,6 +36,7 @@ Ich entwickle derzeit ein serverseitiges Framework, das React auf die Serverseit
     'Expected Benefits': 'Erwartete Vorteile',
     Call: 'Anrufen',
     Contact: 'Kontakt',
+    eMail:'E-Mail',
     German: 'Deutsch',
     English: 'Englisch',
     Spanish: 'Spanisch',
@@ -43,6 +50,8 @@ Ich entwickle derzeit ein serverseitiges Framework, das React auf die Serverseit
       'Ein optimierender ES5-Compiler, geschrieben in JavaScript. Ich habe ihn geschrieben, bevor es Babel gab, na toll...',
     'description.mycv':
       'Mein interaktiver Online-Lebenslauf. - Ich habe es satt, Adobe Illustrator zu verwenden, um meinen Lebenslauf zu aktualisieren. Die Verwendung einer Website zur Generierung eines Lebenslaufs erscheint mir als Webentwickler natürlich.',
+    'description.contact':
+      'Sie können mich gerne jederzeit auf den genannten Wegen kontaktieren.',
   },
 };
 

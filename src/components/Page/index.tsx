@@ -3,13 +3,14 @@ import { PropsWithChildren } from 'react';
 
 export const Page = ({
   children,
+  last = false,
   exporting,
-}: PropsWithChildren<{ exporting: boolean }>) => {
+}: PropsWithChildren<{ exporting: boolean; last?: boolean }>) => {
   return (
     <Paper
       sx={{
-        minHeight: exporting ? '1720px' : undefined,
-        maxHeight: exporting ? '1720px' : undefined,
+        minHeight: exporting && !last ? 1169.5 * 1.43 + 'px' : undefined,
+        maxHeight: exporting ? 1169.5 * 1.43 + 'px' : undefined,
 
         overflow: 'hidden',
         m: 0,

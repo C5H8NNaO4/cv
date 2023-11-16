@@ -1,5 +1,9 @@
 const translation = {
   translation: {
+    'https://justmycv.com/': 'https://justmycv.com/en',
+    'Grow together': 'In Future',
+    Contact: 'Contact',
+    eMail:'E-Mail',
     description: `
 I'm a {{age}}-year-old software developer from Germany. 
 My favorite language is without a doubt <del>JavaScript</del><mark>TypeScript</mark>. It's the language I grew up with, learning to code and still love to use on a daily basis {{consts.TRAINING_START}} later. 
@@ -26,6 +30,8 @@ I’m currently developing a server-side framework that brings React to the serv
       'An optimizing ES5 compiler, written in JavaScript. I wrote it before babel existed, duh...',
     'description.mycv':
       'My interactive online CV. - I got tired of using Adobe Illustrator to update my CV. Using a website to generate a CV seems natural as webdev.',
+    'description.contact':
+      'Feel free to contact me using any of the available channels.',
     'description.marketing': 'Find out how to profit from my experience.',
     'sub.marketing': 'At 85% productivity.',
   },

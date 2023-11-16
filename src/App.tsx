@@ -6,8 +6,9 @@ import { usePDF } from 'react-to-pdf';
 import './lib/i18n';
 import EuroSymbolIcon from '@mui/icons-material/EuroSymbol';
 import DownloadIcon from '@mui/icons-material/Download';
-import StarIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 import HomeWorkIcon from '@mui/icons-material/HomeWork';
+import RoomIcon from '@mui/icons-material/Room';
 import Markdown from './components/Markdown/Markdown';
 import {
   IconButton,
@@ -15,6 +16,7 @@ import {
   Card,
   Link,
   CardHeader,
+  Typography,
   List,
   ListItem,
   ListItemText,
@@ -34,7 +36,16 @@ import {
   Tooltip,
 } from '@mui/material';
 import { capitalCase } from 'change-case';
-import { age, durStr, duration, map, projectExperience } from './lib/util';
+import {
+  age,
+  durStr,
+  duration,
+  experience,
+  map,
+  projectExperience,
+  recentSkill,
+  skill,
+} from './lib/util';
 import {
   BIRTHDAY,
   CV_START,
@@ -44,12 +55,13 @@ import {
 } from './const';
 import { Project, Skill } from './types';
 import { Page } from './components/Page';
-import { getYear } from 'date-fns';
+import { format, getMonth, getYear } from 'date-fns';
 import { Chart } from './components/Chart';
+import clsx from 'clsx';
 
 const projects = [
   {
-    name: 'maxon online presence',
+    name: 'Maxon Online Presence',
     description: 'description.maxon',
     href: 'https://preview.maxongroup.com/de-de',
     duration: 1.5,
@@ -81,7 +93,7 @@ const projects = [
   {
     name: 'Online CV',
     description: 'description.mycv',
-    href: 'https://justmycv.com',
+    href: `https://justmycv.com/`,
     duration: age(CV_START),
     stack: ['TypeScript', 'React', 'MUI'],
   },
@@ -90,6 +102,7 @@ const data = {
   skills: [
     { name: 'TypeScript', experience: 7, stack: true, tags: ['language'] },
     { name: 'JavaScript', start: TRAINING_START, tags: ['language'] },
+    { name: 'LotusScript', experience: 6, tags: ['language'] },
     { name: 'Rust', start: RUST_START, tags: ['language'] },
     {
       name: 'React',
@@ -131,9 +144,74 @@ const data = {
     { name: 'Your needed skill', experience: 0, tags: ['Grow together'] },
   ],
   projects,
+  workHistory: [
+    {
+      company: 'Bechtle',
+      homepage: 'https://www.bechtle.com',
+      location: 'Germany - Freiburg',
+      position: 'FIAE',
+      start: '2012-05-01',
+      end: '2015-03-01',
+      stack: ['JavaScript', 'Java', 'LotusScript', 'Lotus Notes', 'Domino'],
+    },
+    {
+      company: 'Bechtle',
+      homepage: 'https://www.bechtle.com',
+      location: 'Germany - Freiburg',
+      position: 'Junior Software Engineer',
+      start: '2015-03-01',
+      end: '2016-03-01',
+      stack: ['LotusScript', 'Lotus Notes', 'Domino', 'Basic'],
+    },
+    {
+      position: 'Living abroad in Chile',
+      company: 'Arboleda Emaluisa',
+      location: 'Chile, Temuco',
+      homepage: 'https://www.facebook.com/arboledaemaluisa/',
+      start: '2016-05-01',
+      end: '2017-04-15',
+      stack: ['JavaScript', 'TypeScript', 'React', 'MUI'],
+      disabled: true,
+    },
+    {
+      company: 'Bechtle',
+      location: 'Germany - Freiburg',
+      homepage: 'https://www.bechtle.com',
+      position: 'Junior Software Engineer',
+      start: '2018-05-01',
+      end: '2019-05-01',
+      stack: ['C#', 'Perl'],
+    },
+    {
+      company: 'Spoo',
+      position: 'Software Engineer',
+      location: 'Germany - Denzlingen',
+      homepage: 'https://www.spoo-group.com',
+      start: '2020-01-01',
+      end: '2021-12-01',
+      stack: ['PSQL', 'JavaScript', 'Vue', 'Kafka', 'Docker', 'Kubernetes'],
+    },
+    {
+      company: 'Cosuno',
+      location: 'Portugal - Braga',
+      position: 'Senior Frontend Developer',
+      homepage: 'https://www.cosuno.com',
+      start: '2022-02-01',
+      end: '2022-07-01',
+      stack: ['TypeScript', 'GraphQL', 'React'],
+    },
+    {
+      position: 'Senior IT Developer',
+      company: 'Digitas Pixelpark',
+      location: 'Germany - Freiburg',
+      start: '2022-09-01',
+      homepage: 'https://www.digitaspixelpark.com/',
+      stack: ['React', 'Next.js', 'TypeScript', 'GraphQL', 'JavaScript'],
+    },
+  ],
 };
 
-const experience = data.skills.reduce(
+const exp = data.skills.reduce(
   (acc: Record<string, number>, cur: Skill): Record<string, number> => {
     acc[cur.name.replace(/\./g, '-')] =
       cur.experience || Math.round(age(cur.start)) || 0;
@@ -150,30 +228,49 @@ function App() {
     <div id="root" className={clsn} ref={targetRef}>
       <Page exporting={exporting}>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={8} sx={{ height: '100%' }}>
             <Card square>
               <CardHeader
-                avatar={<Avatar src="/pp.jpg" />}
+                avatar={
+                  <Avatar
+                    imgProps={{
+                      width: '40px',
+                      height: '40px',
+                      sx: { objectFit: 'cover' },
+                    }}
+                    src="/pp.jpg"
+                  />
+                }
                 title="Moritz Roessler"
                 subheader="Senior Fullstack Developer"
                 action={
-                  <IconButton
-                    sx={{
-                      display: {
-                        xs: 'none',
-                        md: 'flex',
-                      },
-                    }}
-                    onClick={() => {
-                      setClsn('exporting');
-                      setTimeout(() => {
-                        toPDF();
-                        setClsn('');
-                      }, 0);
-                    }}
-                  >
-                    <DownloadIcon></DownloadIcon>
-                  </IconButton>
+                  !exporting && (
+                    <>
+                      <IconButton
+                        color="primary"
+                        sx={{
+                          display: {
+                            xs: 'none',
+                            md: 'flex',
+                          },
+                        }}
+                        onClick={() => {
+                          setClsn('exporting');
+                          setTimeout(() => {
+                            toPDF();
+                            setClsn('');
+                          }, 0);
+                        }}
+                      >
+                        <DownloadIcon></DownloadIcon>
+                      </IconButton>
+                      <IconButton sx={{ display: { xs: 'flex', md: 'none' } }}>
+                        <Link href={`${i18n.language}.pdf`} download>
+                          <DownloadIcon></DownloadIcon>
+                        </Link>
+                      </IconButton>
+                    </>
+                  )
                 }
               />
             </Card>
@@ -183,12 +280,14 @@ function App() {
               </CardContent>
             </Card>
             <Card square>
-              <CardHeader title="Stack"></CardHeader>
+              <Tooltip title={t("This is what I'm looking to work with")}>
+                <CardHeader title="Stack"></CardHeader>
+              </Tooltip>
               <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Stack skills={data.skills} />
               </Box>
             </Card>
-            <Card>
+            <Card square sx={{ h: '100%' }}>
               <CardHeader
                 title={t('description.marketing')}
                 subheader={t('sub.marketing')}
@@ -196,6 +295,7 @@ function App() {
               <Chart />
             </Card>
           </Grid>
+
           <Grid item xs={12} md={4}>
             <Card square>
               <CardHeader title={t('Education')} />
@@ -218,88 +318,119 @@ function App() {
               <CardHeader title={t('Work History')} />
               <Box>
                 <List>
-                  <EducationEntry
-                    degree="FIAE"
-                    end="2015"
-                    school="Bechtle"
-                    start="2012"
-                  />
-                  <WorkHistoryEntry
-                    company="Bechtle"
-                    position="Junior Software Engineer"
-                    end="2016"
-                    start="2015"
-                  />
-                  <WorkHistoryEntry
-                    position="Living abroad in Chile"
-                    start="2016"
-                    end="2017"
-                  />
-                  <WorkHistoryEntry
-                    company="Bechtle"
-                    homepage="https://www.bechtle.com"
-                    position="Junior Software Engineer"
-                    start="2018"
-                    end="2019"
-                  />
-                  <WorkHistoryEntry
-                    company="Spoo"
-                    position="Software Engineer"
-                    homepage="https://www.spoo-group.com"
-                    start="2020"
-                    end="2021"
-                  />
-                  <WorkHistoryEntry
-                    company="Cosuno"
-                    position="Senior Frontend Developer"
-                    homepage="https://www.cosuno.com"
-                    start="2022"
-                    end="2022"
-                  />
-                  <WorkHistoryEntry
-                    company="Digitas Pixelpark"
-                    homepage="https://www.digitaspixelpark.com/"
-                    position="Senior IT Developer"
-                    start="2022"
-                  />
+                  {data.workHistory.map((entry) => {
+                    return <WorkHistoryEntry {...entry} />;
+                  })}
                   <WorkHistoryEntry
                     company={t('your company')}
                     position="Senior Fullstack Developer"
-                    start="2025"
+                    location="Europe (probably Germany)"
+                    start={getYear(new Date()) + 2 + ''}
                     end="?"
                   />
                 </List>
               </Box>
             </Card>
-            <Card square sx={{ mt: 1 }}>
+            {/* <Card square sx={{ p: '1px', mt: 1, border: 'unset' }}>
+              <CardHeader title="Portfolio"></CardHeader>
+              <Projects
+                projects={data.projects}
+                to={2}
+                expanded={clsn !== ''}
+                />
+            </Card> */}
+          </Grid>
+          <Grid item xs={12}>
+            <Card square>
+              <Box sx={{ m: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                  <StarIcon sx={{ fill: 'gold' }} />=
+                  <Typography variant="h6">{t('Recent experience')}</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                  <Chip
+                    size="small"
+                    sx={{
+                      backgroundColor: 'primary.light',
+                    }}
+                  />
+                  =<Typography variant="h6">{t('Part of my stack')}</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                  <Chip
+                    size="small"
+                    sx={{
+                      borderColor: 'gold',
+                      borderWidth: '2px',
+                      borderStyle: 'solid',
+                    }}
+                  />
+                  =<Typography variant="h6">{durStr(7, true)}</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                  <Chip
+                    size="small"
+                    sx={{
+                      borderColor: 'success.main',
+                      borderWidth: '2px',
+                      borderStyle: 'solid',
+                    }}
+                  />
+                  =<Typography variant="h6">{durStr(5, true)}</Typography>
+                </Box>
+              </Box>
+            </Card>
+          </Grid>
+          <Grid item xs={6}>
+            <Card square sx={{ height: '100%' }}>
               <CardHeader title={t('Expected Benefits')} />
-              <ListItem>
-                <ListItemIcon>
-                  <EuroSymbolIcon />
-                </ListItemIcon>
-                <ListItemText primary="100k €" secondary="Salary" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <HomeWorkIcon />
-                </ListItemIcon>
-                <ListItemText primary="100% Remote" secondary="Homeoffice" />
-              </ListItem>
-              {exporting && (
-                <List>
-                  <ListItem>
-                    <ListItemText primary="+4917620350106" secondary="Phone" />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText
-                      primary="moritz.roessler@gmail.com"
-                      secondary="E-Mail"
-                    />
-                  </ListItem>
-                </List>
-              )}
+              <List sx={{ w: '50%' }}>
+                <ListItem dense>
+                  <ListItemIcon>
+                    <EuroSymbolIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="100k €" secondary="Salary" />
+                </ListItem>
+                <ListItem dense>
+                  <ListItemIcon>
+                    <HomeWorkIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="100% Remote" secondary="Homeoffice" />
+                </ListItem>
+              </List>
+            </Card>
+          </Grid>
+          <Grid item xs={6} sx={{ h: '100%' }}>
+            <Card
+              square
+              sx={{
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+              }}
+            >
+              <CardHeader title={t('Contact')} />
+              <Box sx={{ display: 'flex' }}>
+                {exporting && (
+                  <List sx={{ w: '50%' }}>
+                    <ListItem dense>
+                      <ListItemText
+                        primary="+4917620350106"
+                        secondary="Phone"
+                      />
+                    </ListItem>
+                    <ListItem dense>
+                      <ListItemText
+                        primary="moritz.roessler@gmail.com"
+                        secondary="E-Mail"
+                      />
+                    </ListItem>
+                  </List>
+                )}
+              </Box>
               {!exporting && (
-                <CardActionArea>
+                <CardActionArea sx={{ mt: 'auto' }}>
                   <CardActions>
                     <Tooltip title="+4917620350106" placement="bottom">
                       <Button size="small" color="primary">
@@ -312,7 +443,7 @@ function App() {
                     >
                       <Button size="small" color="primary">
                         <Link href="mailto://moritz.roessler@gmail.com">
-                          {t('Contact')}
+                          {t('eMail')}
                         </Link>
                       </Button>
                     </Tooltip>
@@ -327,14 +458,6 @@ function App() {
                 </CardActionArea>
               )}
             </Card>
-            {/* <Card square sx={{ p: '1px', mt: 1, border: 'unset' }}>
-              <CardHeader title="Portfolio"></CardHeader>
-              <Projects
-                projects={data.projects}
-                to={2}
-                expanded={clsn !== ''}
-                />
-            </Card> */}
           </Grid>
         </Grid>
       </Page>
@@ -421,7 +544,7 @@ function App() {
           </Grid>
         </Grid>
       </Page>
-      <Page exporting={exporting}>
+      <Page exporting={exporting} last>
         <Card sx={{ pb: 2 }}>
           <CardHeader title="Portfolio"></CardHeader>
           <Grid container>
@@ -464,27 +587,44 @@ export interface WorkHistoryEntry {
   start: string;
   end?: string;
   homepage?: string;
+  location?: string;
+  stack?: string[];
+  disabled?: boolean;
 }
 export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
-  const { company, position, start, end, homepage } = props;
+  const { company, position, start, end, homepage, location, stack, disabled } =
+    props;
   return (
-    <ListItem>
+    <ListItem disabled={disabled}>
       {!end && getYear(new Date(start)) < getYear(new Date()) && (
         <ListItemIcon>
-          <StarIcon />
+          <StarIcon sx={{ fill: 'gold' }} />
         </ListItemIcon>
       )}
       <ListItemText
-        primary={`${start} - ${end || ' now.'}`}
+        primary={`${format(new Date(start), 'MMM yyyy')} - ${
+          end === '?' ? end : end ? format(new Date(end), 'MMM yyyy') : ' now.'
+        }`}
         secondary={
-          <span>
-            {position}
-            {company && ' at '}
-            {homepage && (
-              <Link href={homepage ? homepage : undefined}>{company}</Link>
-            )}
-            {!homepage && <span>{company}</span>}
-          </span>
+          <div>
+            <span>
+              {position}
+              {company && ' at '}
+              {homepage && (
+                <Link href={homepage ? homepage : undefined}>{company}</Link>
+              )}
+              {!homepage && <span>{company}</span>}
+            </span>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <RoomIcon sx={{ height: '1rem', width: '1rem' }} />
+              <Typography variant="caption">{location}</Typography>
+            </Box>
+            <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+              {stack?.map((label) => (
+                <RecentSkill label={label} />
+              ))}
+            </Box>
+          </div>
         }
       />
     </ListItem>
@@ -493,6 +633,7 @@ export const WorkHistoryEntry = (props: WorkHistoryEntry) => {
 export default App;
 
 export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
+  const { t } = useTranslation();
   return (
     <List dense disablePadding>
       {skills
@@ -501,10 +642,32 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
         })
         .map((skill) => {
           return (
-            <ListItemButton dense>
+            <ListItemButton
+              dense
+              sx={{
+                borderWidth: data.skills.find((s) => s.name === skill.name)
+                  ?.stack
+                  ? '0px 0px 0px 2px'
+                  : '0px 0px 0px 2px',
+                borderStyle: 'solid',
+                borderColor: data.skills.find((s) => s.name === skill.name)
+                  ?.stack
+                  ? 'primary.light'
+                  : 'white',
+              }}
+            >
+              {recentSkill(data.workHistory, skill.name) && (
+                <ListItemIcon
+                  sx={{
+                    minWidth: '40px',
+                  }}
+                >
+                  <StarIcon sx={{ fill: 'gold' }} />
+                </ListItemIcon>
+              )}
               <ListItemText
                 sx={{ my: 0 }}
-                primary={skill.name}
+                primary={t(skill.name)}
                 secondary={durStr(skill.experience || age(skill.start))}
               ></ListItemText>
             </ListItemButton>
@@ -525,7 +688,17 @@ export const Stack = ({ skills }: { skills: Skill[] }) => {
             <Tooltip title={durStr(skill.experience || age(skill.start))}>
               <Chip
                 label={skill.name}
-                color={(skill.experience || 0) >= 7 ? 'primary' : 'secondary'}
+                sx={{
+                  borderColor:
+                    Math.ceil(skill.experience || 0) >= 7
+                      ? 'gold'
+                      : Math.ceil(skill.experience || 0) >= 5
+                      ? 'success.main'
+                      : undefined,
+                  borderWidth:
+                    Math.ceil(skill.experience || 0) < 5 ? '0px' : '2px',
+                  borderStyle: 'solid',
+                }}
               />
             </Tooltip>
           );
@@ -550,6 +723,7 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
   ];
 
   const chunked = chunks(tags, 2);
+  const { t } = useTranslation();
   return (
     <Grid item container xs={12} spacing={1}>
       {chunked.map((chunk: string[]) => {
@@ -566,7 +740,7 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
               return (
                 <Grid item xs={12} spacing={1}>
                   <Card square>
-                    <CardHeader title={capitalCase(tag)} />
+                    <CardHeader title={capitalCase(t(tag))} />
                     <Skills skills={skills} tag={tag} />
                   </Card>
                 </Grid>
@@ -599,7 +773,7 @@ export const Projects = ({
   const [toggled, setToggled] = useState('');
   const { t } = useTranslation();
   return (
-    <Grid container spacing={1}>
+    <Grid container columnSpacing={1}>
       {projects.slice(from || 0, to).map((project) => {
         const desc = t(project.description || '').split(' ');
         return (
@@ -621,14 +795,16 @@ export const Projects = ({
               />
               <Box sx={{ m: 1, gap: 0.5, display: 'flex', flexWrap: 'wrap' }}>
                 {project.stack.map((tech: string) => {
-                  return <Chip label={tech} size="small" />;
+                  return <RecentSkill label={tech} />;
                 })}
               </Box>
 
               {project.href && (
                 <ListItem dense>
                   <ListItemText
-                    primary={<Link href={project.href}>{project.href}</Link>}
+                    primary={
+                      <Link href={t(project.href)}>{t(project.href)}</Link>
+                    }
                     secondary={'Website'}
                   />
                 </ListItem>
@@ -679,7 +855,7 @@ export const Description = () => {
     <Markdown>
       {t('description', {
         age: Math.floor(age(BIRTHDAY)),
-        experience,
+        experience: exp,
         consts: map({ BIRTHDAY, TRAINING_START }, (date: string) =>
           durStr(age(date))
         ),
@@ -695,5 +871,53 @@ export const Description = () => {
         },
       })}
     </Markdown>
+  );
+};
+
+export const RecentSkill = ({ label }: { label: string }) => {
+  const { t } = useTranslation();
+  return (
+    <Tooltip
+      title={clsx({
+        [durStr(experience(skill(data.skills, label)) || 7, true) + '.']:
+          experience(skill(data.skills, label)) >= 7,
+        [durStr(5, true) + '.']:
+          experience(skill(data.skills, label)) >= 5 &&
+          experience(skill(data.skills, label)) < 7,
+        [t('Recent experience')]: recentSkill(data.workHistory, label),
+        [t('Part of my stack')]: data.skills.find((s) => s.name === label)
+          ?.stack,
+      })}
+    >
+      <Chip
+        size="small"
+        avatar={
+          recentSkill(data.workHistory, label) ? (
+            <Avatar sx={{ background: 'transparent' }}>
+              <StarIcon
+                sx={{
+                  fill: 'gold',
+                }}
+              />
+            </Avatar>
+          ) : undefined
+        }
+        sx={{
+          backgroundColor: data.skills.find((s) => s.name === label)?.stack
+            ? 'primary.light'
+            : undefined,
+          borderColor:
+            experience(skill(data.skills, label)) >= 7
+              ? 'gold'
+              : experience(skill(data.skills, label)) >= 5
+              ? 'success.main'
+              : undefined,
+          borderWidth:
+            experience(skill(data.skills, label)) >= 5 ? '2px' : '0px',
+          borderStyle: 'solid',
+        }}
+        label={label}
+      />
+    </Tooltip>
   );
 };
