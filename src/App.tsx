@@ -588,9 +588,15 @@ function App() {
         </Grid>
       </Page>
       <Page exporting={exporting} last>
-        <Card sx={{ pb: 2 }}>
-          <CardHeader title={t('Portfolio', { from: 4, to: 5 })}></CardHeader>
-          <Grid container>
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+            <Card sx={{ pb: 2 }}>
+              <CardHeader
+                title={t('Portfolio', { from: 4, to: 5 })}
+              ></CardHeader>
+            </Card>
+          </Grid>
+          <Grid item container xs={12}>
             <Projects
               projectId="below"
               projects={data.projects}
@@ -600,7 +606,7 @@ function App() {
               md={6}
             />
           </Grid>
-        </Card>
+        </Grid>
       </Page>
     </div>
   );
