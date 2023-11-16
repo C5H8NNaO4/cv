@@ -1,9 +1,10 @@
 import i18n from 'i18next';
+import numeral from 'numeral';
 import { initReactI18next } from 'react-i18next';
 
-import de from '../data/de';
-import en from '../data/en';
-import es from '../data/es.ts';
+import de from '../translations/de.ts';
+import en from '../translations/en.ts';
+import es from '../translations/es.ts';
 // import fr from 'data/fr.ts';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
@@ -33,5 +34,10 @@ i18n
     nsSeparator: false,
     keySeparator: false,
   });
+
+export const changeLanguage = (language: string) => {
+  i18n.changeLanguage(language);
+  numeral.locale(language);
+};
 
 export {};
