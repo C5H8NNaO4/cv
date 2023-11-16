@@ -1,5 +1,4 @@
 import i18n from 'i18next';
-import numeral from 'numeral';
 import { initReactI18next } from 'react-i18next';
 
 import de from '../translations/de.ts';
@@ -37,7 +36,6 @@ i18n
 
 export const changeLanguage = (language: string) => {
   i18n.changeLanguage(language);
-  numeral.locale(language);
 };
 
 export {};

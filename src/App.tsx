@@ -7,7 +7,6 @@ import './lib/i18n';
 import DownloadIcon from '@mui/icons-material/Download';
 import StarIcon from '@mui/icons-material/Star';
 
-import RoomIcon from '@mui/icons-material/Room';
 import Markdown from './components/Markdown/Markdown';
 import {
   IconButton,
@@ -41,20 +40,13 @@ import {
   duration,
   experience,
   map,
-  projectExperience,
   recentSkill,
   skill,
 } from './lib/util';
-import {
-  BIRTHDAY,
-  CV_START,
-  REACT_START,
-  RUST_START,
-  TRAINING_START,
-} from './const';
+import { BIRTHDAY, TRAINING_START } from './const';
 import { Project, Skill } from './types';
 import { Page } from './components/Page';
-import { format, getYear } from 'date-fns';
+import { getYear } from 'date-fns';
 import { Chart } from './components/Chart';
 import clsx from 'clsx';
 import { ExpectedBenefitsCard } from './components/ExpectedBenefitsCard';
