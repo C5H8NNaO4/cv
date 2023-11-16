@@ -228,16 +228,8 @@ function App() {
     <div id="root" className={clsn} ref={targetRef}>
       <Page exporting={exporting}>
         <Grid container spacing={2}>
-          <Grid
-            item
-            container
-            xs={12}
-            md={8}
-            // spacing={1}
-            justifyContent={'space-between'}
-            justifyItems={'space-between'}
-          >
-            <Grid item xs={12}>
+          <Grid item container xs={12} md={8} spacing={1} sx={{ gap: '2px' }}>
+            <Grid item xs={12} sx={{ height: 'min-content' }}>
               <Card square sx={{ width: '100%', display: 'flex' }}>
                 <CardHeader
                   sx={{ mx: 'auto' }}
@@ -289,15 +281,13 @@ function App() {
                   }
                 ></CardHeader>
               </Card>
-            </Grid>
-            <Grid item>
               <Card square>
                 <CardContent>
                   <Description />
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item sx={{ mx: 'auto' }}>
+            <Grid item sx={{ mx: 'auto', my: 'auto' }}>
               <Card square>
                 <Tooltip title={t("This is what I'm looking to work with")}>
                   <CardHeader title="Stack"></CardHeader>
@@ -307,7 +297,7 @@ function App() {
                 </Box>
               </Card>
             </Grid>
-            <Grid item sx={{ mt: 'auto' }} xs={12}>
+            <Grid item sx={{ mt: 'auto', alignSelf: 'flex-end' }} xs={12}>
               <Card square sx={{ h: '100%' }}>
                 <CardHeader
                   title={t('description.marketing')}
