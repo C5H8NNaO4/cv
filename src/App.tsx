@@ -492,11 +492,18 @@ function App() {
       <Page exporting={exporting}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
-            <Card square>
+            <Card square sx={{ height: '100%' }}>
               <CardHeader title="Skills" />
-              <Grid container spacing={1}>
-                <SkillCards skills={data.skills} />
-                <Grid item xs={12}>
+              <Grid
+                container
+                spacing={1}
+                sx={{ height: 'calc(100% - 54px)' }}
+                justifyContent={'space-between'}
+              >
+                <Grid item container>
+                  <SkillCards skills={data.skills} />
+                </Grid>
+                <Grid item xs={12} sx={{ mt: 'auto', height: 'min-content' }}>
                   <Card square>
                     <CardHeader
                       title={capitalCase(t('spoken'))}
