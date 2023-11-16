@@ -3,7 +3,8 @@ const translation = {
     'https://justmycv.com/': 'https://justmycv.com/en',
     'Grow together': 'In Future',
     Contact: 'Contact',
-    eMail:'E-Mail',
+    eMail: 'E-Mail',
+    Portfolio: 'Portfolio ({{from}} - {{to}})',
     description: `
 I'm a {{age}}-year-old software developer from Germany. 
 My favorite language is without a doubt <del>JavaScript</del><mark>TypeScript</mark>. It's the language I grew up with, learning to code and still love to use on a daily basis {{consts.TRAINING_START}} later. 

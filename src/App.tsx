@@ -228,72 +228,94 @@ function App() {
     <div id="root" className={clsn} ref={targetRef}>
       <Page exporting={exporting}>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={8} sx={{ height: '100%' }}>
-            <Card square>
-              <CardHeader
-                avatar={
-                  <Avatar
-                    imgProps={{
-                      width: '40px',
-                      height: '40px',
-                      sx: { objectFit: 'cover' },
-                    }}
-                    src="/pp.jpg"
-                  />
-                }
-                title="Moritz Roessler"
-                subheader="Senior Fullstack Developer"
-                action={
-                  !exporting && (
-                    <>
-                      <IconButton
-                        color="primary"
-                        sx={{
-                          display: {
-                            xs: 'none',
-                            md: 'flex',
-                          },
-                        }}
-                        onClick={() => {
-                          setClsn('exporting');
-                          setTimeout(() => {
-                            toPDF();
-                            setClsn('');
-                          }, 0);
-                        }}
-                      >
-                        <DownloadIcon></DownloadIcon>
-                      </IconButton>
-                      <IconButton sx={{ display: { xs: 'flex', md: 'none' } }}>
-                        <Link href={`${i18n.language}.pdf`} download>
+          <Grid
+            item
+            container
+            xs={12}
+            md={8}
+            // spacing={1}
+            justifyContent={'space-between'}
+            justifyItems={'space-between'}
+          >
+            <Grid item xs={12}>
+              <Card square sx={{ width: '100%', display: 'flex' }}>
+                <CardHeader
+                  sx={{ mx: 'auto' }}
+                  avatar={
+                    <Avatar
+                      imgProps={{
+                        width: '40px',
+                        height: '40px',
+                        sx: { objectFit: 'cover' },
+                      }}
+                      src="/pp.jpg"
+                    />
+                  }
+                  title="Moritz Roessler"
+                  subheader="Senior Fullstack Developer"
+                />
+                <CardHeader
+                  action={
+                    !exporting && (
+                      <>
+                        <IconButton
+                          color="primary"
+                          sx={{
+                            ml: 'auto',
+                            display: {
+                              xs: 'none',
+                              md: 'flex',
+                            },
+                          }}
+                          onClick={() => {
+                            setClsn('exporting');
+                            setTimeout(() => {
+                              toPDF();
+                              setClsn('');
+                            }, 0);
+                          }}
+                        >
                           <DownloadIcon></DownloadIcon>
-                        </Link>
-                      </IconButton>
-                    </>
-                  )
-                }
-              />
-            </Card>
-            <Card square>
-              <CardContent>
-                <Description />
-              </CardContent>
-            </Card>
-            <Card square>
-              <Tooltip title={t("This is what I'm looking to work with")}>
-                <CardHeader title="Stack"></CardHeader>
-              </Tooltip>
-              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Stack skills={data.skills} />
-              </Box>
-            </Card>
-            <Card square sx={{ h: '100%' }}>
-              <CardHeader
-                title={t('description.marketing')}
-                subheader={t('sub.marketing')}
-              />
-              <Chart />
-            </Card>
+                        </IconButton>
+                        <IconButton
+                          sx={{ display: { xs: 'flex', md: 'none' } }}
+                        >
+                          <Link href={`${i18n.language}.pdf`} download>
+                            <DownloadIcon></DownloadIcon>
+                          </Link>
+                        </IconButton>
+                      </>
+                    )
+                  }
+                ></CardHeader>
+              </Card>
+            </Grid>
+            <Grid item>
+              <Card square>
+                <CardContent>
+                  <Description />
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item sx={{ mx: 'auto' }}>
+              <Card square>
+                <Tooltip title={t("This is what I'm looking to work with")}>
+                  <CardHeader title="Stack"></CardHeader>
+                </Tooltip>
+                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                  <Stack skills={data.skills} />
+                </Box>
+              </Card>
+            </Grid>
+            <Grid item sx={{ mt: 'auto' }} xs={12}>
+              <Card square sx={{ h: '100%' }}>
+                <CardHeader
+                  title={t('description.marketing')}
+                  subheader={t('sub.marketing')}
+                />
+                <Chart />
+              </Card>
+            </Grid>
           </Grid>
 
           <Grid item xs={12} md={4}>
@@ -340,14 +362,27 @@ function App() {
                 />
             </Card> */}
           </Grid>
-          <Grid item xs={12}>
+          <Grid
+            item
+            xs={12}
+            sx={{ display: 'flex', justifyContent: 'space-around' }}
+          >
             <Card square>
-              <Box sx={{ m: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+              <Grid
+                container
+                sx={{ m: 2, display: 'flex', alignItems: 'center', gap: 2 }}
+              >
+                <Grid
+                  item
+                  sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}
+                >
                   <StarIcon sx={{ fill: 'gold' }} />=
                   <Typography variant="h6">{t('Recent experience')}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                </Grid>
+                <Grid
+                  item
+                  sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}
+                >
                   <Chip
                     size="small"
                     sx={{
@@ -355,8 +390,11 @@ function App() {
                     }}
                   />
                   =<Typography variant="h6">{t('Part of my stack')}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                </Grid>
+                <Grid
+                  item
+                  sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}
+                >
                   <Chip
                     size="small"
                     sx={{
@@ -366,8 +404,8 @@ function App() {
                     }}
                   />
                   =<Typography variant="h6">{durStr(7, true)}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                </Grid>
+                <Grid sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                   <Chip
                     size="small"
                     sx={{
@@ -377,8 +415,8 @@ function App() {
                     }}
                   />
                   =<Typography variant="h6">{durStr(5, true)}</Typography>
-                </Box>
-              </Box>
+                </Grid>
+              </Grid>
             </Card>
           </Grid>
           <Grid item xs={6}>
@@ -530,23 +568,31 @@ function App() {
               </Grid>
             </Card>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <Card>
-              <CardHeader title="Portfolio"></CardHeader>
-              <Projects
-                projects={data.projects}
-                from={0}
-                to={3}
-                expanded={clsn !== ''}
-                md={12}
-              />
-            </Card>
+          <Grid item container xs={12} md={4}>
+            <Grid item xs={12}>
+              <Card>
+                <CardHeader
+                  title={t('Portfolio', { from: 1, to: 3 })}
+                ></CardHeader>
+              </Card>
+            </Grid>
+            <Grid item sx={{ mt: 'auto' }}>
+              <Card>
+                <Projects
+                  projects={data.projects}
+                  from={0}
+                  to={3}
+                  expanded={clsn !== ''}
+                  md={12}
+                />
+              </Card>
+            </Grid>
           </Grid>
         </Grid>
       </Page>
       <Page exporting={exporting} last>
         <Card sx={{ pb: 2 }}>
-          <CardHeader title="Portfolio"></CardHeader>
+          <CardHeader title={t('Portfolio', { from: 4, to: 5 })}></CardHeader>
           <Grid container>
             <Projects
               projectId="below"
