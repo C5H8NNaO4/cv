@@ -409,7 +409,7 @@ function App() {
               </Grid>
             </Card>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Card square sx={{ height: '100%' }}>
               <CardHeader title={t('Expected Benefits')} />
               <List sx={{ w: '50%' }}>
@@ -428,7 +428,7 @@ function App() {
               </List>
             </Card>
           </Grid>
-          <Grid item xs={6} sx={{ h: '100%' }}>
+          <Grid item xs={12} md={6} sx={{ h: '100%' }}>
             <Card
               square
               sx={{
@@ -588,30 +588,44 @@ function App() {
         </Grid>
       </Page>
       <Page exporting={exporting} last>
-        <Grid container spacing={1}>
-          <Grid item xs={12}>
-            <Card sx={{ pb: 2 }}>
-              <CardHeader
-                title={t('Portfolio', { from: 4, to: 5 })}
-              ></CardHeader>
-            </Card>
-          </Grid>
-          <Grid item container xs={12}>
-            <Projects
-              projectId="below"
-              projects={data.projects}
-              from={3}
-              expanded={clsn !== ''}
-              xs={12}
-              md={6}
-            />
-          </Grid>
-        </Grid>
+        <Portfolio from={3} expanded={clsn !== ''} />
       </Page>
     </div>
   );
 }
 
+export const Portfolio = ({
+  from,
+  to,
+  expanded,
+}: {
+  from: number;
+  to: number;
+  expanded: boolean;
+}) => {
+  const { t } = useTranslation();
+  return (
+    <Grid container spacing={1}>
+      <Grid item xs={12}>
+        <Card sx={{ pb: 2 }}>
+          <CardHeader
+            title={t('Portfolio', { from: from + 1, to: to + 1 })}
+          ></CardHeader>
+        </Card>
+      </Grid>
+      <Grid item container xs={12}>
+        <Projects
+          projectId="below"
+          projects={data.projects}
+          from={3}
+          expanded={expanded}
+          xs={12}
+          md={6}
+        />
+      </Grid>
+    </Grid>
+  );
+};
 export interface EducationEntry {
   school: string;
   degree: string;
