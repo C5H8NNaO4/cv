@@ -16,7 +16,7 @@ export const formatCurrency = (number: number) => {
   return new Intl.NumberFormat(i18n.language, {
     style: 'currency',
     notation: 'compact',
-    maximumFractionDigits: 1,
+    maximumFractionDigits: 0,
     currency: currencies[i18n.language as string],
   })
     .format(100)
