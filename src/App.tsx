@@ -683,6 +683,11 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
         .filter(({ tags }) => {
           return tags.includes(tag);
         })
+        .sort(
+          (a, b) =>
+            experience(skill(data.skills, b.name)) -
+            experience(skill(data.skills, a.name))
+        )
         .map((skill) => {
           return (
             <ListItemButton
