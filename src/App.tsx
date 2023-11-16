@@ -55,7 +55,7 @@ import {
 } from './const';
 import { Project, Skill } from './types';
 import { Page } from './components/Page';
-import { format, getMonth, getYear } from 'date-fns';
+import { format, getYear } from 'date-fns';
 import { Chart } from './components/Chart';
 import clsx from 'clsx';
 

@@ -1,4 +1,4 @@
-import { Project } from '@/types';
+import { Project, Skill } from '@/types';
 import { differenceInCalendarDays, differenceInYears } from 'date-fns';
 import i18next from 'i18next';
 
@@ -11,7 +11,7 @@ export const age = (birthday: string = new Date().toISOString()): number => {
   return differenceInCalendarDays(new Date(), new Date(birthday)) / 365;
 };
 
-export const experience = (skill) => {
+export const experience = (skill?: Skill) => {
   return skill?.experience || duration(skill?.end, skill?.start);
 };
 export const duration = (
@@ -35,11 +35,11 @@ export const projectExperience = (projects: Project[], skill: string) => {
       );
     }, 0);
 };
-export const skill = (skills: { name: string }[], name: string) => {
+export const skill = (skills: Skill[], name: string) => {
   return skills.find((skill) => skill.name === name);
 };
 
-export const recentSkill = (workHistory, label) => {
+export const recentSkill = (workHistory: any[], label: string) => {
   return workHistory
     .filter((work) => differenceInYears(new Date(), new Date(work.start)) < 3)
     .reduce((acc, cur) => [...acc, ...cur.stack], [])

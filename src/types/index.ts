@@ -17,4 +17,5 @@ export type Skill = {
   tags: string[];
   stack?: boolean;
   start?: string;
+  end?: string;
 };
