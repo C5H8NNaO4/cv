@@ -119,7 +119,7 @@ export const skills = [
   },
   {
     name: 'Figma',
-    experience: age('2022-01-01'),
+    experience: age(DIGITAS_START),
     chip: true,
     tags: ['Technologies', 'framework'],
   },
