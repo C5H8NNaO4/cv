@@ -1,27 +1,24 @@
-# React + TypeScript + Vite
+# A Data Driven CV for Web Developers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A data driven CV for web developers that keeps track of your experience. Just configure some starting data and you are good to go. The project uses _i18n_ to interpolate markdown files. You can add your own Biography to the _/src/data/bio/\*.md_ files.
 
-Currently, two official plugins are available:
+Simply render your CV to pdf or use pre-rendered files for mobile. e.g. https://justmycv.com/en.pdf
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You will need to replace _skills, projects, work experience, and education data_ with your own data.
 
-## Expanding the ESLint configuration
+Experience with TypeScript, React and MUI is recommended.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+A boilerplate template to quickly host an interactive CV on Vercel.
+![alt text](public/ss.png 'Screenshot')
 
-- Configure the top-level `parserOptions` property like this:
+## Demo
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+https://justmycv.com/en
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Getting Started
+
+1. Clone the repo `git clone https://github.com/C5H8NNaO4/cv.git`
+2. Install dependencies. `cd cv && yarn install`
+3. Update the files under _/src/data/\*_
+4. Start the development server. `yarn dev`
+5. Deploy your project to vercel.
