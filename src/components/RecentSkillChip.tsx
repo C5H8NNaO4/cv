@@ -40,12 +40,17 @@ export const RecentSkill = ({ label }: { label: string }) => {
           ) : undefined
         }
         sx={{
-          borderColor: data.skills.find((s) => s.name === label)?.stack
-            ? 'warning.light'
-            : undefined,
-          borderWidth: data.skills.find((s) => s.name === label)?.stack
-            ? '0px 0px 2px 0px'
-            : '0px',
+          borderColor: (theme) =>
+            data.skills.find((s) => s.name === label)?.stack
+              ? 'warning.light'
+              : getExperienceColor(label, theme),
+          borderWidth: (theme) =>
+            data.skills.find((s) => s.name === label)?.stack
+              ? '0px 0px 2px 0px'
+              : getExperienceColor(label, theme) &&
+                !recentSkill(data.workHistory, label, 3)
+              ? '2px'
+              : '0px',
           borderStyle: 'solid',
         }}
         label={label}
