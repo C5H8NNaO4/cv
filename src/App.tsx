@@ -109,8 +109,8 @@ function App() {
           md={6}
           hideHeaderOnMobile={!exporting}
         />
-        <Grid container sx={{ mt: 2 }} alignContent={'start'}>
-          <Grid item xs={12} md={6}>
+        <Grid container sx={{ mt: 2 }} spacing={1}>
+          <Grid item xs={12} md={12}>
             <ProjectCard
               project={{
                 name: 'Books',
@@ -120,36 +120,38 @@ function App() {
                 stack: [],
               }}
               desc={t('descriptions.books').split(' ')}
-              toggled={'books'}
+              toggled={'Books'}
               setToggled={() => {}}
             />
           </Grid>
-          <Card>
-            <CardHeader title="Achievements"></CardHeader>
-            <CardContent>{t('descriptions.learnings')}</CardContent>
-            {data.learnings
-              .sort((a, b) =>
-                differenceInBusinessDays(new Date(b.date), new Date(a.date))
-              )
-              .map((learning) => {
-                return (
-                  <ListItem>
-                    {learning.favorite && (
-                      <ListItemIcon>
-                        <StarIcon sx={{ fill: 'gold' }} />
-                      </ListItemIcon>
-                    )}
-                    <ListItemText
-                      primary={`${format(
-                        new Date(learning.date),
-                        'MMM yyyy:'
-                      )}${learning.title}`}
-                      secondary={learning.description}
-                    ></ListItemText>
-                  </ListItem>
-                );
-              })}
-          </Card>
+          <Grid item xs={12}>
+            <Card>
+              <CardHeader title="Achievements"></CardHeader>
+              <CardContent>{t('descriptions.learnings')}</CardContent>
+              {data.learnings
+                .sort((a, b) =>
+                  differenceInBusinessDays(new Date(b.date), new Date(a.date))
+                )
+                .map((learning) => {
+                  return (
+                    <ListItem>
+                      {learning.favorite && (
+                        <ListItemIcon>
+                          <StarIcon sx={{ fill: 'gold' }} />
+                        </ListItemIcon>
+                      )}
+                      <ListItemText
+                        primary={`${format(
+                          new Date(learning.date),
+                          'MMM yyyy:'
+                        )}${learning.title}`}
+                        secondary={learning.description}
+                      ></ListItemText>
+                    </ListItem>
+                  );
+                })}
+            </Card>
+          </Grid>
         </Grid>
       </Page>
     </div>

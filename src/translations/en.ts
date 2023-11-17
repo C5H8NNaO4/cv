@@ -20,6 +20,8 @@ const translation = {
     'descriptions.reflect': (
       await import('@/data/descriptions/reflect/en.md?raw')
     ).default,
+    'descriptions.books': (await import('@/data/descriptions/books/en.md?raw'))
+      .default,
     'descriptions.learnings': (
       await import('@/data/descriptions/learnings/en.md?raw')
     ).default,

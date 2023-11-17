@@ -7,7 +7,6 @@ export const Portfolio = ({
   from,
   to,
   expanded,
-  hideHeaderOnMobile,
   exporting,
   xs = 12,
   md = 12,
