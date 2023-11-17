@@ -47,7 +47,7 @@ export const LegendCard = () => {
               borderStyle: 'solid',
             }}
           />
-          =<Typography variant="h6">{durStr(10, true)}</Typography>
+          =<Typography variant="h6">10+</Typography>
         </Grid>
         <Grid sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           <Chip
@@ -71,7 +71,7 @@ export const LegendCard = () => {
               borderStyle: 'solid',
             }}
           />
-          =<Typography variant="h6">3+</Typography>
+          =<Typography variant="h6">{durStr(3, true)}</Typography>
         </Grid>
       </Grid>
     </Card>
