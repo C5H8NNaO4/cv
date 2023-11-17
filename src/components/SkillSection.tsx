@@ -33,9 +33,6 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
   const filtered = skills.filter(({ tags, chip }) => {
     return tags.includes(tag) && !chip;
   });
-  const chips = skills.filter(({ tags, chip }) => {
-    return tags.includes(tag) && chip;
-  });
   return (
     <Grid container>
       {filtered
@@ -130,7 +127,6 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
 };
 
 export const Chips = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
-  const { t } = useTranslation();
   const filtered = skills.filter(({ tags, chip }) => {
     return tags.includes(tag) && chip;
   });
@@ -144,7 +140,6 @@ export const Chips = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
             experience(skill(data.skills, a.name))
         )
         .map((skill) => {
-          const skillExperience = skill.experience || age(skill.start);
           return (
             <Box>
               {recentSkill(data.workHistory, skill.name) ? (

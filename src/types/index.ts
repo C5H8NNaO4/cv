@@ -15,6 +15,7 @@ export type Project = {
 };
 
 export type Skill = {
+  chip?: boolean;
   name: string;
   experience?: number;
   tags: string[];
