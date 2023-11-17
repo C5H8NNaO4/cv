@@ -7,7 +7,7 @@ import { getYear } from 'date-fns';
 export const WorkExperienceCard = () => {
   const { t } = useTranslation();
   return (
-    <Card square sx={{ mt: 1 }}>
+    <Card square sx={{ mt: 'auto' }}>
       <CardHeader title={t('Work History')} />
       <Box>
         <List>
@@ -21,7 +21,9 @@ export const WorkExperienceCard = () => {
           })}
           <WorkExperienceItem
             company={t('your company')}
-            position={data.position || data.workHistory.at(-1)?.position || 'Freelancer'}
+            position={
+              data.position || data.workHistory.at(-1)?.position || 'Freelancer'
+            }
             location="Europe (probably Germany)"
             start={getYear(new Date()) + 2 + ''}
             end="?"
