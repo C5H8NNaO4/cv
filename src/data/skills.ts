@@ -97,7 +97,7 @@ export const skills = [
     name: 'Headless',
     experience: age(DIGITAS_START),
     chip: true,
-    tags: ['Technologies', 'framework'],
+    tags: ['Technologies'],
   },
   {
     name: 'Redux',
@@ -109,19 +109,19 @@ export const skills = [
     name: 'SPA',
     experience: age(REACT_START) + 0.5,
     chip: true,
-    tags: ['Technologies', 'framework'],
+    tags: ['Technologies'],
   },
   {
     name: 'PWA',
     experience: age('2022-01-01'),
     chip: true,
-    tags: ['Technologies', 'framework'],
+    tags: ['Technologies'],
   },
   {
     name: 'Figma',
     experience: age(DIGITAS_START),
     chip: true,
-    tags: ['Technologies', 'framework'],
+    tags: ['Technologies'],
   },
   {
     name: 'Vite',
