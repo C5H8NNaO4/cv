@@ -7,7 +7,7 @@ export const MarketingCard = () => {
   return (
     <Card square sx={{ h: '100%' }}>
       <CardHeader
-        title={t('description.marketing')}
+        title={t('descriptions.marketing')}
         subheader={t('sub.marketing')}
       />
       <Chart />
