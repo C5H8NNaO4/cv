@@ -1,6 +1,8 @@
 const de = (await import('@/data/bio/de.md?raw')).default;
 const translation = {
   translation: {
+    'at the': 'am',
+    at: 'bei',
     "This is what I'm looking to work with": 'Damit würde ich gerne arbeiten',
     'https://justmycv.com/': 'https://justmycv.com/de',
     'Recent experience': 'Frische Erfahrung.',
@@ -38,7 +40,7 @@ const translation = {
     'descriptions.mycv': (await import('@/data/descriptions/mycv/de.md?raw'))
       .default,
     'descriptions.marketing':
-      'Finde heraus wie Ihr von meiner Erfahrung profitieren könnt.',
+      'Findet heraus wie Ihr von meiner Erfahrung profitieren könnt.',
     'sub.marketing': 'Bei 85% produktivität.',
     'descriptions.contact':
       'Sie können mich gerne jederzeit auf den genannten Wegen kontaktieren.',

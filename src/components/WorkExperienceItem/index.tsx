@@ -12,6 +12,7 @@ import StarIcon from '@mui/icons-material/Star';
 import RoomIcon from '@mui/icons-material/Room';
 import { RecentSkill } from '../RecentSkillChip';
 import { de, enUS as en, es } from 'date-fns/locale';
+import { useTranslation } from 'react-i18next';
 
 const locales: Record<string, Locale> = {
   de: de,
@@ -31,6 +32,7 @@ export interface WorkExperienceItemProps {
 export const WorkExperienceItem = (props: WorkExperienceItemProps) => {
   const { company, position, start, end, homepage, location, stack, disabled } =
     props;
+  const { t } = useTranslation();
   return (
     <ListItem disabled={disabled}>
       {!end && getYear(new Date(start)) < getYear(new Date()) && (
@@ -54,7 +56,7 @@ export const WorkExperienceItem = (props: WorkExperienceItemProps) => {
           <span>
             <span>
               {position}
-              {company && ' at '}
+              {company && ` ${t('at')} `}
               {homepage && (
                 <Link href={homepage ? homepage : undefined}>{company}</Link>
               )}

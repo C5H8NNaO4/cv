@@ -1,6 +1,8 @@
 const es = (await import('@/data/bio/es.md?raw')).default;
 const translation = {
   translation: {
+    'at the': 'en el',
+    'at': 'en',
     "This is what I'm looking to work with":
       'Esto es con lo que quisiera estar trabajando',
     'https://justmycv.com/': 'https://justmycv.com/es',

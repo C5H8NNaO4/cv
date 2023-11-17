@@ -16,6 +16,7 @@ import { StackCard } from './components/StackCard';
 import { BioCardContent, BioCardHeader } from './components/IntroCard';
 import { SkillSection } from './components/SkillSection';
 import { Portfolio } from './components/Portfolio';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const { toPDF, targetRef } = usePDF({ filename: `CV - ${data.name}.pdf` });
@@ -98,11 +99,12 @@ export interface EducationEntry {
 }
 export const EducationEntry = (props: EducationEntry) => {
   const { school, degree, start, end } = props;
+  const { t } = useTranslation();
   return (
     <ListItem>
       <ListItemText
         primary={`${start} - ${end}`}
-        secondary={`${degree} at ${school}`}
+        secondary={`${degree} ${t('at the')} ${school}`}
       />
     </ListItem>
   );

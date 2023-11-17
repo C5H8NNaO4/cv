@@ -1,6 +1,8 @@
 const en = (await import('@/data/bio/en.md?raw')).default;
 const translation = {
   translation: {
+    'at the': 'at',
+    at: 'at',
     'https://justmycv.com/': 'https://justmycv.com/en',
     'Grow together': 'In Future',
     'Recent experience': 'Recent experience.',
