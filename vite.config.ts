@@ -5,6 +5,9 @@ import { Mode, plugin } from 'vite-plugin-markdown';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    target: 'esnext',
+  },
   assetsInclude: ['**/*.md'],
   plugins: [react(), tsconfigPaths()],
 });
