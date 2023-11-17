@@ -3,6 +3,8 @@ const translation = {
   translation: {
     'https://justmycv.com/': 'https://justmycv.com/en',
     'Grow together': 'In Future',
+    'Recent experience': 'Recent experience.',
+    'Part of my stack': 'Part of my stack.',
     Contact: 'Contact',
     eMail: 'E-Mail',
     Portfolio: 'Portfolio ({{from}} - {{to}})',
