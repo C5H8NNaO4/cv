@@ -6,11 +6,18 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
+import i18n from 'i18next';
 import { format, getYear } from 'date-fns';
 import StarIcon from '@mui/icons-material/Star';
 import RoomIcon from '@mui/icons-material/Room';
 import { RecentSkill } from '../RecentSkillChip';
+import { de, enUS as en, es } from 'date-fns/locale';
 
+const locales: Record<string, Locale> = {
+  de: de,
+  en: en,
+  es: es,
+};
 export interface WorkExperienceItemProps {
   company?: string;
   position: string;
@@ -32,8 +39,16 @@ export const WorkExperienceItem = (props: WorkExperienceItemProps) => {
         </ListItemIcon>
       )}
       <ListItemText
-        primary={`${format(new Date(start), 'MMM yyyy')} - ${
-          end === '?' ? end : end ? format(new Date(end), 'MMM yyyy') : ' now.'
+        primary={`${format(new Date(start), 'MMM yyyy', {
+          locale: locales[i18n.language],
+        })} - ${
+          end === '?'
+            ? end
+            : end
+            ? format(new Date(end), 'MMM yyyy', {
+                locale: locales[i18n.language],
+              })
+            : ' now.'
         }`}
         secondary={
           <span>
