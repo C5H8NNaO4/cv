@@ -1,0 +1,2 @@
+
+      Mein interaktiver Online-Lebenslauf. - Ich habe es satt, Adobe Illustrator zu verwenden, um meinen Lebenslauf zu aktualisieren. Die Verwendung einer Website zur Generierung eines Lebenslaufs erscheint mir als Webentwickler natürlich.
