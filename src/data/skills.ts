@@ -106,6 +106,18 @@ export const skills = [
     tags: ['Technologies', 'framework'],
   },
   {
+    name: 'SPA',
+    experience: age(REACT_START) + 0.5,
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'PWA',
+    experience: age('2022-01-01'),
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
     name: 'Vite',
     experience: age('2023-05-01'),
     chip: true,
