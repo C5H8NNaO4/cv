@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { usePDF } from 'react-to-pdf';
 import './lib/i18n';
-
+import i18n from 'i18next';
 import {
   Card,
   CardContent,
@@ -28,6 +28,7 @@ import { Portfolio } from './components/Portfolio';
 import { useTranslation } from 'react-i18next';
 import { ProjectCard } from './components/Projects';
 import { differenceInBusinessDays, format } from 'date-fns';
+import { locales } from './components/WorkExperienceItem';
 
 function App() {
   const { toPDF, targetRef } = usePDF({ filename: `CV - ${data.name}.pdf` });
@@ -143,7 +144,10 @@ function App() {
                       <ListItemText
                         primary={`${format(
                           new Date(learning.date),
-                          'MMM yyyy:'
+                          'MMM yyyy:',
+                          {
+                            locale: locales[i18n.language],
+                          }
                         )}${learning.title}`}
                         secondary={t(learning.description)}
                       ></ListItemText>

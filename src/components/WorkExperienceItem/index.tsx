@@ -14,7 +14,7 @@ import { RecentSkill } from '../RecentSkillChip';
 import { de, enUS as en, es } from 'date-fns/locale';
 import { useTranslation } from 'react-i18next';
 
-const locales: Record<string, Locale> = {
+export const locales: Record<string, Locale> = {
   de: de,
   en: en,
   es: es,
