@@ -2,6 +2,18 @@
 
 A multi-lingual data driven CV for web developers that keeps track of your experience. Just configure some starting data and you are good to go. The project uses _i18n_ to interpolate markdown files. You can add your own Biography to the _/src/data/bio/\*.md_ files.
 
+## Goals
+
+- Version control for your CV
+- Keep track of your skills and experience.
+- Effectively communicate your skills and experience
+- Automatically mark recent experiences.
+- Communicate expectations, growth and benefits.
+- Provide optimized visualization of your information.
+- Seamlessly merge into PDFs.
+- Showcase your linguistic abilities.
+- Highlight your stack.
+
 ## Demo
 
 https://justmycv.com/en
