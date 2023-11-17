@@ -46,73 +46,100 @@ export const Projects = ({
 
         return (
           <Grid key={project.name} item xs={xs} md={md} sx={{ mt: project.mt }}>
-            <Card
-              square
-              sx={{
-                height: '100%',
-                border: expanded ? '1px solid black' : 'unset',
-                m: expanded ? '-1px' : 0,
-                zIndex: 2,
-              }}
-            >
-              <CardHeader
-                title={project.name}
-                subheader={durStr(
-                  project.duration || duration(project.start, project.end)
-                )}
-              />
-              <Box sx={{ m: 1, gap: 0.5, display: 'flex', flexWrap: 'wrap' }}>
-                {project.stack.map((tech: string) => {
-                  return <RecentSkill key={tech} label={tech} />;
-                })}
-              </Box>
-
-              {project.href && (
-                <ListItem dense>
-                  <ListItemText
-                    primary={
-                      <Link href={t(project.href)}>{t(project.href)}</Link>
-                    }
-                    secondary={'Website'}
-                  />
-                </ListItem>
-              )}
-              {project.repo && (
-                <ListItem dense>
-                  <ListItemText
-                    primary={<Link href={project.repo}>{project.repo}</Link>}
-                    secondary={'Repo'}
-                  />
-                </ListItem>
-              )}
-              {desc && desc?.length <= 10 && (
-                <CardContent>{desc.join(' ')}</CardContent>
-              )}
-              {desc && desc?.length > 10 && (
-                <Accordion
-                  square
-                  expanded={expanded || toggled === (projectId || project.name)}
-                >
-                  <AccordionSummary
-                    onClick={() =>
-                      setToggled(
-                        toggled === (projectId || project.name)
-                          ? ''
-                          : projectId || project.name
-                      )
-                    }
-                  >
-                    {desc?.slice(0, 10).join(' ')}...
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Markdown>{'...' + desc?.slice(10).join(' ')}</Markdown>
-                  </AccordionDetails>
-                </Accordion>
-              )}
-            </Card>
+            <ProjectCard
+              project={project}
+              projectId={projectId}
+              expanded={expanded}
+              desc={desc}
+              toggled={toggled}
+              setToggled={setToggled}
+            />
           </Grid>
         );
       })}
     </Grid>
+  );
+};
+
+export type ProjectCardProps = {
+  expanded?: boolean;
+  project: Project;
+  desc: string[];
+  toggled: string;
+  projectId?: string;
+  setToggled: (id: string) => void;
+};
+export const ProjectCard = ({
+  expanded,
+  project,
+  desc,
+  toggled,
+  setToggled,
+  projectId,
+}: ProjectCardProps) => {
+  const { t } = useTranslation();
+  const projectDuration =
+    project.duration || duration(project.start, project.end);
+  return (
+    <Card
+      square
+      sx={{
+        height: '100%',
+        border: expanded ? '1px solid black' : 'unset',
+        m: expanded ? '-1px' : 0,
+        zIndex: 2,
+      }}
+    >
+      <CardHeader
+        title={project.name}
+        subheader={projectDuration ? durStr(projectDuration) : undefined}
+      />
+      <Box sx={{ m: 1, gap: 0.5, display: 'flex', flexWrap: 'wrap' }}>
+        {project.stack.map((tech: string) => {
+          return <RecentSkill key={tech} label={tech} />;
+        })}
+      </Box>
+
+      {project.href && (
+        <ListItem dense>
+          <ListItemText
+            primary={<Link href={t(project.href)}>{t(project.href)}</Link>}
+            secondary={'Website'}
+          />
+        </ListItem>
+      )}
+      {project.repo && (
+        <ListItem dense>
+          <ListItemText
+            primary={<Link href={project.repo}>{project.repo}</Link>}
+            secondary={'Repo'}
+          />
+        </ListItem>
+      )}
+      {desc && desc?.length <= 10 && (
+        <CardContent>{desc.join(' ')}</CardContent>
+      )}
+      {desc && desc?.length > 10 && (
+        <Accordion
+          square
+          expanded={expanded || toggled === (projectId || project.name)}
+        >
+          <AccordionSummary
+            onClick={() =>
+              setToggled(
+                toggled === (projectId || project.name)
+                  ? ''
+                  : projectId || project.name
+              )
+            }
+          >
+            {desc?.slice(0, 10).join(' ')}...
+          </AccordionSummary>
+          <AccordionDetails>
+            <Markdown>{'...' + desc?.slice(10).join(' ')}</Markdown>
+          </AccordionDetails>
+        </Accordion>
+      )}
+    </Card>
   );
 };

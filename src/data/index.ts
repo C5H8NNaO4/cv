@@ -2,6 +2,7 @@ import { experience } from '@/lib/util';
 import { benefits } from './benefits';
 import { projects } from './projects';
 import { skills } from './skills';
+import { learnings } from './learnings';
 import { workHistory } from './workHistory';
 import { Skill } from '@/types';
 
@@ -17,6 +18,7 @@ const country = 'Germany';
 export const data = {
   // Comment out "position" to show the position of the last work history entry.
   position,
+  learnings,
   salary,
   name,
   phone,

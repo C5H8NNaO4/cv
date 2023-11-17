@@ -14,6 +14,7 @@ import { age, durStr, experience, recentSkill, skill } from '@/lib/util';
 import { Skill } from '@/types';
 import StarIcon from '@mui/icons-material/Star';
 import { capitalCase } from 'change-case';
+import { ProjectCard } from './Projects';
 
 export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
   const { t } = useTranslation();
@@ -115,6 +116,7 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
   );
 };
 export const SkillSection = () => {
+  const { t } = useTranslation();
   return (
     <Card square sx={{ height: '100%' }}>
       <CardHeader title="Skills" />

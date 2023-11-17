@@ -3,7 +3,16 @@ import './App.css';
 import { usePDF } from 'react-to-pdf';
 import './lib/i18n';
 
-import { Grid, ListItem, ListItemText } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Grid,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
 import { Page } from './components/Page';
 import { ExpectedBenefitsCard } from './components/ExpectedBenefitsCard';
 import data from './data';
@@ -17,12 +26,14 @@ import { BioCardContent, BioCardHeader } from './components/IntroCard';
 import { SkillSection } from './components/SkillSection';
 import { Portfolio } from './components/Portfolio';
 import { useTranslation } from 'react-i18next';
+import { ProjectCard } from './components/Projects';
+import { differenceInBusinessDays, format } from 'date-fns';
 
 function App() {
   const { toPDF, targetRef } = usePDF({ filename: `CV - ${data.name}.pdf` });
   const [clsn, setClsn] = useState('');
   const exporting = clsn === 'exporting';
-
+  const { t } = useTranslation();
   return (
     <div id="root" className={clsn} ref={targetRef}>
       <Page exporting={exporting}>
@@ -41,6 +52,7 @@ function App() {
             <Grid item sx={{ mx: 'auto', my: 'auto' }}>
               <StackCard />
             </Grid>
+
             <Grid item sx={{ mt: 'auto', alignSelf: 'flex-end' }} xs={12}>
               <MarketingCard />
             </Grid>
@@ -79,7 +91,12 @@ function App() {
           </Grid>
           <Grid item container xs={12} md={4}>
             <Grid item xs={12}>
-              <Portfolio from={0} to={3} expanded={exporting} />
+              <Portfolio
+                from={0}
+                to={3}
+                exporting={exporting}
+                expanded={exporting}
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -92,6 +109,48 @@ function App() {
           md={6}
           hideHeaderOnMobile={!exporting}
         />
+        <Grid container sx={{ mt: 2 }} alignContent={'start'}>
+          <Grid item xs={12} md={6}>
+            <ProjectCard
+              project={{
+                name: 'Books',
+                id: 'books',
+                href: 'https://www.goodreads.com/review/list/158325463-moritz-roessler',
+                description: t('descriptions.books'),
+                stack: [],
+              }}
+              desc={t('descriptions.books').split(' ')}
+              toggled={'books'}
+              setToggled={() => {}}
+            />
+          </Grid>
+          <Card>
+            <CardHeader title="Achievements"></CardHeader>
+            <CardContent>{t('descriptions.learnings')}</CardContent>
+            {data.learnings
+              .sort((a, b) =>
+                differenceInBusinessDays(new Date(b.date), new Date(a.date))
+              )
+              .map((learning) => {
+                return (
+                  <ListItem>
+                    {learning.favorite && (
+                      <ListItemIcon>
+                        <StarIcon sx={{ fill: 'gold' }} />
+                      </ListItemIcon>
+                    )}
+                    <ListItemText
+                      primary={`${format(
+                        new Date(learning.date),
+                        'MMM yyyy:'
+                      )}${learning.title}`}
+                      secondary={learning.description}
+                    ></ListItemText>
+                  </ListItem>
+                );
+              })}
+          </Card>
+        </Grid>
       </Page>
     </div>
   );
