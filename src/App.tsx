@@ -67,13 +67,6 @@ function App() {
             <EducationCard />
             <WorkExperienceCard />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sx={{ display: 'flex', justifyContent: 'space-around' }}
-          >
-            <LegendCard />
-          </Grid>
           <Grid item xs={12} md={6}>
             <ExpectedBenefitsCard
               salary={data.salary}
@@ -87,6 +80,13 @@ function App() {
       </Page>
       <Page exporting={exporting}>
         <Grid container spacing={2}>
+          <Grid
+            item
+            xs={12}
+            sx={{ display: 'flex', justifyContent: 'space-around' }}
+          >
+            <LegendCard />
+          </Grid>
           <Grid item xs={12} md={8}>
             <SkillSection />
           </Grid>
