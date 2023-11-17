@@ -36,6 +36,7 @@ export const projects = [
     name: 'Online CV',
     description: 'description.mycv',
     href: `https://justmycv.com/`,
+    repo: 'https://github.com/C5H8NNaO4/cv',
     duration: age(CV_START),
     stack: ['TypeScript', 'React', 'MUI'],
   },
