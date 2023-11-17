@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+mark {
+  background-color: #E3EEFA;
+}
+
 #root.exporting {
   min-width: 1135px;
 }
