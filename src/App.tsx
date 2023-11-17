@@ -3,7 +3,7 @@ import './App.css';
 import { usePDF } from 'react-to-pdf';
 import './lib/i18n';
 
-import { Grid, Card, ListItem, ListItemText } from '@mui/material';
+import { Grid, ListItem, ListItemText } from '@mui/material';
 import { Page } from './components/Page';
 import { ExpectedBenefitsCard } from './components/ExpectedBenefitsCard';
 import data from './data';
@@ -16,7 +16,6 @@ import { StackCard } from './components/StackCard';
 import { BioCardContent, BioCardHeader } from './components/IntroCard';
 import { SkillSection } from './components/SkillSection';
 import { Portfolio } from './components/Portfolio';
-import { Projects } from './components/Projects';
 
 function App() {
   const { toPDF, targetRef } = usePDF({ filename: `CV - ${data.name}.pdf` });
