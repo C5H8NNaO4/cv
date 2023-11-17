@@ -8,11 +8,15 @@ export const Portfolio = ({
   to,
   expanded,
   hideHeaderOnMobile,
+  xs = 12,
+  md = 12,
 }: {
   from: number;
   to: number;
   expanded: boolean;
   hideHeaderOnMobile?: boolean;
+  xs?: number;
+  md?: number;
 }) => {
   const { t } = useTranslation();
   return (
@@ -38,8 +42,8 @@ export const Portfolio = ({
           from={from}
           to={to}
           expanded={expanded}
-          xs={12}
-          md={12}
+          xs={xs}
+          md={md}
         />
       </Grid>
     </Grid>

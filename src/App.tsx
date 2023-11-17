@@ -81,8 +81,9 @@ function App() {
       <Page exporting={exporting} last>
         <Portfolio
           from={3}
-          to={4}
+          to={5}
           expanded={clsn !== ''}
+          md={6}
           hideHeaderOnMobile={!exporting}
         />
       </Page>
