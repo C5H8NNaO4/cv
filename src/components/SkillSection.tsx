@@ -1,13 +1,10 @@
 import {
-  Avatar,
   Box,
   Card,
   CardHeader,
-  Chip,
   Grid,
   ListItemButton,
   ListItemIcon,
-  ListItemSecondaryAction,
   ListItemText,
 } from '@mui/material';
 import { LanguagesCard } from './LanguagesCard';
@@ -16,7 +13,6 @@ import { useTranslation } from 'react-i18next';
 import {
   age,
   durStr,
-  duration,
   experience,
   getExperienceColor,
   projectExperience,

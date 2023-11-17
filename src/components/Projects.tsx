@@ -108,7 +108,9 @@ export const ProjectCard = ({
           </ListItemIcon>
           <ListItemText
             primary={
-              <Link href={t(project.homepage)}>{t(project.company)}</Link>
+              project.homepage && (
+                <Link href={t(project.homepage)}>{t(project.company)}</Link>
+              )
             }
             secondary={t('Company')}
           />
