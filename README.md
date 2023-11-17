@@ -5,17 +5,17 @@ A multi-lingual data driven CV for web developers that keeps track of your exper
 ## Demo
 
 https://justmycv.com/en
+![alt text](public/ss.png 'Screenshot')
 
 ## How to use
 
-Simply render your CV to pdf or use pre-rendered files for mobile. e.g. https://justmycv.com/en.pdf
+This is a boilerplate template to quickly host an interactive always up-to-date CV on Vercel.
 
 You will need to replace _skills, projects, work experience, and education data_ with your own data.
 
 Experience with TypeScript, React and MUI is recommended.
 
-A boilerplate template to quickly host an interactive CV on Vercel.
-![alt text](public/ss.png 'Screenshot')
+This project uses [react-to-pdf](https://www.npmjs.com/package/react-to-pdf) to render your CV to pdf on desktop. You can use pre-rendered files for each language on mobile e.g. https://justmycv.com/en.pdf
 
 # Getting Started
 
