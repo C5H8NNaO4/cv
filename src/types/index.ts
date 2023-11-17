@@ -1,3 +1,4 @@
+import '@/vite';
 export type Project = {
   id?: string;
   name: string;

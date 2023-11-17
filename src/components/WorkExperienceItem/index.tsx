@@ -1,4 +1,3 @@
-import { RecentSkill } from '@/App';
 import {
   Box,
   Link,
@@ -10,12 +9,13 @@ import {
 import { format, getYear } from 'date-fns';
 import StarIcon from '@mui/icons-material/Star';
 import RoomIcon from '@mui/icons-material/Room';
+import { RecentSkill } from '../RecentSkillChip';
 
 export interface WorkExperienceItemProps {
   company?: string;
   position: string;
   start: string;
-  end?: string;
+  end?: string | null;
   homepage?: string;
   location?: string;
   stack?: string[];

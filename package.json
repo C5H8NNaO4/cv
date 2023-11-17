@@ -28,6 +28,8 @@
     "react-to-pdf": "^1.0.1",
     "recharts": "^2.9.3",
     "rehype-raw": "^7.0.0",
+    "vite-plugin-markdown": "^2.1.0",
+    "vite-plugin-react-mdoc": "^0.0.0-dev.10",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "devDependencies": {

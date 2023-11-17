@@ -1,4 +1,14 @@
-export const workHistory = [
+type WorkHistoryEntry = {
+  company: string;
+  homepage: string;
+  location: string;
+  position: string;
+  start: string;
+  end: string | null;
+  stack: string[];
+  disabled?: boolean;
+};
+export const workHistory: WorkHistoryEntry[] = [
   {
     company: 'Bechtle',
     homepage: 'https://www.bechtle.com',
@@ -59,6 +69,7 @@ export const workHistory = [
     company: 'Digitas Pixelpark',
     location: 'Germany - Freiburg',
     start: '2022-09-01',
+    end: null,
     homepage: 'https://www.digitaspixelpark.com/',
     stack: ['React', 'Next.js', 'TypeScript', 'GraphQL', 'JavaScript'],
   },

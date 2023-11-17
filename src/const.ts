@@ -13,3 +13,6 @@ export const currencies: Record<string, string> = {
   en: 'EUR',
   es: 'EUR',
 };
+
+// Set to an empty string to remove the button
+export const CALENDLY_LINK = 'https://calendly.com/moritz-roessler/30min';
