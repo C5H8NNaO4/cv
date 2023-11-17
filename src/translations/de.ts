@@ -37,6 +37,8 @@ const translation = {
     ).default,
     'descriptions.mycv': (await import('@/data/descriptions/mycv/de.md?raw'))
       .default,
+    'descriptions.marketing':
+      'Finde heraus wie Ihr von meiner Erfahrung profitieren könnt.',
     'descriptions.contact':
       'Sie können mich gerne jederzeit auf den genannten Wegen kontaktieren.',
   },

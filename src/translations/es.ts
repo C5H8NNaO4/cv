@@ -32,6 +32,7 @@ const translation = {
       'Un marco de código abierto que le permite utilizar componentes TSX en el backend. Esto permite prototipar rápidamente servicios full-stack sofisticados utilizando los principios de React desde el frontend en el backend.',
     'descriptions.lists':
       'Una aplicación de productividad simple para mostrar lo que se puede construir con React Server.',
+    'descriptions.marketing': 'Descubre cómo sacar provecho de mi experiencia.',
     'descriptions.reflect': (
       await import('@/data/descriptions/reflect/es.md?raw')
     ).default,
