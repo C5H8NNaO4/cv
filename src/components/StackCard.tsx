@@ -20,13 +20,15 @@ export const Stack = ({ skills }: { skills: Skill[] }) => {
                 label={skill.name}
                 sx={{
                   borderColor:
-                    Math.ceil(skill.experience || 0) >= 7
+                    Math.ceil(skill.experience || 0) >= 10
                       ? 'gold'
                       : Math.ceil(skill.experience || 0) >= 5
                       ? 'success.main'
                       : undefined,
                   borderWidth:
-                    Math.ceil(skill.experience || 0) < 5 ? '0px' : '2px',
+                    Math.ceil(skill.experience || 0) < 5
+                      ? '0px'
+                      : '0px 0px 2px 0px',
                   borderStyle: 'solid',
                 }}
               />

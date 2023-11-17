@@ -2,6 +2,7 @@ import { Card, Chip, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import StarIcon from '@mui/icons-material/Star';
 import WorkIcon from '@mui/icons-material/Work';
+import SurfingIcon from '@mui/icons-material/Surfing';
 import { durStr } from '@/lib/util';
 
 export const LegendCard = () => {
@@ -19,6 +20,10 @@ export const LegendCard = () => {
         <Grid item sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           <WorkIcon />=
           <Typography variant="h6">{t('Professional experience')}</Typography>
+        </Grid>
+        <Grid item sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <SurfingIcon />=
+          <Typography variant="h6">{t('Hobby experience')}</Typography>
         </Grid>
         <Grid item sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           <Chip
