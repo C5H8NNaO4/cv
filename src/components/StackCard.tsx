@@ -41,7 +41,7 @@ export const StackCard = () => {
   const { t } = useTranslation();
   return (
     <Card square>
-      <Tooltip title={t('Bonus points for AWS or PSQL')}>
+      <Tooltip title={t('Bonus points for AWS or PSQL')} placement="top">
         <span>
           <CardHeader
             title="Stack"
