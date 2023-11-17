@@ -24,3 +24,5 @@ This project uses [react-to-pdf](https://www.npmjs.com/package/react-to-pdf) to 
 3. Update the files under _/src/data/\*_
 4. Start the development server. `yarn dev`
 5. Deploy your project to vercel.
+6. Enjoy your CV!
+7. Apply for a job!
