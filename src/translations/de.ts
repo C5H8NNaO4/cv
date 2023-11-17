@@ -37,6 +37,11 @@ const translation = {
     'descriptions.reflect': (
       await import('@/data/descriptions/reflect/de.md?raw')
     ).default,
+    'descriptions.books': (await import('@/data/descriptions/books/de.md?raw'))
+      .default,
+    'descriptions.learnings': (
+      await import('@/data/descriptions/learnings/de.md?raw')
+    ).default,
     'descriptions.mycv': (await import('@/data/descriptions/mycv/de.md?raw'))
       .default,
     'descriptions.marketing':
@@ -44,6 +49,18 @@ const translation = {
     'sub.marketing': 'Bei 85% produktivität.',
     'descriptions.contact':
       'Sie können mich gerne jederzeit auf den genannten Wegen kontaktieren.',
+
+    'achievements.compiler':
+      'Das erste Mal, als mein Compiler sich selbst kompilierte, war eine Offenbarung. Das erste Mal, als er jQuery kompilierte, war eine Erleichterung.',
+
+    'achievements.sticky':
+      'Sticky-Scroll-Header erfordern JavaScript, sind aber einfach in React umzusetzen.',
+    'achievements.framework':
+      'Ein Produkt ordnungsgemäß zu launchen und zu vermarkten ist ein enormer Aufwand und erfordert kontinuierliche und konsistente Arbeit, um Ergebnisse zu erzielen.',
+    'achievements.mediumdata':
+      'Die Analyse von Hunderten Millionen isolierten Datenpunkten erfordert sorgfältige Planung, Datenarchitektur und fortgeschrittene SQL-Kenntnisse.',
+    'achievements.senior':
+      'In Zusammenarbeit mit anderen Senior-Entwicklern auf dem Gebiet kann ich selbstbewusst sagen, dass ich ein ähnliches Wissensniveau in der modernen Webentwicklung erreicht habe wie andere Seniors mit einer Erfahrung von 10-15 Jahren.',
   },
 };
 

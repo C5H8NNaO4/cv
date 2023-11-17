@@ -31,6 +31,16 @@ const translation = {
       'Feel free to contact me using any of the available channels.',
     'descriptions.marketing': 'Find out how to profit from my experience.',
     'sub.marketing': 'At 85% productivity.',
+    'achievements.compiler':
+      'The first time my compiler compiled itself was a revelation. The first time it compiled jQuery was a delight.',
+    'achievements.sticky':
+      'Sticky scrollable headers require JavaScript but are easy to implement in React.',
+    'achievements.framework':
+      'Properly launching and marketing a product is a huge effort and requires continous and consistent work to achieve results.',
+    'achievements.mediumdata':
+      'Analyzing hundreds of millions disjoint data points requires careful planning, data architecture and intermediate SQL skills.',
+    'achievements.senior':
+      'Working together with other senior developers in the field, I can confidently say that I have reached around the same level of knowledge on modern web development than other seniors with an experience of 10-15 years.',
   },
 };
 

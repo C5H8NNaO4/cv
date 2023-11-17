@@ -145,7 +145,7 @@ function App() {
                           new Date(learning.date),
                           'MMM yyyy:'
                         )}${learning.title}`}
-                        secondary={learning.description}
+                        secondary={t(learning.description)}
                       ></ListItemText>
                     </ListItem>
                   );

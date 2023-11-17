@@ -2,7 +2,7 @@ const es = (await import('@/data/bio/es.md?raw')).default;
 const translation = {
   translation: {
     'at the': 'en el',
-    'at': 'en',
+    at: 'en',
     "This is what I'm looking to work with":
       'Esto es con lo que quisiera estar trabajando',
     'https://justmycv.com/': 'https://justmycv.com/es',
@@ -39,8 +39,24 @@ const translation = {
     'descriptions.reflect': (
       await import('@/data/descriptions/reflect/es.md?raw')
     ).default,
+    'descriptions.books': (await import('@/data/descriptions/books/es.md?raw'))
+      .default,
+    'descriptions.learnings': (
+      await import('@/data/descriptions/learnings/es.md?raw')
+    ).default,
     'descriptions.mycv': (await import('@/data/descriptions/mycv/es.md?raw'))
       .default,
+
+    'achievements.compiler':
+      'La primera vez que mi compilador se compiló a sí mismo fue una revelación. La primera vez que compiló jQuery fue un deleite.',
+    'achievements.sticky':
+      'Los encabezados pegajosos y desplazables requieren JavaScript pero son fáciles de implementar en React.',
+    'achievements.framework':
+      'Lanzar y comercializar adecuadamente un producto es un esfuerzo enorme y requiere trabajo continuo y consistente para lograr resultados.',
+    'achievements.mediumdata':
+      'Analizar cientos de millones de puntos de datos disjuntos requiere una planificación cuidadosa, arquitectura de datos y habilidades intermedias en SQL.',
+    'achievements.senior':
+      'Trabajando junto a otros desarrolladores senior en el campo, puedo decir con confianza que he alcanzado un nivel similar de conocimiento en desarrollo web moderno que otros seniors con una experiencia de 10-15 años.',
   },
 };
 
