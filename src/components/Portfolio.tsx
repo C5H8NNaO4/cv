@@ -8,11 +8,13 @@ export const Portfolio = ({
   to,
   expanded,
   hideHeaderOnMobile,
+  exporting,
   xs = 12,
   md = 12,
 }: {
   from: number;
   to: number;
+  exporting?: boolean;
   expanded: boolean;
   hideHeaderOnMobile?: boolean;
   xs?: number;
@@ -26,11 +28,14 @@ export const Portfolio = ({
       sx={{ height: 'calc(100% + 8px)' }}
       justifyContent={'space-between'}
     >
-      {!hideHeaderOnMobile && (
+      {from === 0 && (
         <Grid item xs={12}>
           <Card sx={{ pb: 2 }}>
             <CardHeader
-              title={t('Portfolio', { from: from + 1, to: to + 1 })}
+              title={t('Portfolio', {
+                from: from + 1,
+                to: exporting ? to + 1 : data.projects.length,
+              })}
             ></CardHeader>
           </Card>
         </Grid>

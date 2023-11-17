@@ -12,13 +12,14 @@ export function abbreviateNumber(n: number): string {
   return n.toString();
 }
 
-export const formatCurrency = (number: number) => {
-  return new Intl.NumberFormat(i18n.language, {
+export const formatCurrency = (number: number, abbreviate?: boolean) => {
+  const frmt = new Intl.NumberFormat(i18n.language, {
     style: 'currency',
     notation: 'compact',
-    maximumFractionDigits: 0,
+    maximumFractionDigits: abbreviate ? 0 : 2,
     currency: currencies[i18n.language as string],
-  })
-    .format(100)
-    .replace('100', abbreviateNumber(number));
+  });
+
+  if (!abbreviate) return frmt.format(number);
+  return frmt.format(100).replace('100', abbreviateNumber(number));
 };

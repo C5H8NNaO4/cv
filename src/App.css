@@ -1,8 +1,12 @@
 #root {
-  max-width: 1280px;
+  max-width: 1135px;
   margin: 0 auto;
   padding: 0rem;
   text-align: center;
+}
+
+#root.exporting {
+  min-width: 1135px;
 }
 
 @media (min-width: 768px) {

@@ -18,7 +18,7 @@ import { capitalCase } from 'change-case';
 export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
   const { t } = useTranslation();
   return (
-    <List dense disablePadding>
+    <Grid container>
       {skills
         .filter(({ tags }) => {
           return tags.includes(tag);
@@ -30,39 +30,41 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
         )
         .map((skill) => {
           return (
-            <ListItemButton
-              key={skill.name}
-              dense
-              sx={{
-                borderWidth: data.skills.find((s) => s.name === skill.name)
-                  ?.stack
-                  ? '0px 0px 0px 2px'
-                  : '0px 0px 0px 2px',
-                borderStyle: 'solid',
-                borderColor: data.skills.find((s) => s.name === skill.name)
-                  ?.stack
-                  ? 'primary.light'
-                  : 'white',
-              }}
-            >
-              {recentSkill(data.workHistory, skill.name) && (
-                <ListItemIcon
-                  sx={{
-                    minWidth: '40px',
-                  }}
-                >
-                  <StarIcon sx={{ fill: 'gold' }} />
-                </ListItemIcon>
-              )}
-              <ListItemText
-                sx={{ my: 0 }}
-                primary={t(skill.name)}
-                secondary={durStr(skill.experience || age(skill.start))}
-              ></ListItemText>
-            </ListItemButton>
+            <Grid item xs={12} md={6}>
+              <ListItemButton
+                key={skill.name}
+                dense
+                sx={{
+                  borderWidth: data.skills.find((s) => s.name === skill.name)
+                    ?.stack
+                    ? '0px 0px 2px 0px'
+                    : '0px 0px 2px 0px',
+                  borderStyle: 'solid',
+                  borderColor: data.skills.find((s) => s.name === skill.name)
+                    ?.stack
+                    ? 'primary.light'
+                    : 'white',
+                }}
+              >
+                {recentSkill(data.workHistory, skill.name) && (
+                  <ListItemIcon
+                    sx={{
+                      minWidth: '40px',
+                    }}
+                  >
+                    <StarIcon sx={{ fill: 'gold' }} />
+                  </ListItemIcon>
+                )}
+                <ListItemText
+                  sx={{ my: 0 }}
+                  primary={t(skill.name)}
+                  secondary={durStr(skill.experience || age(skill.start))}
+                ></ListItemText>
+              </ListItemButton>
+            </Grid>
           );
         })}
-    </List>
+    </Grid>
   );
 };
 
