@@ -15,4 +15,3 @@ I love writing code. From code-golfing and king-of-the-hill battles over crypto 
 I like to experiment a lot, so most of my projects don't make it past a proof of concept stage as the last 20% are usually the most time-consuming.
 I spent the last two years working with analyzing and processing high quantities of real-time data (about 1.5M data points/day) and the problems that arise trying to analyze that amount of disjoint data.
 I’m currently developing a server-side framework that brings React to the server side and allows you to develop modular, prodution-grade backend components.
-TEST
