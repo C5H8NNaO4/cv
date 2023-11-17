@@ -41,7 +41,7 @@ export const Description = () => {
 
 export const BioCardContent = () => {
   return (
-    <Card square>
+    <Card square sx={{ width: '100%' }}>
       <CardContent>
         <Description />
       </CardContent>
