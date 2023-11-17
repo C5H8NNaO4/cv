@@ -39,6 +39,7 @@ const translation = {
       .default,
     'descriptions.marketing':
       'Finde heraus wie Ihr von meiner Erfahrung profitieren könnt.',
+    'sub.marketing': 'Bei 85% produktivität.',
     'descriptions.contact':
       'Sie können mich gerne jederzeit auf den genannten Wegen kontaktieren.',
   },

@@ -33,6 +33,7 @@ const translation = {
     'descriptions.lists':
       'Una aplicación de productividad simple para mostrar lo que se puede construir con React Server.',
     'descriptions.marketing': 'Descubre cómo sacar provecho de mi experiencia.',
+    'sub.marketing': 'Con 85% de productividad.',
     'descriptions.reflect': (
       await import('@/data/descriptions/reflect/es.md?raw')
     ).default,
