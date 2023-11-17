@@ -56,7 +56,7 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
                   borderStyle: 'solid',
                   borderColor: data.skills.find((s) => s.name === skill.name)
                     ?.stack
-                    ? 'primary.light'
+                    ? 'warning.light'
                     : 'white',
                 }}
               >

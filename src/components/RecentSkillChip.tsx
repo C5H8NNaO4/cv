@@ -41,7 +41,7 @@ export const RecentSkill = ({ label }: { label: string }) => {
         }
         sx={{
           borderColor: data.skills.find((s) => s.name === label)?.stack
-            ? 'primary.light'
+            ? 'warning.light'
             : undefined,
           borderWidth: data.skills.find((s) => s.name === label)?.stack
             ? '0px 0px 2px 0px'

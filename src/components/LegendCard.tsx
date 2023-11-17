@@ -32,7 +32,7 @@ export const LegendCard = () => {
               padding: '1px',
               borderStyle: 'solid',
               borderWidth: '0px 0px 2px 0px',
-              borderColor: 'primary.light',
+              borderColor: 'warning.light',
             }}
           />
           =<Typography variant="h6">{t('Part of my stack')}</Typography>
