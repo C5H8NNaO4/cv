@@ -37,7 +37,7 @@ export const Portfolio = ({
       )}
       <Grid item container xs={12} sx={{ mt: 'auto' }}>
         <Projects
-          projectId="below"
+          projectId={md === 6 ? 'portfolio-2' : undefined}
           projects={data.projects}
           from={from}
           to={to}
