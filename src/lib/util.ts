@@ -20,7 +20,7 @@ export const duration = (
   start: string = new Date().toISOString(),
   end: string = new Date().toISOString()
 ): number => {
-  return age(end) - age(start);
+  return Math.abs(age(end) - age(start));
 };
 
 export const projectExperience = (

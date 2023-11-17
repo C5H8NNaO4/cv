@@ -1,4 +1,4 @@
-import { REACT_START, RUST_START, TRAINING_START } from '@/const';
+import { DIGITAS_START, REACT_START, RUST_START, TRAINING_START } from '@/const';
 import { age, projectExperience } from '@/lib/util';
 import { projects } from './projects';
 
@@ -85,6 +85,18 @@ export const skills = [
   {
     name: 'Webpack',
     experience: 3,
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'Headless',
+    experience: age(DIGITAS_START),
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'Vite',
+    experience: age('2023-05-01'),
     chip: true,
     tags: ['Technologies', 'framework'],
   },

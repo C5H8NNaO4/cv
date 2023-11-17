@@ -1,4 +1,4 @@
-import { CV_START } from '@/const';
+import { CV_START, DIGITAS_START } from '@/const';
 import { age } from '@/lib/util';
 
 export const projects = [
@@ -8,7 +8,7 @@ export const projects = [
     company: 'Digitas Pixelpark',
     homepage: 'https://digitaspixelpark.com/',
     href: 'https://preview.maxongroup.com/de-de',
-    duration: 1.5,
+    start: DIGITAS_START,
     stack: ['TypeScript', 'React', 'Next.js', 'GraphQL', 'Coremedia'],
   },
   {

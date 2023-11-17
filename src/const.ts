@@ -7,6 +7,7 @@ export const TRAINING_START = '2012-09-01';
 export const RUST_START = '2023-09-01';
 export const REACT_START = '2017-02-16';
 export const CV_START = '2023-11-13';
+export const DIGITAS_START = '2022-09-1';
 
 export const currencies: Record<string, string> = {
   de: 'EUR',
