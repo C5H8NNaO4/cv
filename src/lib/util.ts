@@ -54,13 +54,17 @@ export const recentSkill = (
   age: number = 3
 ) => {
   return workHistory
-    .filter((work) => differenceInYears(new Date(), new Date(work.start)) < age)
-    .reduce((acc, cur) => [...acc, ...cur.stack], [])
+    .filter(
+      (work) =>
+        !work.disabled &&
+        differenceInYears(new Date(), new Date(work.start)) < age
+    )
+    .reduce((acc, cur) => [...acc, ...(cur.stack || [])], [])
     .flat()
     .includes(label);
 };
 
-export const getExperienceColor = (name: string, theme: Theme) => {
+export const getExperienceColor = (name: string, theme?: Theme) => {
   const s = skill(data.skills, name);
   const experience = s?.experience || duration(s?.end, s?.start);
 

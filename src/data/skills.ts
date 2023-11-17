@@ -5,8 +5,8 @@ import { projects } from './projects';
 export const skills = [
   { name: 'TypeScript', experience: 7, stack: true, tags: ['language'] },
   { name: 'JavaScript', start: TRAINING_START, tags: ['language'] },
-  { name: 'LotusScript', experience: 6, tags: ['language'] },
-  { name: 'Rust', start: RUST_START, tags: ['language'] },
+  { name: 'LotusScript', experience: 6, chip: true, tags: ['language'] },
+  { name: 'Rust', start: RUST_START, chip: true, tags: ['language'] },
   {
     name: 'React',
     experience: age(REACT_START),
@@ -20,6 +20,7 @@ export const skills = [
   },
   {
     name: 'serverless',
+    chip: true,
     experience: 2,
     tags: ['frontend', 'framework'],
   },
@@ -33,6 +34,7 @@ export const skills = [
     name: 'Next.js',
     experience: projectExperience(projects, 'Next.js'),
     stack: true,
+    chip: true,
     tags: ['frontend'],
   },
   { name: 'Node.js', experience: 7, tags: ['backend'] },
@@ -42,13 +44,55 @@ export const skills = [
   { name: 'Scrum', experience: 3, tags: ['agile'] },
   { name: 'Git', experience: 11, tags: ['misc'] },
   { name: 'ESLint', experience: 10, tags: ['misc'] },
-  { name: 'Docker', experience: 5, tags: ['misc'] },
-  { name: 'Kubernetes', experience: 2, tags: ['misc'] },
-  { name: 'Your needed skill', experience: 0, tags: ['Grow together'] },
+  { name: 'Docker', chip: true, experience: 5, tags: ['misc'] },
+  { name: 'Kubernetes', chip: true, experience: 2, tags: ['misc'] },
 
   {
     name: 'Coremedia',
     experience: projectExperience(projects, 'Coremedia'),
     tags: ['CMS'],
   },
+  {
+    name: 'Vercel',
+    experience: 3,
+    chip: true,
+    tags: ['Technologies'],
+  },
+  {
+    name: 'Excel',
+    experience: 15,
+    chip: true,
+    tags: ['Applications'],
+  },
+  {
+    name: 'Jest',
+    experience: 4,
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'Cypress',
+    experience: 1,
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'Babel',
+    experience: 7,
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'Webpack',
+    experience: 3,
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'VBA',
+    experience: 7,
+    chip: true,
+    tags: ['language'],
+  },
+  { name: 'Your needed skill', experience: 0, tags: ['Grow together'] },
 ];

@@ -1,7 +1,9 @@
 import {
   Box,
   Card,
+  CardContent,
   CardHeader,
+  Chip,
   Grid,
   ListItemButton,
   ListItemIcon,
@@ -24,11 +26,15 @@ import StarIcon from '@mui/icons-material/Star';
 import { capitalCase } from 'change-case';
 import WorkIcon from '@mui/icons-material/Work';
 import SurfingIcon from '@mui/icons-material/Surfing';
+import { RecentSkill } from './RecentSkillChip';
 
 export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
   const { t } = useTranslation();
-  const filtered = skills.filter(({ tags }) => {
-    return tags.includes(tag);
+  const filtered = skills.filter(({ tags, chip }) => {
+    return tags.includes(tag) && !chip;
+  });
+  const chips = skills.filter(({ tags, chip }) => {
+    return tags.includes(tag) && chip;
   });
   return (
     <Grid container>
@@ -123,6 +129,51 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
   );
 };
 
+export const Chips = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
+  const { t } = useTranslation();
+  const filtered = skills.filter(({ tags, chip }) => {
+    return tags.includes(tag) && chip;
+  });
+
+  return (
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+      {filtered
+        .sort(
+          (a, b) =>
+            experience(skill(data.skills, b.name)) -
+            experience(skill(data.skills, a.name))
+        )
+        .map((skill) => {
+          const skillExperience = skill.experience || age(skill.start);
+          return (
+            <Box>
+              {recentSkill(data.workHistory, skill.name) ? (
+                <RecentSkill label={skill.name} />
+              ) : (
+                <Chip
+                  key={skill.name}
+                  size="small"
+                  label={skill.name}
+                  sx={{
+                    borderColor: (theme) =>
+                      skill.stack
+                        ? theme.palette.info.light
+                        : getExperienceColor(skill.name, theme),
+                    borderWidth: skill.stack
+                      ? '0px 0px 2px 0px'
+                      : getExperienceColor(skill.name)
+                      ? '2px 2px 2px 2px'
+                      : '0px',
+                    borderStyle: 'solid',
+                  }}
+                ></Chip>
+              )}
+            </Box>
+          );
+        })}
+    </Box>
+  );
+};
 const chunks = (arr: string[], n: number) => {
   return arr.reduce((acc: string[][], item: string, i: number) => {
     acc[i % n] = [...(acc[i % n] || []), item];
@@ -159,6 +210,9 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
                   <Card square>
                     <CardHeader title={capitalCase(t(tag))} />
                     <Skills skills={skills} tag={tag} />
+                    <CardContent>
+                      <Chips skills={skills} tag={tag} />
+                    </CardContent>
                   </Card>
                 </Grid>
               );
