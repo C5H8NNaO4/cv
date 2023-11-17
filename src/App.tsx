@@ -144,11 +144,11 @@ function App() {
                       <ListItemText
                         primary={`${format(
                           new Date(learning.date),
-                          'MMM yyyy:',
+                          'MMM yyyy',
                           {
                             locale: locales[i18n.language],
                           }
-                        )}${learning.title}`}
+                        )}: ${learning.title}`}
                         secondary={t(learning.description)}
                       ></ListItemText>
                     </ListItem>
