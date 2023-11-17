@@ -45,4 +45,10 @@ export const skills = [
   { name: 'Docker', experience: 5, tags: ['misc'] },
   { name: 'Kubernetes', experience: 2, tags: ['misc'] },
   { name: 'Your needed skill', experience: 0, tags: ['Grow together'] },
+
+  {
+    name: 'Coremedia',
+    experience: projectExperience(projects, 'Coremedia'),
+    tags: ['CMS'],
+  },
 ];

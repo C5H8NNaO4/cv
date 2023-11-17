@@ -1,6 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import { durStr, experience, recentSkill, skill } from '@/lib/util';
+import {
+  durStr,
+  experience,
+  getExperienceColor,
+  recentSkill,
+  skill,
+} from '@/lib/util';
 import data from '@/data';
 import { Avatar, Chip, Tooltip } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
@@ -27,24 +33,19 @@ export const RecentSkill = ({ label }: { label: string }) => {
             <Avatar sx={{ background: 'transparent' }}>
               <StarIcon
                 sx={{
-                  fill: 'gold',
+                  fill: (theme) => getExperienceColor(label, theme),
                 }}
               />
             </Avatar>
           ) : undefined
         }
         sx={{
-          backgroundColor: data.skills.find((s) => s.name === label)?.stack
+          borderColor: data.skills.find((s) => s.name === label)?.stack
             ? 'primary.light'
             : undefined,
-          borderColor:
-            experience(skill(data.skills, label)) >= 7
-              ? 'gold'
-              : experience(skill(data.skills, label)) >= 5
-              ? 'success.main'
-              : undefined,
-          borderWidth:
-            experience(skill(data.skills, label)) >= 5 ? '2px' : '0px',
+          borderWidth: data.skills.find((s) => s.name === label)?.stack
+            ? '0px 0px 2px 0px'
+            : '0px',
           borderStyle: 'solid',
         }}
         label={label}

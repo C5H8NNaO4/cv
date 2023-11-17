@@ -5,9 +5,11 @@ export const projects = [
   {
     name: 'Maxon Online Presence',
     description: 'descriptions.maxon',
+    company: 'Digitas Pixelpark',
+    homepage: 'https://digitaspixelpark.com/',
     href: 'https://preview.maxongroup.com/de-de',
     duration: 1.5,
-    stack: ['TypeScript', 'Node.js', 'React', 'Next.js', 'GraphQL'],
+    stack: ['TypeScript', 'React', 'Next.js', 'GraphQL', 'Coremedia'],
   },
   {
     name: 'React Server',

@@ -9,7 +9,9 @@ const translation = {
     'Part of my stack': 'Teil meines Stacks.',
     'Grow together': 'Zukünftig',
     'Your needed skill': 'Ihre benötigten Fähigkeiten',
+    'Professional experience': 'Professionelle Erfahrung',
     description: de,
+
     years: 'Jahre',
     year: 'Jahr',
     months: 'Monate',

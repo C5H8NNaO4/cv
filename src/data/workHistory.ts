@@ -16,7 +16,14 @@ export const workHistory: WorkHistoryEntry[] = [
     position: 'FIAE',
     start: '2012-05-01',
     end: '2015-03-01',
-    stack: ['JavaScript', 'Java', 'LotusScript', 'Lotus Notes', 'Domino'],
+    stack: [
+      'JavaScript',
+      'Java',
+      'LotusScript',
+      'Lotus Notes',
+      'Domino',
+      'Git',
+    ],
   },
   {
     company: 'Bechtle',
@@ -25,7 +32,7 @@ export const workHistory: WorkHistoryEntry[] = [
     position: 'Junior Software Engineer',
     start: '2015-03-01',
     end: '2016-03-01',
-    stack: ['LotusScript', 'Lotus Notes', 'Domino', 'Basic'],
+    stack: ['LotusScript', 'Lotus Notes', 'Domino', 'Basic', 'Git'],
   },
   {
     position: 'Living abroad in Chile',
@@ -34,7 +41,7 @@ export const workHistory: WorkHistoryEntry[] = [
     homepage: 'https://www.facebook.com/arboledaemaluisa/',
     start: '2016-05-01',
     end: '2017-04-15',
-    stack: ['JavaScript', 'TypeScript', 'React', 'MUI'],
+    stack: ['JavaScript', 'TypeScript', 'React', 'MUI', 'Git'],
     disabled: true,
   },
   {
@@ -44,7 +51,7 @@ export const workHistory: WorkHistoryEntry[] = [
     position: 'Junior Software Engineer',
     start: '2018-05-01',
     end: '2019-05-01',
-    stack: ['C#', 'Perl'],
+    stack: ['C#', 'Perl', 'Git'],
   },
   {
     company: 'Spoo',
@@ -53,7 +60,16 @@ export const workHistory: WorkHistoryEntry[] = [
     homepage: 'https://www.spoo-group.com',
     start: '2020-01-01',
     end: '2021-12-01',
-    stack: ['PSQL', 'JavaScript', 'Vue', 'Kafka', 'Docker', 'Kubernetes'],
+    stack: [
+      'JavaScript',
+      'Node.js',
+      'PSQL',
+      'Git',
+      'Vue',
+      'Docker',
+      'Kafka',
+      'Kubernetes',
+    ],
   },
   {
     company: 'Cosuno',
@@ -62,7 +78,7 @@ export const workHistory: WorkHistoryEntry[] = [
     homepage: 'https://www.cosuno.com',
     start: '2022-02-01',
     end: '2022-07-01',
-    stack: ['TypeScript', 'GraphQL', 'React'],
+    stack: ['TypeScript', 'GraphQL', 'React', 'Git'],
   },
   {
     position: 'Senior IT Developer',
@@ -71,6 +87,16 @@ export const workHistory: WorkHistoryEntry[] = [
     start: '2022-09-01',
     end: null,
     homepage: 'https://www.digitaspixelpark.com/',
-    stack: ['React', 'Next.js', 'TypeScript', 'GraphQL', 'JavaScript'],
+    stack: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'GraphQL',
+      'JavaScript',
+      'Git',
+      'Scrum',
+      'Coremedia',
+      'ESLint',
+    ],
   },
 ];

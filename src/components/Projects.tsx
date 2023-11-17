@@ -12,8 +12,10 @@ import {
   Grid,
   Link,
   ListItem,
+  ListItemIcon,
   ListItemText,
 } from '@mui/material';
+import WorkIcon from '@mui/icons-material/Work';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-markdown';
 import { RecentSkill } from './RecentSkillChip';
@@ -99,7 +101,19 @@ export const ProjectCard = ({
           return <RecentSkill key={tech} label={tech} />;
         })}
       </Box>
-
+      {project.company && (
+        <ListItem dense>
+          <ListItemIcon>
+            <WorkIcon />
+          </ListItemIcon>
+          <ListItemText
+            primary={
+              <Link href={t(project.homepage)}>{t(project.company)}</Link>
+            }
+            secondary={t('Company')}
+          />
+        </ListItem>
+      )}
       {project.href && (
         <ListItem dense>
           <ListItemText

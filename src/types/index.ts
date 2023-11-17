@@ -10,6 +10,8 @@ export type Project = {
   href?: string;
   mt?: number;
   repo?: string;
+  company?: string;
+  homepage?: string;
 };
 
 export type Skill = {
