@@ -104,14 +104,14 @@ function App() {
         </Grid>
       </Page>
       <Page exporting={exporting} last>
-        <Portfolio
-          from={3}
-          to={5}
-          expanded={clsn !== ''}
-          md={6}
-          hideHeaderOnMobile={!exporting}
-        />
         <Grid container sx={{ mt: 2 }} spacing={1}>
+          <Portfolio
+            from={3}
+            to={5}
+            expanded={clsn !== ''}
+            md={6}
+            hideHeaderOnMobile={!exporting}
+          />
           <Grid item xs={12} md={12}>
             <ProjectCard
               project={{
