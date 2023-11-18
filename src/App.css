@@ -25,6 +25,10 @@ mark {
   margin-right: -1px;
 }
 
+.MuiGrid-container .MuiCard-root {
+  height: 100%;
+}
+
 .MuiCard-root {
   background-color: #ffffec !important;
 }

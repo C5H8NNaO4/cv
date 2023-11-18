@@ -197,7 +197,8 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
             xs={12}
             md={6}
             spacing={1}
-            alignContent={'start'}
+            alignContent={'stretch'}
+            justifyContent={'space-between'}
           >
             {chunk.map((tag: string) => {
               return (
