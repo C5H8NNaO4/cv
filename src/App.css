@@ -29,7 +29,8 @@ mark {
   background-color: #ffffec !important;
 }
 
-.MuiAccordionSummary-root {
+.MuiAccordionSummary-root,
+.alternate {
   background-color: #ffffec88 !important;
 }
 
