@@ -29,18 +29,18 @@ mark {
 .MuiListItemButton-root:not(.Mui-selected),
 .MuiCard-root {
   /* 6150K */
-  background-color: #FFF9F1 !important;
+  background-color: #fffbf5 !important;
 }
 
 .MuiAccordionSummary-root {
   /* 6300K */
-  background-color: #FFFBF5 !important;
+  background-color: #fffdf8 !important;
 }
 
 .MuiAccordionDetails-root,
 .alternate {
   /* 6400K */
-  background-color: #FFFDF8 !important;
+  background-color: #fffdf9 !important;
 }
 
 p {
