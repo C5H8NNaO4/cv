@@ -56,6 +56,7 @@ This project uses [react-to-pdf](https://www.npmjs.com/package/react-to-pdf) to 
 2. Install dependencies. `cd cv && yarn install`
 3. Update all the files under _/src/data/\*\*/\*_
 4. Start the development server. `yarn dev`
-5. Deploy your project to vercel.
-6. Enjoy your CV!
-7. Apply for a job.
+5. Prerender PDFs for each language and put them in the public folder.
+6. Deploy your project to vercel.
+7. Enjoy your CV!
+8. Apply for a job.
