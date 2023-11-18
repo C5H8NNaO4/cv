@@ -34,6 +34,10 @@ mark {
   background-color: #ffffec88 !important;
 }
 
+.MuiAccordionSummary-root {
+  background-color: #ffffec99 !important;
+}
+
 p {
   text-align: left;
   font-family: 'Roboto', sans-serif;
