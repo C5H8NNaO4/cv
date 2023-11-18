@@ -203,7 +203,7 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
             {chunk.map((tag: string) => {
               return (
                 <Grid key={tag} item xs={12}>
-                  <Card square>
+                  <Card square sx={{height: '100%'}}>
                     <CardHeader title={capitalCase(t(tag))} />
                     <Skills skills={skills} tag={tag} />
                     <CardContent>
