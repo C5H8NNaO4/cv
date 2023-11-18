@@ -33,13 +33,17 @@ export const WorkExperienceItem = (props: WorkExperienceItemProps) => {
   const { company, position, start, end, homepage, location, stack, disabled } =
     props;
   const { t } = useTranslation();
+  const isCurrent = !end && getYear(new Date(start)) < getYear(new Date());
   return (
-    <ListItem disabled={disabled}>
-      {!end && getYear(new Date(start)) < getYear(new Date()) && (
-        <ListItemIcon>
-          <StarIcon sx={{ fill: 'gold' }} />
-        </ListItemIcon>
-      )}
+    <ListItem
+      disabled={disabled}
+      sx={{
+        borderStyle: 'solid',
+        borderColor: isCurrent ? 'success.main' : 'transparent',
+        borderWidth: '0px 0px 0px 2px',
+        // paddingLeft: '8px',
+      }}
+    >
       <ListItemText
         primary={`${format(new Date(start), 'MMM yyyy', {
           locale: locales[i18n.language],
