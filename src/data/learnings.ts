@@ -7,12 +7,12 @@ export const learnings = [
   },
   {
     title: 'Sticky scrollable tableheader',
-    idea: true,
     description: 'achievements.sticky',
     date: '2023-11-17',
   },
   {
     title: 'My first framework.',
+    trophy: true,
     description: 'achievements.framework',
     date: '2023-05-01',
   },
@@ -23,6 +23,7 @@ export const learnings = [
   },
   {
     title: "I'm a senior dev.",
+    idea: true,
     description: 'achievements.senior',
     date: '2023-09-1',
   },

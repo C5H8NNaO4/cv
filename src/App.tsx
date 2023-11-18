@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { Page } from './components/Page';
 import { ExpectedBenefitsCard } from './components/ExpectedBenefitsCard';
 import data from './data';
@@ -145,6 +146,11 @@ function App() {
                       {learning.idea && (
                         <ListItemIcon sx={{ minWidth: '40px' }}>
                           <LightbulbIcon sx={{ fill: 'gold' }} />
+                        </ListItemIcon>
+                      )}
+                      {learning.trophy && (
+                        <ListItemIcon sx={{ minWidth: '40px' }}>
+                          <EmojiEventsIcon sx={{ fill: 'gold' }} />
                         </ListItemIcon>
                       )}
                       <ListItemText
