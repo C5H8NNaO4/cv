@@ -90,6 +90,8 @@ export const ProjectCard = ({
         border: expanded ? '1px solid black' : 'unset',
         m: expanded ? '-1px' : 0,
         zIndex: 2,
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       <CardHeader
@@ -139,6 +141,7 @@ export const ProjectCard = ({
         <Accordion
           square
           expanded={expanded || toggled === (projectId || project.name)}
+          sx={{ mt: 'auto' }}
         >
           <AccordionSummary
             onClick={() =>
