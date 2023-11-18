@@ -52,7 +52,7 @@ const translation = {
     'achievements.compiler':
       'La primera vez que mi compilador se compiló a sí mismo fue una revelación. La primera vez que compiló jQuery fue un deleite.',
     'achievements.sticky':
-      'Los encabezados pegajosos y desplazables requieren JavaScript pero son fáciles de implementar en React.',
+      'Implementado: Tabla horizontalmente desplazable con encabezado fijo.',
     'achievements.framework':
       'Lanzar y comercializar adecuadamente un producto es un esfuerzo enorme y requiere trabajo continuo y consistente para lograr resultados.',
     'achievements.mediumdata':

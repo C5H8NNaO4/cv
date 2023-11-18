@@ -12,7 +12,8 @@ import {
   ListItemIcon,
   ListItemText,
 } from '@mui/material';
-import StarIcon from '@mui/icons-material/Star';
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import { Page } from './components/Page';
 import { ExpectedBenefitsCard } from './components/ExpectedBenefitsCard';
 import data from './data';
@@ -137,8 +138,13 @@ function App() {
                   return (
                     <ListItem>
                       {learning.favorite && (
-                        <ListItemIcon>
-                          <StarIcon sx={{ fill: 'gold' }} />
+                        <ListItemIcon sx={{ minWidth: '40px' }}>
+                          <MilitaryTechIcon sx={{ fill: 'gold' }} />
+                        </ListItemIcon>
+                      )}
+                      {learning.idea && (
+                        <ListItemIcon sx={{ minWidth: '40px' }}>
+                          <LightbulbIcon sx={{ fill: 'gold' }} />
                         </ListItemIcon>
                       )}
                       <ListItemText

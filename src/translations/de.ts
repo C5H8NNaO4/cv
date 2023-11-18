@@ -57,7 +57,7 @@ const translation = {
       'Das erste Mal, als mein Compiler sich selbst kompilierte, war eine Offenbarung. Das erste Mal, als er jQuery kompilierte, war eine Erleichterung.',
 
     'achievements.sticky':
-      'Sticky-Scroll-Header erfordern JavaScript, sind aber einfach in React umzusetzen.',
+      'Implementiert: Horizontale scrollbare Tabelle mit sticky Header.',
     'achievements.framework':
       'Ein Produkt ordnungsgemäß zu launchen und zu vermarkten ist ein enormer Aufwand und erfordert kontinuierliche und konsistente Arbeit, um Ergebnisse zu erzielen.',
     'achievements.mediumdata':

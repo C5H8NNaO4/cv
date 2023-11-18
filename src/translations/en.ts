@@ -35,8 +35,7 @@ const translation = {
     'sub.marketing': 'At 85% productivity.',
     'achievements.compiler':
       'The first time my compiler compiled itself was a revelation. The first time it compiled jQuery was a delight.',
-    'achievements.sticky':
-      'Sticky scrollable headers require JavaScript but are easy to implement in React.',
+    'achievements.sticky': 'Implemented: Sticky horizontally scrollable table.',
     'achievements.framework':
       'Properly launching and marketing a product is a huge effort and requires continous and consistent work to achieve results.',
     'achievements.mediumdata':
