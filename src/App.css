@@ -43,6 +43,10 @@ mark {
   background-color: #fffdf9 !important;
 }
 
+.MuiListItemText-secondary p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 p {
   text-align: left;
   font-family: 'Roboto', sans-serif;

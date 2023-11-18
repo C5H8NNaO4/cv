@@ -23,6 +23,20 @@ export const learnings = [
     date: '2022-05-01',
   },
   {
+    title: 'Programmatically rename functions',
+    so: true,
+    description:
+      '[https://stackoverflow.com/q/24853292/1487756](https://stackoverflow.com/q/24853292/1487756)',
+    date: '2014-07-15',
+  },
+  {
+    title: 'Crockfords Top Down Operator Precedence',
+    so: true,
+    description:
+      '[https://stackoverflow.com/q/18828321/1487756](https://stackoverflow.com/q/18828321/1487756)',
+    date: '2014-07-15',
+  },
+  {
     title: "I'm a senior dev.",
     idea: true,
     description: 'achievements.senior',

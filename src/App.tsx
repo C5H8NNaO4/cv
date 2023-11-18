@@ -4,10 +4,13 @@ import { usePDF } from 'react-to-pdf';
 import './lib/i18n';
 import i18n from 'i18next';
 import {
+  Box,
   Card,
   CardContent,
   CardHeader,
   Grid,
+  Link,
+  List,
   ListItem,
   ListItemIcon,
   ListItemText,
@@ -32,6 +35,25 @@ import { useTranslation } from 'react-i18next';
 import { ProjectCard } from './components/Projects';
 import { differenceInBusinessDays, format } from 'date-fns';
 import { locales } from './components/WorkExperienceItem';
+import Markdown from './components/Markdown';
+
+const SOIcon = () => {
+  return (
+    <svg
+      aria-hidden="true"
+      className="svg-icon iconLogoGlyphMd native native"
+      width="24"
+      height="24"
+      viewBox="0 0 32 37"
+    >
+      <path d="M26 33v-9h4v13H0V24h4v9h22Z" fill="#BCBBBB"></path>
+      <path
+        d="m21.5 0-2.7 2 9.9 13.3 2.7-2L21.5 0ZM26 18.4 13.3 7.8l2.1-2.5 12.7 10.6-2.1 2.5ZM9.1 15.2l15 7 1.4-3-15-7-1.4 3Zm14 10.79.68-2.95-16.1-3.35L7 23l16.1 2.99ZM23 30H7v-3h16v3Z"
+        fill="#F48024"
+      ></path>
+    </svg>
+  );
+};
 
 function App() {
   const { toPDF, targetRef } = usePDF({ filename: `CV - ${data.name}.pdf` });
@@ -103,8 +125,8 @@ function App() {
           </Grid>
         </Grid>
       </Page>
-      <Page exporting={exporting} last>
-        <Grid container sx={{ mt: 2 }} spacing={1}>
+      <Page exporting={exporting}>
+        <Grid container spacing={1}>
           <Portfolio
             from={3}
             to={5}
@@ -112,7 +134,9 @@ function App() {
             md={6}
             hideHeaderOnMobile={!exporting}
           />
-          <Grid item xs={12} md={12}>
+        </Grid>
+        <Grid container sx={{ mt: 3 }} spacing={1}>
+          <Grid item xs={12} md={6}>
             <ProjectCard
               project={{
                 name: 'Books',
@@ -126,6 +150,13 @@ function App() {
               setToggled={() => {}}
             />
           </Grid>
+          <Grid item md={6}>
+            <SocialCard />
+          </Grid>
+        </Grid>
+      </Page>
+      <Page exporting={exporting} last>
+        <Grid container>
           <Grid item xs={12}>
             <Card>
               <CardHeader title="Achievements"></CardHeader>
@@ -157,6 +188,11 @@ function App() {
                           <EmojiEventsIcon sx={{ fill: 'gold' }} />
                         </ListItemIcon>
                       )}
+                      {learning.so && (
+                        <ListItemIcon sx={{ minWidth: '40px' }}>
+                          <SOIcon />
+                        </ListItemIcon>
+                      )}
                       <ListItemText
                         primary={`${format(
                           new Date(learning.date),
@@ -165,7 +201,9 @@ function App() {
                             locale: locales[i18n.language],
                           }
                         )}: ${learning.title}`}
-                        secondary={t(learning.description)}
+                        secondary={
+                          <Markdown>{t(learning.description)}</Markdown>
+                        }
                       ></ListItemText>
                     </ListItem>
                   );
@@ -196,4 +234,30 @@ export const EducationEntry = (props: EducationEntry) => {
   );
 };
 
+export const SocialCard = () => {
+  return (
+    <Card>
+      <CardHeader title="Social"></CardHeader>
+      <Grid container>
+        {data.social.map((social) => {
+          return (
+            <Grid item xs={12} md={12}>
+              <ListItem dense>
+                <ListItemText
+                  primary={<Link href={social.url}>{social.url}</Link>}
+                  secondary={
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      <b>{social.title}</b>
+                      {social.secondary}
+                    </Box>
+                  }
+                ></ListItemText>
+              </ListItem>
+            </Grid>
+          );
+        })}
+      </Grid>
+    </Card>
+  );
+};
 export default App;
