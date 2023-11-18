@@ -10,7 +10,6 @@ import {
   CardHeader,
   Grid,
   Link,
-  List,
   ListItem,
   ListItemIcon,
   ListItemText,
