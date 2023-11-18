@@ -2,13 +2,11 @@ import {
   Box,
   Link,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Typography,
 } from '@mui/material';
 import i18n from 'i18next';
 import { format, getYear } from 'date-fns';
-import StarIcon from '@mui/icons-material/Star';
 import RoomIcon from '@mui/icons-material/Room';
 import { RecentSkill } from '../RecentSkillChip';
 import { de, enUS as en, es } from 'date-fns/locale';
