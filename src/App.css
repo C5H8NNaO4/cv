@@ -26,7 +26,7 @@ mark {
 }
 
 .MuiListItem-root,
-.MuiListItemButton-root,
+.MuiListItemButton-root:not(.Mui-selected),
 .MuiCard-root {
   background-color: #ffffec !important;
 }
