@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { getYear } from 'date-fns';
 import {
   LineChart,
@@ -47,17 +48,19 @@ const data = [
 
 export const Chart = () => {
   return (
-    <ResponsiveContainer width={'100%'} height={350}>
-      <LineChart data={data}>
-        <Legend verticalAlign="top" height={36} />
-        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <Line type="monotone" dataKey="salary" stroke="green" />
-        <Line type="monotone" dataKey="yield" stroke="gold" />
-        <Line type="monotone" dataKey="profit" stroke="black" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-      </LineChart>
-    </ResponsiveContainer>
+    <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+      <ResponsiveContainer width={'95%'} height={350}>
+        <LineChart data={data}>
+          <Legend verticalAlign="top" height={36} />
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+          <Line type="monotone" dataKey="salary" stroke="green" />
+          <Line type="monotone" dataKey="yield" stroke="gold" />
+          <Line type="monotone" dataKey="profit" stroke="black" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+        </LineChart>
+      </ResponsiveContainer>
+    </Box>
   );
 };
