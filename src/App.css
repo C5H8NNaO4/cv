@@ -25,17 +25,19 @@ mark {
   margin-right: -1px;
 }
 
+.MuiListItem-root,
+.MuiListItemButton-root,
 .MuiCard-root {
   background-color: #ffffec !important;
 }
 
-.MuiAccordionSummary-root,
-.alternate {
-  background-color: #ffffec88 !important;
+.MuiAccordionSummary-root {
+  background-color: #fffff0 !important;
 }
 
-.MuiAccordionSummary-root {
-  background-color: #ffffec99 !important;
+.MuiAccordionDetails-root,
+.alternate {
+  background-color: #fffff4 !important;
 }
 
 p {
