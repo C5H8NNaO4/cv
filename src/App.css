@@ -6,7 +6,7 @@
 }
 
 mark {
-  background-color: #E3EEFA;
+  background-color: #e3eefa;
 }
 
 #root.exporting {
@@ -23,6 +23,14 @@ mark {
   border: 1px solid black;
   margin-left: -1px;
   margin-right: -1px;
+}
+
+.MuiCard-root {
+  background-color: #ffffec !important;
+}
+
+.MuiAccordionSummary-root {
+  background-color: #ffffec88 !important;
 }
 
 p {
