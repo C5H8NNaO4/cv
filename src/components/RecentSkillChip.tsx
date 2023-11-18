@@ -17,12 +17,9 @@ export const RecentSkill = ({ label }: { label: string }) => {
     <Tooltip
       title={clsx({
         [durStr(experience(skill(data.skills, label)) || 7, true) + '.']:
-          experience(skill(data.skills, label)) >= 7,
-        [durStr(5, true) + '.']:
-          experience(skill(data.skills, label)) >= 5 &&
-          experience(skill(data.skills, label)) < 7,
-        [t('Recent experience')]: recentSkill(data.workHistory, label),
-        [t('Part of my stack')]: data.skills.find((s) => s.name === label)
+          experience(skill(data.skills, label)) >= 3,
+        [t('Recent experience') + '.']: recentSkill(data.workHistory, label),
+        [t('Part of my stack') + '.']: data.skills.find((s) => s.name === label)
           ?.stack,
       })}
     >
