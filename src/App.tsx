@@ -13,6 +13,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { Page } from './components/Page';
@@ -141,6 +142,11 @@ function App() {
                       {learning.favorite && (
                         <ListItemIcon sx={{ minWidth: '40px' }}>
                           <MilitaryTechIcon sx={{ fill: 'gold' }} />
+                        </ListItemIcon>
+                      )}
+                      {learning.skill && (
+                        <ListItemIcon sx={{ minWidth: '40px' }}>
+                          <PsychologyIcon />
                         </ListItemIcon>
                       )}
                       {learning.idea && (

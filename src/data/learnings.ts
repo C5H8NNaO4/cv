@@ -7,6 +7,7 @@ export const learnings = [
   },
   {
     title: 'Sticky scrollable tableheader',
+    skill: true,
     description: 'achievements.sticky',
     date: '2023-11-17',
   },
