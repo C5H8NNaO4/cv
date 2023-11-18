@@ -40,14 +40,14 @@ export const Projects = ({
   const [toggled, setToggled] = useState('');
   const { t } = useTranslation();
   return (
-    <Grid container columnSpacing={1} rowSpacing={1}>
+    <>
       {projects.slice(from || 0, to).map((project) => {
         const desc = t(project.description || '')
           .trim()
           .split(' ');
 
         return (
-          <Grid key={project.name} item xs={xs} md={md} sx={{ mt: project.mt }}>
+          <Grid key={project.name} item xs={xs} md={md} sx={{ flex: 1 }}>
             <ProjectCard
               project={project}
               projectId={projectId}
@@ -59,7 +59,7 @@ export const Projects = ({
           </Grid>
         );
       })}
-    </Grid>
+    </>
   );
 };
 

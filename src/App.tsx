@@ -93,15 +93,13 @@ function App() {
           <Grid item xs={12} md={8}>
             <SkillSection />
           </Grid>
-          <Grid item container xs={12} md={4}>
-            <Grid item xs={12}>
-              <Portfolio
-                from={0}
-                to={3}
-                exporting={exporting}
-                expanded={exporting}
-              />
-            </Grid>
+          <Grid item container xs={12} md={4} alignContent={'space-between'}>
+            <Portfolio
+              from={0}
+              to={3}
+              exporting={exporting}
+              expanded={exporting}
+            />
           </Grid>
         </Grid>
       </Page>

@@ -21,14 +21,9 @@ export const Portfolio = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <Grid
-      container
-      spacing={1}
-      sx={{ height: 'calc(100% + 8px)' }}
-      justifyContent={'space-between'}
-    >
+    <>
       {from === 0 && (
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ height: 'min-content' }}>
           <Card sx={{ pb: 2 }}>
             <CardHeader
               title={t('Portfolio', {
@@ -39,17 +34,17 @@ export const Portfolio = ({
           </Card>
         </Grid>
       )}
-      <Grid item container xs={12} sx={{ mt: 'auto' }}>
-        <Projects
-          projectId={md === 6 ? 'portfolio-2' : undefined}
-          projects={data.projects}
-          from={from}
-          to={to}
-          expanded={expanded}
-          xs={xs}
-          md={md}
-        />
-      </Grid>
-    </Grid>
+      {/* <Grid item container xs={12} justifyContent={'space-between'}> */}
+      <Projects
+        projectId={md === 6 ? 'portfolio-2' : undefined}
+        projects={data.projects}
+        from={from}
+        to={to}
+        expanded={expanded}
+        xs={xs}
+        md={md}
+      />
+      {/* </Grid> */}
+    </>
   );
 };
