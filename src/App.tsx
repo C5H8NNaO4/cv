@@ -9,6 +9,7 @@ import {
   CardContent,
   CardHeader,
   Grid,
+  useMediaQuery,
   Link,
   ListItem,
   ListItemIcon,
@@ -42,19 +43,21 @@ function App() {
   const [clsn, setClsn] = useState('');
   const exporting = clsn === 'exporting';
   const { t } = useTranslation();
+  const printing = useMediaQuery('print');
   return (
     <div id="root" className={clsn} ref={targetRef}>
       <Page exporting={exporting}>
         <Grid container spacing={2}>
-          <Grid item container xs={12} md={8} spacing={1} sx={{ gap: '2px' }}>
+          <Grid
+            item
+            container
+            xs={printing ? 8 : 12}
+            md={8}
+            spacing={1}
+            sx={{ gap: '2px' }}
+          >
             <Grid item xs={12} sx={{ height: 'min-content' }}>
-              <BioCardHeader
-                toPDF={toPDF}
-                exporting={exporting}
-                setExporting={(exporting: boolean) => {
-                  setClsn(exporting ? 'exporting' : '');
-                }}
-              />
+              <BioCardHeader exporting={exporting} />
               <BioCardContent />
             </Grid>
             <Grid item sx={{ mx: 'auto', my: 'auto' }}>
@@ -67,26 +70,13 @@ function App() {
           </Grid>
           <Grid
             item
-            xs={12}
+            xs={printing ? 4 : 12}
             md={4}
             sx={{ display: 'flex', flexDirection: 'column' }}
           >
             <EducationCard />
             <WorkExperienceCard />
           </Grid>
-          <Grid item xs={12} md={6}>
-            <ExpectedBenefitsCard
-              salary={data.salary}
-              benefits={data.benefits}
-            />
-          </Grid>
-          <Grid item xs={12} md={6} sx={{ h: '100%' }}>
-            <ContactCard exporting={exporting} />
-          </Grid>
-        </Grid>
-      </Page>
-      <Page exporting={exporting}>
-        <Grid container spacing={2}>
           <Grid
             item
             xs={12}
@@ -94,10 +84,30 @@ function App() {
           >
             <LegendCard />
           </Grid>
-          <Grid item xs={12} md={8}>
+        </Grid>
+      </Page>
+      <Page exporting={exporting}>
+        <Grid container spacing={2} sx={{ mt: 1 }}>
+          <Grid item xs={printing ? 6 : 12} md={6}>
+            <ExpectedBenefitsCard
+              salary={data.salary}
+              benefits={data.benefits}
+            />
+          </Grid>
+          <Grid item xs={printing ? 6 : 12} md={6} sx={{ h: '100%' }}>
+            <ContactCard exporting={exporting} />
+          </Grid>
+
+          <Grid item xs={printing ? 8 : 12} md={8}>
             <SkillSection />
           </Grid>
-          <Grid item container xs={12} md={4} alignContent={'space-between'}>
+          <Grid
+            item
+            container
+            xs={printing ? 4 : 12}
+            md={4}
+            alignContent={'space-between'}
+          >
             <Portfolio
               from={0}
               to={3}
@@ -113,6 +123,7 @@ function App() {
             from={3}
             to={5}
             expanded={clsn !== ''}
+            xs={printing ? 6 : 12}
             md={6}
             hideHeaderOnMobile={!exporting}
           />

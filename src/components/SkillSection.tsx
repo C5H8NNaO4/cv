@@ -8,6 +8,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  useMediaQuery,
 } from '@mui/material';
 import { LanguagesCard } from './LanguagesCard';
 import data from '@/data';
@@ -186,6 +187,8 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
 
   const chunked = chunks(tags, 2);
   const { t } = useTranslation();
+  const printing = useMediaQuery('print');
+
   return (
     <Grid item container xs={12} spacing={1}>
       {chunked.map((chunk: string[]) => {
@@ -194,7 +197,7 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
             key={chunk.join('-')}
             item
             container
-            xs={12}
+            xs={printing ? 6 : 12}
             md={6}
             spacing={1}
             alignContent={'stretch'}
@@ -203,7 +206,7 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
             {chunk.map((tag: string) => {
               return (
                 <Grid key={tag} item xs={12}>
-                  <Card square sx={{height: '100%'}} >
+                  <Card square sx={{ height: '100%' }}>
                     <CardHeader title={capitalCase(t(tag))} />
                     <Skills skills={skills} tag={tag} />
                     <CardContent>
@@ -221,7 +224,7 @@ export const SkillCards = ({ skills }: { skills: Skill[] }) => {
 };
 export const SkillSection = () => {
   return (
-    <Card square sx={{ height: '100%' }} className='alternate'>
+    <Card square sx={{ height: '100%' }} className="alternate">
       <CardHeader title="Skills" />
       <Grid
         container

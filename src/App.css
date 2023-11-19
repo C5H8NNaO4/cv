@@ -13,16 +13,20 @@ mark {
   min-width: 1135px;
 }
 
+@page {
+  size: A3;
+}
+
 @media (min-width: 768px) {
   #root {
     padding: 2rem;
   }
 }
 
-.exporting .MuiCard-root {
-  border: 1px solid black;
-  margin-left: -1px;
-  margin-right: -1px;
+@media print {
+  #root {
+    padding: 8px;
+  }
 }
 
 .MuiListItem-root,

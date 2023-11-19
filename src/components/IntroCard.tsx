@@ -48,15 +48,7 @@ export const BioCardContent = () => {
     </Card>
   );
 };
-export const BioCardHeader = ({
-  exporting,
-  setExporting,
-  toPDF,
-}: {
-  exporting: boolean;
-  toPDF: any;
-  setExporting: (value: boolean) => void;
-}) => {
+export const BioCardHeader = ({ exporting }: { exporting: boolean }) => {
   return (
     <Card square sx={{ width: '100%', display: 'flex' }}>
       <CardHeader
@@ -77,32 +69,11 @@ export const BioCardHeader = ({
       <CardHeader
         action={
           !exporting && (
-            <>
-              <IconButton
-                color="primary"
-                sx={{
-                  ml: 'auto',
-                  display: {
-                    xs: 'none',
-                    md: 'flex',
-                  },
-                }}
-                onClick={() => {
-                  setExporting(true);
-                  setTimeout(() => {
-                    toPDF();
-                    setExporting(false);
-                  }, 0);
-                }}
-              >
+            <IconButton>
+              <Link href={`${i18n.language}.pdf`} download>
                 <DownloadIcon></DownloadIcon>
-              </IconButton>
-              <IconButton sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <Link href={`${i18n.language}.pdf`} download>
-                  <DownloadIcon></DownloadIcon>
-                </Link>
-              </IconButton>
-            </>
+              </Link>
+            </IconButton>
           )
         }
       ></CardHeader>

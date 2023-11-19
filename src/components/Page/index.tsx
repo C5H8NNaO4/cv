@@ -1,4 +1,4 @@
-import { Paper } from '@mui/material';
+import { Paper, useMediaQuery } from '@mui/material';
 import { PropsWithChildren } from 'react';
 
 export const Page = ({
@@ -6,15 +6,18 @@ export const Page = ({
   last = false,
   exporting,
 }: PropsWithChildren<{ exporting: boolean; last?: boolean }>) => {
+  const printing = useMediaQuery('print');
+  const autoHeight = printing || exporting;
   return (
     <Paper
       sx={{
-        minHeight: exporting && !last ? 1169.5 * 1.43 + 'px' : undefined,
-        maxHeight: exporting ? 1169.5 * 1.43 + 'px' : undefined,
+        minHeight: autoHeight && !last ? 420 * 3.75 * 1.01 + 'px' : undefined,
+        maxHeight: autoHeight ? 420 * 3.75 * 1.01 + 'px' : undefined,
 
-        overflow: 'hidden',
+        // overflow: 'hidden',
         m: 0,
         p: 1,
+        // pt: '8px',
       }}
       elevation={0}
     >
