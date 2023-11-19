@@ -5,6 +5,7 @@ import {
   CardContent,
   CardHeader,
   IconButton,
+  useMediaQuery,
   Link,
 } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
@@ -48,7 +49,8 @@ export const BioCardContent = () => {
     </Card>
   );
 };
-export const BioCardHeader = ({ exporting }: { exporting: boolean }) => {
+export const BioCardHeader = () => {
+  const exporting = useMediaQuery('print');
   return (
     <Card square sx={{ width: '100%', display: 'flex' }}>
       <CardHeader

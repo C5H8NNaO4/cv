@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import './App.css';
-import { usePDF } from 'react-to-pdf';
 import './lib/i18n';
 import i18n from 'i18next';
 import {
@@ -39,14 +37,11 @@ import Markdown from './components/Markdown';
 import { StackOverflowIcon } from './lib/icons';
 
 function App() {
-  const { toPDF, targetRef } = usePDF({ filename: `CV - ${data.name}.pdf` });
-  const [clsn, setClsn] = useState('');
-  const exporting = clsn === 'exporting';
   const { t } = useTranslation();
   const printing = useMediaQuery('print');
   return (
-    <div id="root" className={clsn} ref={targetRef}>
-      <Page exporting={exporting}>
+    <div id="root">
+      <Page>
         <Grid container spacing={2}>
           <Grid
             item
@@ -57,7 +52,7 @@ function App() {
             sx={{ gap: '2px' }}
           >
             <Grid item xs={12} sx={{ height: 'min-content' }}>
-              <BioCardHeader exporting={exporting} />
+              <BioCardHeader />
               <BioCardContent />
             </Grid>
             <Grid item sx={{ mx: 'auto', my: 'auto' }}>
@@ -86,7 +81,7 @@ function App() {
           </Grid>
         </Grid>
       </Page>
-      <Page exporting={exporting}>
+      <Page>
         <Grid container spacing={2} sx={{ mt: 1 }}>
           <Grid item xs={printing ? 6 : 12} md={6}>
             <ExpectedBenefitsCard
@@ -95,7 +90,7 @@ function App() {
             />
           </Grid>
           <Grid item xs={printing ? 6 : 12} md={6} sx={{ h: '100%' }}>
-            <ContactCard exporting={exporting} />
+            <ContactCard exporting={printing} />
           </Grid>
 
           <Grid item xs={printing ? 8 : 12} md={8}>
@@ -108,28 +103,22 @@ function App() {
             md={4}
             alignContent={'space-between'}
           >
-            <Portfolio
-              from={0}
-              to={3}
-              exporting={exporting}
-              expanded={exporting}
-            />
+            <Portfolio from={0} to={3} expanded={printing} />
           </Grid>
         </Grid>
       </Page>
-      <Page exporting={exporting}>
+      <Page>
         <Grid container spacing={1}>
           <Portfolio
             from={3}
             to={5}
-            expanded={clsn !== ''}
+            expanded={printing}
             xs={printing ? 6 : 12}
             md={6}
-            hideHeaderOnMobile={!exporting}
           />
         </Grid>
         <Grid container sx={{ mt: 3 }} spacing={1}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={printing ? 6 : 12} md={6}>
             <ProjectCard
               project={{
                 name: 'Books',
@@ -143,12 +132,12 @@ function App() {
               setToggled={() => {}}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item xs={printing ? 6 : 12} md={6}>
             <SocialCard />
           </Grid>
         </Grid>
       </Page>
-      <Page exporting={exporting} last>
+      <Page last>
         <Grid container>
           <Grid item xs={12}>
             <Card>

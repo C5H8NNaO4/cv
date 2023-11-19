@@ -4,10 +4,9 @@ import { PropsWithChildren } from 'react';
 export const Page = ({
   children,
   last = false,
-  exporting,
-}: PropsWithChildren<{ exporting: boolean; last?: boolean }>) => {
+}: PropsWithChildren<{ last?: boolean }>) => {
   const printing = useMediaQuery('print');
-  const autoHeight = printing || exporting;
+  const autoHeight = printing;
   return (
     <Paper
       sx={{
