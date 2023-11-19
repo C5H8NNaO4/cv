@@ -103,14 +103,14 @@ function App() {
             md={4}
             alignContent={'space-between'}
           >
-            <Portfolio from={0} to={3} expanded={printing} />
+            <Portfolio from={0} to={2} expanded={printing} />
           </Grid>
         </Grid>
       </Page>
       <Page>
         <Grid container spacing={1}>
           <Portfolio
-            from={3}
+            from={2}
             to={5}
             expanded={printing}
             xs={printing ? 6 : 12}

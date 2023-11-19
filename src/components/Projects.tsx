@@ -87,8 +87,6 @@ export const ProjectCard = ({
       square
       sx={{
         height: '100%',
-        border: expanded ? '1px solid black' : 'unset',
-        m: expanded ? '-1px' : 0,
         zIndex: 2,
         display: 'flex',
         flexDirection: 'column',

@@ -1,5 +1,5 @@
 import data from '@/data';
-import { Card, CardHeader, Grid } from '@mui/material';
+import { Card, CardHeader, Grid, useMediaQuery } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Projects } from './Projects';
 
@@ -20,15 +20,17 @@ export const Portfolio = ({
   md?: number;
 }) => {
   const { t } = useTranslation();
+  const printing = useMediaQuery('print');
+
   return (
     <>
-      {from === 0 && (
+      {(from === 0 || printing) && (
         <Grid item xs={12} sx={{ height: 'min-content' }}>
           <Card sx={{ pb: 2 }}>
             <CardHeader
               title={t('Portfolio', {
                 from: from + 1,
-                to: exporting ? to + 1 : data.projects.length,
+                to: printing ? to : data.projects.length,
               })}
             ></CardHeader>
           </Card>
