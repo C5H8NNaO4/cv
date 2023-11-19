@@ -7,13 +7,11 @@ export const Portfolio = ({
   from,
   to,
   expanded,
-  exporting,
   xs = 12,
   md = 12,
 }: {
   from: number;
   to: number;
-  exporting?: boolean;
   expanded: boolean;
   hideHeaderOnMobile?: boolean;
   xs?: number;
