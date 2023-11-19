@@ -5,7 +5,7 @@ import {
   CardHeader,
   Chip,
   Grid,
-  ListItemButton,
+  ListItem,
   ListItemIcon,
   ListItemText,
   useMediaQuery,
@@ -52,7 +52,7 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
               xs={printing ? (filtered.length === 1 ? 12 : 6) : 12}
               md={filtered.length === 1 ? 12 : 6}
             >
-              <ListItemButton
+              <ListItem
                 key={skill.name}
                 dense
                 sx={{
@@ -125,7 +125,7 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
                     </Box>
                   }
                 ></ListItemText>
-              </ListItemButton>
+              </ListItem>
             </Grid>
           );
         })}
