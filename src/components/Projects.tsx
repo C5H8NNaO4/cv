@@ -14,6 +14,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  useMediaQuery,
 } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import { useTranslation } from 'react-i18next';
@@ -41,10 +42,11 @@ export const Projects = ({
 }) => {
   const [toggled, setToggled] = useState('');
   const { t } = useTranslation();
-
+  const printing = useMediaQuery('print');
   return (
     <>
-      {projects.slice(from || 0, to).map((project) => {
+      {projects.slice(from || 0, to).map((project, i, arr) => {
+        const isLast = i === arr.length - 1 && arr.length % 2 === 1;
         const desc = t(project.description || '')
           .trim()
           .split(' ');
@@ -60,7 +62,13 @@ export const Projects = ({
         );
         if (noGrid) return card;
         return (
-          <Grid key={project.name} item xs={xs} md={md} sx={{ flex: 1 }}>
+          <Grid
+            key={project.name}
+            item
+            xs={printing ? (isLast ? 12 : 6) : xs}
+            md={isLast ? 12 : md}
+            sx={{ flex: 1 }}
+          >
             {card}
           </Grid>
         );

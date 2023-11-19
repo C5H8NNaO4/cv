@@ -82,7 +82,7 @@ function App() {
         </Grid>
       </Page>
       <Page>
-        <Grid container spacing={2} sx={{ mt: 1 }}>
+        <Grid container spacing={2}>
           <Grid item xs={printing ? 6 : 12} md={6}>
             <ExpectedBenefitsCard
               salary={data.salary}
