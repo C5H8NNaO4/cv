@@ -4,6 +4,7 @@ import { projects } from './projects';
 import { skills } from './skills';
 import { social } from './social';
 import { learnings } from './learnings';
+import { education } from './education';
 import { workHistory } from './workHistory';
 import { Skill } from '@/types';
 
@@ -18,6 +19,7 @@ const country = 'Germany';
 
 export const data = {
   // Comment out "position" to show the position of the last work history entry.
+  education,
   social,
   position,
   learnings,

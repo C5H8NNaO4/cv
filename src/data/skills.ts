@@ -135,5 +135,23 @@ export const skills = [
     chip: true,
     tags: ['language'],
   },
+  {
+    name: 'VBA',
+    experience: 7,
+    chip: true,
+    tags: ['language'],
+  },
+  {
+    name: 'HTML',
+    experience: age(TRAINING_START),
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'CSS',
+    experience: age(TRAINING_START),
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
   { name: 'Your needed skill', experience: 0, tags: ['Grow together'] },
 ];

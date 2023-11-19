@@ -28,6 +28,7 @@ export const Projects = ({
   expanded,
   xs = 12,
   md = 6,
+  noGrid,
 }: {
   projects: Project[];
   projectId?: string;
@@ -36,26 +37,31 @@ export const Projects = ({
   expanded?: boolean;
   xs?: number;
   md?: number;
+  noGrid?: boolean;
 }) => {
   const [toggled, setToggled] = useState('');
   const { t } = useTranslation();
+
   return (
     <>
       {projects.slice(from || 0, to).map((project) => {
         const desc = t(project.description || '')
           .trim()
           .split(' ');
-
+        const card = (
+          <ProjectCard
+            project={project}
+            projectId={projectId}
+            expanded={expanded}
+            desc={desc}
+            toggled={toggled}
+            setToggled={setToggled}
+          />
+        );
+        if (noGrid) return card;
         return (
           <Grid key={project.name} item xs={xs} md={md} sx={{ flex: 1 }}>
-            <ProjectCard
-              project={project}
-              projectId={projectId}
-              expanded={expanded}
-              desc={desc}
-              toggled={toggled}
-              setToggled={setToggled}
-            />
+            {card}
           </Grid>
         );
       })}

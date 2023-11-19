@@ -34,6 +34,8 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
   const filtered = skills.filter(({ tags, chip }) => {
     return tags.includes(tag) && !chip;
   });
+  const printing = useMediaQuery('print');
+
   return (
     <Grid container>
       {filtered
@@ -45,7 +47,11 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
         .map((skill) => {
           const skillExperience = skill.experience || age(skill.start);
           return (
-            <Grid item xs={12} md={filtered.length === 1 ? 12 : 6}>
+            <Grid
+              item
+              xs={printing ? (filtered.length === 1 ? 12 : 6) : 12}
+              md={filtered.length === 1 ? 12 : 6}
+            >
               <ListItemButton
                 key={skill.name}
                 dense

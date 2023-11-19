@@ -9,6 +9,7 @@ export const Portfolio = ({
   expanded,
   xs = 12,
   md = 12,
+  noGrid = false,
 }: {
   from: number;
   to: number;
@@ -16,24 +17,30 @@ export const Portfolio = ({
   hideHeaderOnMobile?: boolean;
   xs?: number;
   md?: number;
+  noGrid?: boolean;
 }) => {
   const { t } = useTranslation();
   const printing = useMediaQuery('print');
-
+  const headerCard = (
+    <Card sx={{ flexShrink: 0 }}>
+      <CardHeader
+        title={t('Portfolio', {
+          from: from + 1,
+          to: printing ? to : data.projects.length,
+        })}
+      ></CardHeader>
+    </Card>
+  );
   return (
     <>
-      {(from === 0 || printing) && (
-        <Grid item xs={12} sx={{ height: 'min-content' }}>
-          <Card sx={{ pb: 2 }}>
-            <CardHeader
-              title={t('Portfolio', {
-                from: from + 1,
-                to: printing ? to : data.projects.length,
-              })}
-            ></CardHeader>
-          </Card>
-        </Grid>
-      )}
+      {(from === 0 || printing) &&
+        (!noGrid ? (
+          <Grid item xs={12}>
+            {headerCard}
+          </Grid>
+        ) : (
+          headerCard
+        ))}
       {/* <Grid item container xs={12} justifyContent={'space-between'}> */}
       <Projects
         projectId={md === 6 ? 'portfolio-2' : undefined}
@@ -43,6 +50,7 @@ export const Portfolio = ({
         expanded={expanded}
         xs={xs}
         md={md}
+        noGrid={noGrid}
       />
       {/* </Grid> */}
     </>

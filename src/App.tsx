@@ -103,14 +103,28 @@ function App() {
             md={4}
             alignContent={'space-between'}
           >
-            <Portfolio from={0} to={2} expanded={printing} />
+            <Box
+              sx={{
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1,
+              }}
+            >
+              <Portfolio
+                from={0}
+                to={printing ? 2 : 3}
+                expanded={printing}
+                noGrid
+              />
+            </Box>
           </Grid>
         </Grid>
       </Page>
       <Page>
         <Grid container spacing={1}>
           <Portfolio
-            from={2}
+            from={printing ? 2 : 3}
             to={5}
             expanded={printing}
             xs={printing ? 6 : 12}

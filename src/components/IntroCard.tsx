@@ -72,7 +72,7 @@ export const BioCardHeader = () => {
         action={
           !exporting && (
             <IconButton>
-              <Link href={`${i18n.language}.pdf`} download>
+              <Link href={`${i18n.language}.pdf`}>
                 <DownloadIcon></DownloadIcon>
               </Link>
             </IconButton>
