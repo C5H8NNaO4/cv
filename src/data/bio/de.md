@@ -4,7 +4,7 @@ Ich freue mich wirklich, die Weiterentwicklung der Sprache zu sehen, getrieben v
 Ich habe ungefähr <mark>{{experience.JavaScript}} Jahre</mark> tiefgehende Kenntnisse in <mark>JavaScript</mark> und kann komplexe Aufgaben wie das Schreiben eines Compilers bewältigen.
 Ich habe etwa {{experience.Node-js}} Jahre mit Node.js verbracht und Erfahrung mit verschiedenen Frameworks wie {{tags.frameworks}}, etc...
 <mark>React</mark> ist definitiv mein Lieblingsframework der letzten Jahre und hat mich in den vergangenen Jahren fasziniert gehalten.
-Ich habe Erfahrung in der Zusammenarbeit mit erfahrenen Remote-Teams von Senior-Entwicklern in einer agilen Umgebung mit Scrum.  
+Ich habe Erfahrung in der Zusammenarbeit mit erfahrenen Remote-Teams von Senior-Entwicklern in einer agilen Umgebung mit Scrum.
 Ich lege Wert auf <mark>Code-Qualität</mark> statt Quantität und habe Erfahrung in der Arbeit mit und der Pflege einer qualitativ hochwertigen Codebasis.
 Als Team nutzen wir Unit-Tests, End-to-End-Tests und visuelle Regressionstests, um Qualität zu gewährleisten und die Arbeitsbelastung des QA-Teams zu reduzieren. Wie bei den meisten erfahrenen Scrum-Teams sind gestufte Umgebungen, <mark>CI/CD</mark>-Pipelines und gründliche Codeüberprüfungen Standard.
 Ich liebe es zu programmieren und schätze hochwertigen Code sehr. Ich bevorzuge TypeScript gegenüber JS, weil Typsicherheit ein wertvolles Werkzeug ist, um die Wahrscheinlichkeit der Einführung von Fehlern erheblich zu reduzieren.

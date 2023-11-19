@@ -96,6 +96,7 @@ export const ProjectCard = ({
         zIndex: 2,
         display: 'flex',
         flexDirection: 'column',
+        // justifyContent: 'space-between',
       }}
     >
       <CardHeader
@@ -141,13 +142,15 @@ export const ProjectCard = ({
       {desc && desc?.length <= 10 && (
         <CardContent>{desc.join(' ')}</CardContent>
       )}
+      <Box sx={{ flex: 1 }}></Box>
       {desc && desc?.length > 10 && (
         <Accordion
           square
           expanded={expanded || toggled === (projectId || project.name)}
-          sx={{ mt: 'auto' }}
+          sx={{ display: 'flex', flexDirection: 'column' }}
         >
           <AccordionSummary
+            sx={{ mt: 'auto' }}
             onClick={() =>
               setToggled(
                 toggled === (projectId || project.name)
