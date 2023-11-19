@@ -41,8 +41,8 @@ export const LanguagesCard = () => {
           </ListItemIcon>
           <ListItemText
             primary={
-              printing ? (
-                <Link href={`https://justmycv.com/${i18n.language}.pdf`} />
+              printing && i18n.language !== 'de' ? (
+                <Link href={`https://justmycv.com/de.pdf`}>{t('German')}</Link>
               ) : (
                 t('German')
               )
@@ -62,7 +62,16 @@ export const LanguagesCard = () => {
             <Avatar sx={{ mr: '-40px' }}>E</Avatar>
             <CircularProgress value={80} variant="determinate" />
           </ListItemIcon>
-          <ListItemText primary={t('English')} secondary="C1" />
+          <ListItemText
+            primary={
+              printing && i18n.language !== 'en' ? (
+                <Link href={`https://justmycv.com/en.pdf`}>{t('English')}</Link>
+              ) : (
+                t('English')
+              )
+            }
+            secondary="C1"
+          />
         </ListItemButton>
         <ListItemButton
           selected={i18n.language === 'es'}
@@ -77,7 +86,16 @@ export const LanguagesCard = () => {
 
             <CircularProgress value={50} variant="determinate" />
           </ListItemIcon>
-          <ListItemText primary={t('Spanish')} secondary="B1" />
+          <ListItemText
+            primary={
+              printing && i18n.language !== 'es' ? (
+                <Link href={`https://justmycv.com/es.pdf`}>{t('Spanish')}</Link>
+              ) : (
+                t('Spanish')
+              )
+            }
+            secondary="B1"
+          />
         </ListItemButton>
       </List>
     </Card>
