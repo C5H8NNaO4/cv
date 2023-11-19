@@ -136,8 +136,8 @@ export const skills = [
     tags: ['language'],
   },
   {
-    name: 'VBA',
-    experience: 7,
+    name: 'SQL',
+    experience: 2.5,
     chip: true,
     tags: ['language'],
   },
@@ -152,6 +152,30 @@ export const skills = [
     experience: age(TRAINING_START),
     chip: true,
     tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'Redis',
+    experience: 1,
+    chip: true,
+    tags: ['Technologies'],
+  },
+  {
+    name: 'DynamoDB',
+    experience: 1,
+    chip: true,
+    tags: ['Technologies', 'framework'],
+  },
+  {
+    name: 'Service Worker',
+    experience: 1,
+    chip: true,
+    tags: ['Technologies'],
+  },
+  {
+    name: 'Web Push',
+    experience: 1,
+    chip: true,
+    tags: ['Technologies'],
   },
   { name: 'Your needed skill', experience: 0, tags: ['Grow together'] },
 ];

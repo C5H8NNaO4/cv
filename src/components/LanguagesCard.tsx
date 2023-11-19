@@ -1,10 +1,22 @@
-import { Avatar, Card, CardHeader, CircularProgress, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import {
+  useMediaQuery,
+  Avatar,
+  Card,
+  CardHeader,
+  CircularProgress,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  Link,
+  ListItemText,
+} from '@mui/material';
 import { capitalCase } from 'change-case';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 
 export const LanguagesCard = () => {
   const { t } = useTranslation();
+  const printing = useMediaQuery('print');
   return (
     <Card square>
       <CardHeader
@@ -27,7 +39,16 @@ export const LanguagesCard = () => {
               variant="determinate"
             ></CircularProgress>
           </ListItemIcon>
-          <ListItemText primary={t('German')} secondary="Native" />
+          <ListItemText
+            primary={
+              printing ? (
+                <Link href={`https://justmycv.com/${i18n.language}.pdf`} />
+              ) : (
+                t('German')
+              )
+            }
+            secondary="Native"
+          />
         </ListItemButton>
         <ListItemButton
           selected={i18n.language === 'en'}
