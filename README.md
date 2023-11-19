@@ -10,13 +10,15 @@ A multi-lingual data driven CV for web developers that keeps track of your exper
 - Automatically mark recent experiences.
 - Communicate expectations, growth and benefits.
 - Provide optimized visualization of your information.
-- Seamlessly merge into PDFs.
-- Showcase your linguistic abilities.
+- Provide a indexable / searchable PDF version of the Website.
+- Showcase your language abilities.
 - Highlight your stack.
+- Break down experience by skills.
+- Color Coding and Symbols to increase information density.
 
 ## Demo
 
-https://justmycv.com/en
+At https://justmycv.com/en.pdf is the prerendered PDF and at https://justmycv.com/en the up to date website.
 ![alt text](public/ss.png 'Screenshot')
 
 ## Features
@@ -26,19 +28,17 @@ https://justmycv.com/en
 - i18n
 - React
 - MUI
-- React To PDF
 - Vercel
 - 100% Typescript
 
 ### Approach
 
+- The CV is based on your data.
+- Recent and overall experience is computed based on configured dates / work / project history.
 - Use _i18n_ to inline variables in markdown files.
 - Use _react-markdown_ to render markdown files.
-- Use _react-to-pdf_ to render the CV to pdf on desktop.
-- Use _prerendered_ pdfs to render the CV to pdf on mobile
-- The CV is based on your data.
-- The CV is always up-to-date.
-- Recent and overall experience is computed based on work / project history.
+- Use _Chrome_ to render the CV to PDF.
+- Use pre-rendered PDFs for each language.
 
 ## How to use
 
@@ -48,15 +48,15 @@ You will need to replace _skills, benefits, projects, work experience, and educa
 
 Experience with TypeScript, React and MUI is recommended.
 
-This project uses [react-to-pdf](https://www.npmjs.com/package/react-to-pdf) to render your CV to pdf on desktop. You can use pre-rendered files for each language on mobile e.g. https://justmycv.com/en.pdf
-
 # Getting Started
 
 1. Clone the repo `git clone https://github.com/C5H8NNaO4/cv.git`
 2. Install dependencies. `cd cv && yarn install`
 3. Update all the files under _/src/data/\*\*/\*_
 4. Start the development server. `yarn dev`
-5. Prerender PDFs for each language and put them in the public folder.
-6. Deploy your project to vercel.
-7. Enjoy your CV!
-8. Apply for a job.
+5. Open each language in your browser. `https://localhost:3000/en`
+6. Use your Browsers print feature to print all but the last (empty) page.
+7. Put the pre-rendered PDFs in the _/public_ folder.
+7. Deploy your project to vercel.
+8. Enjoy your CV!
+9. Apply for a job.
