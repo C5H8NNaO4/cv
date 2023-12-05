@@ -4,7 +4,7 @@ import { WorkExperienceItemProps } from '@/components/WorkExperienceItem';
 import { NAME, SURNAME } from '@/const';
 import data from '@/data';
 import { formatDuration, formatPhoneNr } from '@/lib/format';
-import { Typography, Box, Link, useMediaQuery } from '@mui/material';
+import { Typography, Box, Link } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { capitalCase } from 'change-case';
