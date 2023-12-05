@@ -32,15 +32,37 @@ import { Portfolio } from './components/Portfolio';
 import { useTranslation } from 'react-i18next';
 import { ProjectCard } from './components/Projects';
 import { differenceInBusinessDays, format } from 'date-fns';
-import { locales } from './components/WorkExperienceItem';
+
 import Markdown from './components/Markdown';
 import { StackOverflowIcon } from './lib/icons';
+import {
+  Contact,
+  EducationSummary,
+  Footer,
+  Name,
+  SkillsSummary,
+  WorkSummary,
+} from './components/templates/harvard/harvard';
+import { locales } from './lib/format';
 
 function App() {
   const { t } = useTranslation();
   const printing = useMediaQuery('print');
   return (
     <div id="root">
+      <Page sx={{ w: '100%' }}>
+        <Box sx={{ mb: 4 }}>
+          <Name />
+          <hr />
+          <Contact />
+
+          <EducationSummary />
+          <WorkSummary />
+          <SkillsSummary />
+        </Box>
+        <Footer />
+      </Page>
+      <Box sx={{ mt: !printing ? '100vh' : 0 }} />
       <Page>
         <Grid container spacing={2}>
           <Grid
@@ -216,6 +238,7 @@ export interface EducationEntry {
   degree: string;
   start: string;
   end: string;
+  location: string;
 }
 export const EducationEntry = (props: EducationEntry) => {
   const { school, degree, start, end } = props;

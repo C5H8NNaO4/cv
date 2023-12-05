@@ -8,16 +8,19 @@ import { education } from './education';
 import { workHistory } from './workHistory';
 import { Skill } from '@/types';
 
+const address = import.meta.env.VITE_ADDRESS;
 const name = 'Moritz Roessler';
 const phone = '+4917620350106';
 const email = 'moritz.roessler@gmail.com';
 const position = 'Senior Fullstack Developer';
 const salary = 100000;
 
-const continent = 'Europe';
+const city = 'Freiburg';
 const country = 'Germany';
+const continent = 'Europe';
 
 export const data = {
+  address,
   // Comment out "position" to show the position of the last work history entry.
   education,
   social,
@@ -27,8 +30,9 @@ export const data = {
   name,
   phone,
   email,
-  continent,
+  city,
   country,
+  continent,
   benefits,
   skills,
   projects,

@@ -20,6 +20,8 @@ const translation = {
     days: 'Tage',
     spoken: 'Gesprochene',
     languages: 'Sprachen',
+    'Spoken Languages': 'Gesprochene Sprachen',
+    'Programming Languages': 'Programmier Sprachen',
     Education: 'Bildung',
     'Work History': 'Arbeitserfahrung',
     'Expected Benefits': 'Erwartete Vorteile',
@@ -47,6 +49,27 @@ const translation = {
     ).default,
     'descriptions.mycv': (await import('@/data/descriptions/mycv/de.md?raw'))
       .default,
+    'descriptions.pixelpark.experience': (
+      await import('@/data/descriptions/experience/pixelpark/de.md?raw')
+    ).default,
+    'descriptions.cosuno.experience': (
+      await import('@/data/descriptions/experience/cosuno/de.md?raw')
+    ).default,
+    'descriptions.spoo.experience': (
+      await import('@/data/descriptions/experience/spoo/de.md?raw')
+    ).default,
+    'descriptions.bechtle-1.experience': (
+      await import('@/data/descriptions/experience/bechtle/1/de.md?raw')
+    ).default,
+    'descriptions.bechtle-2.experience': (
+      await import('@/data/descriptions/experience/bechtle/2/de.md?raw')
+    ).default,
+    'descriptions.bechtle-3.experience': (
+      await import('@/data/descriptions/experience/bechtle/3/de.md?raw')
+    ).default,
+    'descriptions.arboleda.experience': (
+      await import('@/data/descriptions/experience/arboleda/de.md?raw')
+    ).default,
     'descriptions.marketing':
       'Findet heraus wie Ihr von meiner Erfahrung profitieren könnt.',
     'sub.marketing': 'Bei 85% produktivität.',

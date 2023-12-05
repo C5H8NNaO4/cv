@@ -1,10 +1,11 @@
-import { Paper, useMediaQuery } from '@mui/material';
+import { Paper, useMediaQuery, BoxProps } from '@mui/material';
 import { PropsWithChildren } from 'react';
 
 export const Page = ({
+  sx = {},
   children,
   last = false,
-}: PropsWithChildren<{ last?: boolean }>) => {
+}: PropsWithChildren<{ last?: boolean; sx?: BoxProps['sx'] }>) => {
   const printing = useMediaQuery('print');
   const autoHeight = printing;
   return (
@@ -16,6 +17,7 @@ export const Page = ({
         // overflow: 'hidden',
         m: 0,
         p: 1,
+        ...sx,
         // pt: '8px',
       }}
       elevation={0}

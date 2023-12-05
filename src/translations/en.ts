@@ -9,6 +9,8 @@ const translation = {
     'Professional experience': 'Professional',
     'Hobby experience': 'Hobby',
     'Part of my stack': 'Part of my stack',
+    'Fachinformatiker in der Anwendungsentwicklung':
+      'Computer Science (Fachinformatiker in der Anwendungsentwicklung)',
     Contact: 'Contact',
     eMail: 'E-Mail',
     Portfolio: 'Portfolio ({{from}} - {{to}})',
@@ -29,6 +31,27 @@ const translation = {
     ).default,
     'descriptions.mycv': (await import('@/data/descriptions/mycv/en.md?raw'))
       .default,
+    'descriptions.pixelpark.experience': (
+      await import('@/data/descriptions/experience/pixelpark/en.md?raw')
+    ).default,
+    'descriptions.cosuno.experience': (
+      await import('@/data/descriptions/experience/cosuno/en.md?raw')
+    ).default,
+    'descriptions.spoo.experience': (
+      await import('@/data/descriptions/experience/spoo/en.md?raw')
+    ).default,
+    'descriptions.bechtle-1.experience': (
+      await import('@/data/descriptions/experience/bechtle/1/en.md?raw')
+    ).default,
+    'descriptions.bechtle-2.experience': (
+      await import('@/data/descriptions/experience/bechtle/2/en.md?raw')
+    ).default,
+    'descriptions.bechtle-3.experience': (
+      await import('@/data/descriptions/experience/bechtle/3/en.md?raw')
+    ).default,
+    'descriptions.arboleda.experience': (
+      await import('@/data/descriptions/experience/arboleda/en.md?raw')
+    ).default,
     'descriptions.contact':
       'Feel free to contact me using any of the available channels.',
     'descriptions.marketing': 'Find out how to profit from my experience.',

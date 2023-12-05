@@ -1,4 +1,5 @@
 type WorkHistoryEntry = {
+  id: string;
   company: string;
   homepage: string;
   location: string;
@@ -10,10 +11,11 @@ type WorkHistoryEntry = {
 };
 export const workHistory: WorkHistoryEntry[] = [
   {
+    id: 'bechtle-1',
     company: 'Bechtle',
     homepage: 'https://www.bechtle.com',
-    location: 'Germany - Freiburg',
-    position: 'FIAE',
+    location: 'Freiburg, Germany',
+    position: 'Fachinformatiker in der Anwendungsentwicklung',
     start: '2012-05-01',
     end: '2015-03-01',
     stack: [
@@ -26,16 +28,18 @@ export const workHistory: WorkHistoryEntry[] = [
     ],
   },
   {
+    id: 'bechtle-2',
     company: 'Bechtle',
     homepage: 'https://www.bechtle.com',
-    location: 'Germany - Freiburg',
+    location: 'Freiburg, Germany',
     position: 'Junior Software Engineer',
     start: '2015-03-01',
     end: '2016-03-01',
     stack: ['LotusScript', 'Lotus Notes', 'Domino', 'Basic', 'Git'],
   },
   {
-    position: 'Living abroad in Chile',
+    id: 'arboleda',
+    position: 'Volunteer',
     company: 'Arboleda Emaluisa',
     location: 'Chile, Temuco',
     homepage: 'https://www.facebook.com/arboledaemaluisa/',
@@ -45,8 +49,9 @@ export const workHistory: WorkHistoryEntry[] = [
     disabled: true,
   },
   {
+    id: 'bechtle-3',
     company: 'Bechtle',
-    location: 'Germany - Freiburg',
+    location: 'Freiburg, Germany',
     homepage: 'https://www.bechtle.com',
     position: 'Junior Software Engineer',
     start: '2018-05-01',
@@ -54,9 +59,10 @@ export const workHistory: WorkHistoryEntry[] = [
     stack: ['C#', 'Perl', 'Git'],
   },
   {
+    id: 'spoo',
     company: 'Spoo',
     position: 'Software Engineer',
-    location: 'Germany - Denzlingen',
+    location: 'Denzlingen, Germany',
     homepage: 'https://www.spoo-group.com',
     start: '2020-01-01',
     end: '2021-12-01',
@@ -72,6 +78,7 @@ export const workHistory: WorkHistoryEntry[] = [
     ],
   },
   {
+    id: 'cosuno',
     company: 'Cosuno',
     location: 'Portugal - Braga',
     position: 'Senior Frontend Developer',
@@ -81,9 +88,10 @@ export const workHistory: WorkHistoryEntry[] = [
     stack: ['TypeScript', 'GraphQL', 'React', 'Git'],
   },
   {
+    id: 'pixelpark',
     position: 'Senior IT Developer',
     company: 'Digitas Pixelpark',
-    location: 'Germany - Freiburg',
+    location: 'Freiburg, Germany',
     start: '2022-09-01',
     end: null,
     homepage: 'https://www.digitaspixelpark.com/',

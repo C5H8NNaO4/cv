@@ -3,6 +3,7 @@ import { Box, Card, CardHeader, List } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { WorkExperienceItem } from './WorkExperienceItem';
 import { getYear } from 'date-fns';
+import { experience } from '@/lib/util';
 
 export const WorkExperienceCard = () => {
   const { t } = useTranslation();
@@ -11,14 +12,17 @@ export const WorkExperienceCard = () => {
       <CardHeader title={t('Work History')} />
       <Box>
         <List>
-          {data.workHistory.map((entry) => {
-            return (
-              <WorkExperienceItem
-                key={entry.start + '-' + entry.end}
-                {...entry}
-              />
-            );
-          })}
+          {data.workHistory
+            .slice()
+            .sort((a, b) => a.start.localeCompare(b.start))
+            .map((entry) => {
+              return (
+                <WorkExperienceItem
+                  key={entry.start + '-' + entry.end}
+                  {...entry}
+                />
+              );
+            })}
           <WorkExperienceItem
             company={t('your company')}
             position={

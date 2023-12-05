@@ -20,7 +20,12 @@ const translation = {
     days: 'días',
     spoken: 'hablados',
     languages: 'idiomas',
+    'Spoken Languages': 'Idiomas hablados',
+    'Programming Languages': 'Idiomas programados',
+    'Fachinformatiker in der Anwendungsentwicklung':
+      'Ciencias de la Computación (Fachinformatiker in der Anwendungsentwicklung)',
     Education: 'Educación',
+    Experience: 'Experiencia',
     'Work History': 'Experiencia Laboral',
     'Expected Benefits': 'Beneficios Esperados',
     Call: 'Llamar',
@@ -48,7 +53,27 @@ const translation = {
     ).default,
     'descriptions.mycv': (await import('@/data/descriptions/mycv/es.md?raw'))
       .default,
-
+    'descriptions.pixelpark.experience': (
+      await import('@/data/descriptions/experience/pixelpark/es.md?raw')
+    ).default,
+    'descriptions.cosuno.experience': (
+      await import('@/data/descriptions/experience/cosuno/es.md?raw')
+    ).default,
+    'descriptions.spoo.experience': (
+      await import('@/data/descriptions/experience/spoo/es.md?raw')
+    ).default,
+    'descriptions.bechtle-1.experience': (
+      await import('@/data/descriptions/experience/bechtle/1/es.md?raw')
+    ).default,
+    'descriptions.bechtle-2.experience': (
+      await import('@/data/descriptions/experience/bechtle/2/es.md?raw')
+    ).default,
+    'descriptions.bechtle-3.experience': (
+      await import('@/data/descriptions/experience/bechtle/3/es.md?raw')
+    ).default,
+    'descriptions.arboleda.experience': (
+      await import('@/data/descriptions/experience/arboleda/es.md?raw')
+    ).default,
     'achievements.compiler':
       'La primera vez que mi compilador se compiló a sí mismo fue una revelación. La primera vez que compiló jQuery fue un deleite.',
     'achievements.sticky':

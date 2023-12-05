@@ -1,23 +1,13 @@
-import {
-  Box,
-  Link,
-  ListItem,
-  ListItemText,
-  Typography,
-} from '@mui/material';
+import { Box, Link, ListItem, ListItemText, Typography } from '@mui/material';
 import i18n from 'i18next';
 import { format, getYear } from 'date-fns';
 import RoomIcon from '@mui/icons-material/Room';
 import { RecentSkill } from '../RecentSkillChip';
-import { de, enUS as en, es } from 'date-fns/locale';
 import { useTranslation } from 'react-i18next';
+import { formatDuration } from '@/lib/format';
 
-export const locales: Record<string, Locale> = {
-  de: de,
-  en: en,
-  es: es,
-};
 export interface WorkExperienceItemProps {
+  id: string;
   company?: string;
   position: string;
   start: string;
@@ -43,17 +33,7 @@ export const WorkExperienceItem = (props: WorkExperienceItemProps) => {
       }}
     >
       <ListItemText
-        primary={`${format(new Date(start), 'MMM yyyy', {
-          locale: locales[i18n.language],
-        })} - ${
-          end === '?'
-            ? end
-            : end
-            ? format(new Date(end), 'MMM yyyy', {
-                locale: locales[i18n.language],
-              })
-            : ' now.'
-        }`}
+        primary={formatDuration(start, end)}
         secondary={
           <span>
             <span>
