@@ -21,7 +21,10 @@ export const formatDuration = (start: string, end?: string | null) =>
       : ' now.'
   }`;
 
-  export const formatPhoneNr = (phoneNumber: string) => {
-    
-    return '+' + phoneNumber.match(/\+(\d\d)(\d{3})(\d{4})(\d{1,4})/)?.slice(1).join(' ')
-  }
+/**
+ * @see https://blog.insycle.com/phone-number-formatting-crm
+ */
+export const formatPhoneNr = (phoneNumber: string) => {
+  const parts = phoneNumber.match(/\+(\d\d)(\d{3})(\d{4})(\d{1,4})/)?.slice(1);
+  return `+${parts?.[0]}${parts?.slice(1)?.join('')}`;
+};

@@ -22,6 +22,8 @@ const translation = {
     languages: 'Sprachen',
     'Spoken Languages': 'Gesprochene Sprachen',
     'Programming Languages': 'Programmier Sprachen',
+    'Fachinformatiker in der Anwendungsentwicklung':
+      'Fachinformatiker in der Anwendungsentwicklung',
     Education: 'Bildung',
     'Work History': 'Arbeitserfahrung',
     'Expected Benefits': 'Erwartete Vorteile',

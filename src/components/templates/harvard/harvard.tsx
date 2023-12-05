@@ -41,7 +41,7 @@ export const Contact = () => {
       ].map((data, i) => {
         return (
           <li style={{ display: i === 0 ? 'block' : 'list-item' }}>
-            {Array.isArray(data) && !printing ? (
+            {Array.isArray(data) ? (
               <Link href={data[1]}>{data[0]}</Link>
             ) : (
               <Typography>{Array.isArray(data) ? data[0] : data}</Typography>
