@@ -54,9 +54,13 @@ export const Contact = () => {
 
 export const Introduction = () => {
   const { t } = useTranslation();
-  return <Markdown>{t('descriptions.introduction', {
-    experience: experienceBySkill,
-  })}</Markdown>;
+  return (
+    <Markdown>
+      {t('descriptions.introduction', {
+        experience: experienceBySkill,
+      })}
+    </Markdown>
+  );
 };
 export const Footer = () => {
   return (
@@ -95,7 +99,11 @@ export const SkillsSummary = () => {
       <SkillEntry title="Programming Languages" tag={'language'} />
       <SkillEntry title="Frontend" tag={'frontend'} />
       <SkillEntry title="Backend" tag={'backend'} />
-      <SkillEntry title="Frameworks" tag={'framework'} />
+      <SkillEntry
+        title="Frameworks"
+        tag={'framework'}
+        exclude={['frontend', 'backend']}
+      />
     </>
   );
 };
@@ -104,14 +112,21 @@ export const SkillEntry = ({
   tag,
   skills,
   title,
+  exclude,
 }: {
   tag?: string;
   skills?: Skill[];
   title?: string;
+  exclude?: string[];
 }) => {
   const { t } = useTranslation();
   const filtered =
-    skills || data.skills.filter((skill) => skill.tags.includes(tag || ''));
+    skills ||
+    data.skills.filter(
+      (skill) =>
+        skill.tags.includes(tag || '') &&
+        !skill.tags.some((tag) => exclude?.includes(tag))
+    );
 
   return (
     <Box>
