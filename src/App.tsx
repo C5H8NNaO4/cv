@@ -51,7 +51,7 @@ function App() {
   return (
     <div id="root">
       <Page sx={{ w: '100%' }}>
-        <Box sx={{ mb: 4 }}>
+        <Box sx={{ mb: 8 }}>
           <Name />
           <hr />
           <Contact />

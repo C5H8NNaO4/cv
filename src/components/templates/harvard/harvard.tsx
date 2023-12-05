@@ -14,7 +14,7 @@ import { Skill } from '@/types';
 export const Name = () => {
   return (
     <Box>
-      <Typography sx={{ textAlign: 'center' }}>
+      <Typography variant='h5' sx={{ textAlign: 'center' }}>
         {NAME} {SURNAME}
       </Typography>
     </Box>

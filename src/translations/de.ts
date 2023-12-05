@@ -26,6 +26,7 @@ const translation = {
       'Fachinformatiker in der Anwendungsentwicklung',
     Education: 'Bildung',
     'Work History': 'Arbeitserfahrung',
+    Experience: 'Erfahrung',
     'Expected Benefits': 'Erwartete Vorteile',
     Call: 'Anrufen',
     Contact: 'Kontakt',
