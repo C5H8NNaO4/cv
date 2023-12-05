@@ -26,8 +26,9 @@ export const Contact = () => {
     <ul
       style={{
         display: 'flex',
+        flexWrap: 'wrap',
         paddingInlineStart: '0px',
-        gap: '32px',
+        columnGap: '32px',
         justifyContent: 'center',
       }}
     >
@@ -62,6 +63,10 @@ export const Footer = () => {
         <Link
           href={`https://justmycv.com/${i18n.language}`}
         >{`https://justmycv.com/${i18n.language}`}</Link>
+        <Link
+          href={`https://justmycv.com/${i18n.language}.pdf`}
+          sx={{ ml: 1 }}
+        >{`.pdf`}</Link>
       </Typography>
     </>
   );
@@ -107,7 +112,7 @@ export const SkillEntry = ({
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'start' }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'start' }}>
         {(title || tag) && (
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
             {capitalCase(t(title || tag || ''))}:
