@@ -1,6 +1,5 @@
 import { Box, Link, ListItem, ListItemText, Typography } from '@mui/material';
-import i18n from 'i18next';
-import { format, getYear } from 'date-fns';
+import { getYear } from 'date-fns';
 import RoomIcon from '@mui/icons-material/Room';
 import { RecentSkill } from '../RecentSkillChip';
 import { useTranslation } from 'react-i18next';

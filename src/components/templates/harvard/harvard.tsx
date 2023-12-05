@@ -78,11 +78,13 @@ export const SkillsSummary = () => {
       </Typography>
       <SkillEntry
         title="Spoken Languages"
-        skills={[
-          { name: 'German (C2)' },
-          { name: 'English (C1)' },
-          { name: 'Spanish (B2)' },
-        ]}
+        skills={
+          [
+            { name: 'German (C2)' },
+            { name: 'English (C1)' },
+            { name: 'Spanish (B2)' },
+          ] as any
+        }
       />
       <SkillEntry title="Programming Languages" tag={'language'} />
       <SkillEntry title="Frontend" tag={'frontend'} />
@@ -103,14 +105,14 @@ export const SkillEntry = ({
 }) => {
   const { t } = useTranslation();
   const filtered =
-    skills || data.skills.filter((skill) => skill.tags.includes(tag));
+    skills || data.skills.filter((skill) => skill.tags.includes(tag || ''));
 
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'start' }}>
         {(title || tag) && (
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {capitalCase(t(title || tag))}:
+            {capitalCase(t(title || tag || ''))}:
           </Typography>
         )}
         &nbsp;

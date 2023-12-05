@@ -3,7 +3,6 @@ import { Box, Card, CardHeader, List } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { WorkExperienceItem } from './WorkExperienceItem';
 import { getYear } from 'date-fns';
-import { experience } from '@/lib/util';
 
 export const WorkExperienceCard = () => {
   const { t } = useTranslation();
@@ -24,6 +23,7 @@ export const WorkExperienceCard = () => {
               );
             })}
           <WorkExperienceItem
+            id="future"
             company={t('your company')}
             position={
               data.position || data.workHistory.at(-1)?.position || 'Freelancer'
