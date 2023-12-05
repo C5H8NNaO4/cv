@@ -131,7 +131,7 @@ export const SkillEntry = ({
                   variant="body2"
                   sx={{ textDecoration: skill.stack ? 'underline' : 'none' }}
                 >
-                  {skill.name}
+                  {t(skill.name)}
                   {i < arr.length - 1 ? ', ' : ''}
                 </Typography>
                 &nbsp;

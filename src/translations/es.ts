@@ -34,6 +34,9 @@ const translation = {
     German: 'Alemán',
     English: 'Inglés',
     Spanish: 'Español',
+    'German (C2)': 'Alemán (C2)',
+    'English (C1)': 'Inglés (C1)',
+    'Spanish (B2)': 'Español (B2)',
     'Bonus points for AWS or PSQL': 'Puntos extra por AWS o PSQL.',
     'descriptions.maxon':
       'Un sitio web moderno para la empresa maxon para mostrar y vender sus productos. Una presencia digital mundial que utiliza tecnología de última generación para alimentar el sitio web. Coremedia como CMS y Salesforce como motor de comercio aseguran una infraestructura de backend escalable. Next.js y React proporcionan un frontend moderno y sin cabeza.',

@@ -80,7 +80,7 @@ export const workHistory: WorkHistoryEntry[] = [
   {
     id: 'cosuno',
     company: 'Cosuno',
-    location: 'Portugal - Braga',
+    location: 'Braga, Portugal',
     position: 'Senior Frontend Developer',
     homepage: 'https://www.cosuno.com',
     start: '2022-02-01',
