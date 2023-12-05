@@ -21,7 +21,7 @@ const translation = {
     spoken: 'hablados',
     languages: 'idiomas',
     'Spoken Languages': 'Idiomas hablados',
-    'Programming Languages': 'Idiomas programados',
+    'Programming Languages': 'Lenguajes de programación',
     'Fachinformatiker in der Anwendungsentwicklung':
       'Ciencias de la Computación (Fachinformatiker in der Anwendungsentwicklung)',
     Education: 'Educación',
