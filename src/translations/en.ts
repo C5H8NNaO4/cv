@@ -21,6 +21,9 @@ const translation = {
     'descriptions.maxon': `A modern website for the maxon company to showcase and sell their products. A world-wide digital presence using state of art technology to power the website. Coremedia as CMS and Salesforce as commerce engine ensure a scalable backend infrastructure. Next.js and React provide a modern headless frontend.`,
     'descriptions.react-server': `An open source framework that let's you use TSX components on the backend. This allows to rapidly prototype sophisticated full-stack services using Reacts principles from the frontend on the backend.`,
     'descriptions.lists': `A simple productivity app to showcase what you can build with React Server.`,
+    'descriptions.introduction': (
+      await import('@/data/descriptions/introduction/en.md?raw')
+    ).default,
     'descriptions.reflect': (
       await import('@/data/descriptions/reflect/en.md?raw')
     ).default,

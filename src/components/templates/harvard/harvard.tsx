@@ -2,7 +2,7 @@ import { EducationEntry } from '@/App';
 import Markdown from '@/components/Markdown';
 import { WorkExperienceItemProps } from '@/components/WorkExperienceItem';
 import { NAME, SURNAME } from '@/const';
-import data from '@/data';
+import data, { experienceBySkill } from '@/data';
 import { formatDuration, formatPhoneNr } from '@/lib/format';
 import { Typography, Box, Link } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,7 @@ import { Skill } from '@/types';
 export const Name = () => {
   return (
     <Box>
-      <Typography variant='h5' sx={{ textAlign: 'center' }}>
+      <Typography variant="h5" sx={{ textAlign: 'center' }}>
         {NAME} {SURNAME}
       </Typography>
     </Box>
@@ -52,12 +52,15 @@ export const Contact = () => {
   );
 };
 
+export const Introduction = () => {
+  const { t } = useTranslation();
+  return <Markdown>{t('descriptions.introduction', {
+    experience: experienceBySkill,
+  })}</Markdown>;
+};
 export const Footer = () => {
   return (
     <>
-      <Typography sx={{ textAlign: 'center' }}>
-        © {new Date().getFullYear()}, {data.name}
-      </Typography>
       <hr />
       <Typography sx={{ textAlign: 'center' }}>
         <Link

@@ -39,6 +39,7 @@ import {
   Contact,
   EducationSummary,
   Footer,
+  Introduction,
   Name,
   SkillsSummary,
   WorkSummary,
@@ -55,7 +56,7 @@ function App() {
           <Name />
           <hr />
           <Contact />
-
+          <Introduction />
           <EducationSummary />
           <WorkSummary />
           <SkillsSummary />
