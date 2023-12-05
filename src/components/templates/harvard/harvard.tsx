@@ -22,8 +22,6 @@ export const Name = () => {
 };
 
 export const Contact = () => {
-  const printing = useMediaQuery('print');
-
   return (
     <ul
       style={{
