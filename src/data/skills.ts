@@ -6,8 +6,9 @@ import {
 } from '@/const';
 import { age, projectExperience } from '@/lib/util';
 import { projects } from './projects';
+import { Skill } from '@/types';
 
-export const skills = [
+export const skills: Skill[] = [
   { name: 'TypeScript', experience: 7, stack: true, tags: ['language'] },
   { name: 'JavaScript', start: TRAINING_START, tags: ['language'] },
   { name: 'LotusScript', experience: 6, chip: true, tags: ['language'] },
