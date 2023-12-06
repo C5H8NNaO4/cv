@@ -10,7 +10,6 @@ import {
   ListItemText,
   useMediaQuery,
 } from '@mui/material';
-import { LanguagesCard } from './LanguagesCard';
 import data from '@/data';
 import { useTranslation } from 'react-i18next';
 import {

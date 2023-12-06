@@ -14,7 +14,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  useMediaQuery,
 } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import { useTranslation } from 'react-i18next';
@@ -42,11 +41,9 @@ export const Projects = ({
 }) => {
   const [toggled, setToggled] = useState('');
   const { t } = useTranslation();
-  const printing = useMediaQuery('print');
   return (
     <>
-      {projects.slice(from || 0, to).map((project, i, arr) => {
-        const isLast = i === arr.length - 1 && arr.length % 2 === 1;
+      {projects.slice(from || 0, to).map((project) => {
         const desc = t(project.description || '')
           .trim()
           .split(' ');

@@ -22,7 +22,6 @@ import { ExpectedBenefitsCard } from './components/ExpectedBenefitsCard';
 import data from './data';
 import { ContactCard } from './components/ContactCard';
 import { LegendCard } from './components/LegendCard';
-import { EducationCard } from './components/EducationCard';
 import { WorkExperienceCard } from './components/WorkExperienceCard';
 import { MarketingCard } from './components/MarketingCard';
 import { StackCard } from './components/StackCard';
@@ -30,7 +29,6 @@ import { BioCardContent, BioCardHeader } from './components/IntroCard';
 import { SkillSection } from './components/SkillSection';
 import { Portfolio } from './components/Portfolio';
 import { useTranslation } from 'react-i18next';
-import { ProjectCard } from './components/Projects';
 import { differenceInBusinessDays, format } from 'date-fns';
 
 import Markdown from './components/Markdown';

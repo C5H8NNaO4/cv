@@ -1,5 +1,5 @@
 import data from '@/data';
-import { Card, CardHeader, Grid, useMediaQuery } from '@mui/material';
+import { Card, CardHeader, Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Projects } from './Projects';
 
@@ -20,7 +20,6 @@ export const Portfolio = ({
   noGrid?: boolean;
 }) => {
   const { t } = useTranslation();
-  const printing = useMediaQuery('print');
   const headerCard = (
     <Card sx={{ flexShrink: 0 }}>
       <CardHeader
