@@ -51,9 +51,6 @@ const translation = {
     'descriptions.introduction': (
       await import('@/data/descriptions/introduction/de.md?raw')
     ).default,
-    'descriptions.reflect': (
-      await import('@/data/descriptions/reflect/de.md?raw')
-    ).default,
     'descriptions.books': (await import('@/data/descriptions/books/de.md?raw'))
       .default,
     'descriptions.learnings': (
