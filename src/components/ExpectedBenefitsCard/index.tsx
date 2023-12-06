@@ -24,8 +24,8 @@ export const ExpectedBenefitsCard = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <Card square sx={{ height: '100%' }}>
-      <CardHeader title={t('Expected Benefits')} />
+    <Card square>
+      <CardHeader title={t('Expected Benefits')} sx={{pb:0}}/>
       <List sx={{ w: '50%' }} disablePadding>
         <ListItem dense>
           <ListItemIcon>

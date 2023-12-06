@@ -11,14 +11,14 @@ export const Page = ({
   return (
     <Paper
       sx={{
-        minHeight: autoHeight && !last ? 420 * 3.75 * 1.01 + 'px' : undefined,
-        maxHeight: autoHeight ? 420 * 3.75 * 1.01 + 'px' : undefined,
-
-        // overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: autoHeight && !last ? 297 * 3.75 - 2 * 8 + 'px' : undefined,
+        maxHeight: autoHeight ? 297 * 3.75 - 2 * 8 + 'px' : undefined,
         m: 0,
-        p: 1,
+        py: 2,
+        px: 4,
         ...sx,
-        // pt: '8px',
       }}
       elevation={0}
     >

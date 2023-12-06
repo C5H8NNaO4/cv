@@ -26,7 +26,7 @@ export const ContactCard = ({ exporting }: { exporting: boolean }) => {
         justifyContent: 'space-between',
       }}
     >
-      <CardHeader title={t('Contact')} />
+      <CardHeader title={t('Contact')} sx={{ pb: 0 }} />
       <List sx={{ w: '50%' }} disablePadding>
         <ListItem dense>
           <ListItemText primary={data.phone} secondary="Phone" />

@@ -5,6 +5,7 @@ const translation = {
     at: 'at',
     'https://justmycv.com/': 'https://justmycv.com/en',
     'Grow together': 'In Future',
+    'Experience': 'Experience {{suffix}}',
     'Recent experience': 'Recent',
     'Professional experience': 'Professional',
     'Hobby experience': 'Hobby',

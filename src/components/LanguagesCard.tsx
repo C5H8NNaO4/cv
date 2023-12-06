@@ -19,12 +19,10 @@ export const LanguagesCard = () => {
   const printing = useMediaQuery('print');
   return (
     <Card square>
-      <CardHeader
-        title={capitalCase(t('spoken'))}
-        subheader={capitalCase(t('languages'))}
-      />
+      <CardHeader title={capitalCase(t('Spoken Languages'))} sx={{ pb: 0 }} />
       <List sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <ListItemButton
+          dense
           selected={i18n.language === 'de'}
           sx={{ flexShrink: 1, width: '50%' }}
           onClick={() => {
@@ -51,6 +49,7 @@ export const LanguagesCard = () => {
           />
         </ListItemButton>
         <ListItemButton
+          dense
           selected={i18n.language === 'en'}
           sx={{ flexShrink: 1, width: '50%' }}
           onClick={() => {
@@ -74,6 +73,7 @@ export const LanguagesCard = () => {
           />
         </ListItemButton>
         <ListItemButton
+          dense
           selected={i18n.language === 'es'}
           sx={{ flexShrink: 1, width: '50%' }}
           onClick={() => {

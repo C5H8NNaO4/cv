@@ -25,7 +25,7 @@ const translation = {
     'Fachinformatiker in der Anwendungsentwicklung':
       'Ciencias de la Computación (Fachinformatiker in der Anwendungsentwicklung)',
     Education: 'Educación',
-    Experience: 'Experiencia',
+    Experience: 'Experiencia {{suffix}}',
     'Work History': 'Experiencia Laboral',
     'Expected Benefits': 'Beneficios Esperados',
     Call: 'Llamar',

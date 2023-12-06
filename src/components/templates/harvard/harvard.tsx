@@ -64,7 +64,7 @@ export const Introduction = () => {
 };
 export const Footer = () => {
   return (
-    <>
+    <Box >
       <hr />
       <Typography sx={{ textAlign: 'center' }}>
         <Link
@@ -75,7 +75,7 @@ export const Footer = () => {
           sx={{ ml: 1 }}
         >{`.pdf`}</Link>
       </Typography>
-    </>
+    </Box>
   );
 };
 
@@ -196,18 +196,27 @@ export const EducationSummaryEntry = (props: EducationEntry) => {
   );
 };
 
-export const WorkSummary = () => {
+export const WorkSummary = ({
+  slice,
+  title,
+}: {
+  slice: number[];
+  title: string;
+}) => {
   const { t } = useTranslation();
   return (
     <>
       <Typography variant="h6" sx={{ textAlign: 'center' }}>
-        {t('Experience')}
+        {t('Experience', {
+          suffix: title,
+        })}
       </Typography>
       <div>
         {data.workHistory
           .sort((a, b) => {
             return b.start.localeCompare(a.start);
           })
+          .slice(...slice)
           .map((entry) => {
             return <WorkSummaryEntry {...entry} />;
           })}

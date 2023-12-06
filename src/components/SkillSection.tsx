@@ -241,9 +241,6 @@ export const SkillSection = () => {
         <Grid item container>
           <SkillCards skills={data.skills} />
         </Grid>
-        <Grid item xs={12} sx={{ mt: 'auto', height: 'min-content' }}>
-          <LanguagesCard />
-        </Grid>
       </Grid>
     </Card>
   );

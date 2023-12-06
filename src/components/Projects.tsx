@@ -62,13 +62,7 @@ export const Projects = ({
         );
         if (noGrid) return card;
         return (
-          <Grid
-            key={project.name}
-            item
-            xs={printing ? (isLast ? 12 : 6) : xs}
-            md={isLast ? 12 : md}
-            sx={{ flex: 1 }}
-          >
+          <Grid key={project.name} item xs={xs} md={md} sx={{ flex: 1 }}>
             {card}
           </Grid>
         );

@@ -45,6 +45,7 @@ import {
   WorkSummary,
 } from './components/templates/harvard/harvard';
 import { locales } from './lib/format';
+import { LanguagesCard } from './components/LanguagesCard';
 
 function App() {
   const { t } = useTranslation();
@@ -52,15 +53,22 @@ function App() {
   return (
     <div id="root">
       <Page sx={{ w: '100%' }}>
-        <Box sx={{ mb: 2 }}>
+        <Box>
           <Name />
           <hr />
           <Contact />
           <Introduction />
           <EducationSummary />
-          <WorkSummary />
+          <WorkSummary slice={[0, -4]} title="(1-3)" />
           <SkillsSummary />
         </Box>
+        <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
+        <Footer />
+      </Page>
+      <Page>
+        <WorkSummary slice={[-4]} title="(4-7)" />
+        <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
+
         <Footer />
       </Page>
       <Box sx={{ mt: !printing ? '100vh' : 0 }} />
@@ -78,13 +86,6 @@ function App() {
               <BioCardHeader />
               <BioCardContent />
             </Grid>
-            <Grid item sx={{ mx: 'auto', my: 'auto' }}>
-              <StackCard />
-            </Grid>
-
-            <Grid item sx={{ mt: 'auto', alignSelf: 'flex-end' }} xs={12}>
-              <MarketingCard />
-            </Grid>
           </Grid>
           <Grid
             item
@@ -92,8 +93,35 @@ function App() {
             md={4}
             sx={{ display: 'flex', flexDirection: 'column' }}
           >
-            <EducationCard />
-            <WorkExperienceCard />
+            {/* <EducationCard /> */}
+            <WorkExperienceCard slice={[0, -2]} />
+          </Grid>
+        </Grid>
+      </Page>
+      <Page>
+        <Grid container spacing={2}>
+          <Grid item xs={12} spacing={1} container>
+            <Grid item xs={6}>
+              <StackCard />
+            </Grid>
+            <Grid item xs={6}>
+              <LanguagesCard />
+            </Grid>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <MarketingCard />
+          </Grid>
+          <Grid item xs={12} md={6} container spacing={1}>
+            <Grid item xs={6} md={12}>
+              <ExpectedBenefitsCard
+                salary={data.salary}
+                benefits={data.benefits}
+              />
+            </Grid>
+            <Grid item xs={6} md={12}>
+              <ContactCard exporting={printing} />
+            </Grid>
           </Grid>
           <Grid
             item
@@ -105,73 +133,41 @@ function App() {
         </Grid>
       </Page>
       <Page>
-        <Grid container spacing={2}>
-          <Grid item xs={printing ? 6 : 12} md={6}>
-            <ExpectedBenefitsCard
-              salary={data.salary}
-              benefits={data.benefits}
-            />
-          </Grid>
-          <Grid item xs={printing ? 6 : 12} md={6} sx={{ h: '100%' }}>
-            <ContactCard exporting={printing} />
-          </Grid>
-
-          <Grid item xs={printing ? 8 : 12} md={8}>
-            <SkillSection />
-          </Grid>
-          <Grid
-            item
-            container
-            xs={printing ? 4 : 12}
-            md={4}
-            alignContent={'space-between'}
-          >
-            <Box
-              sx={{
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 1,
-              }}
-            >
-              <Portfolio
-                from={0}
-                to={printing ? 2 : 3}
-                expanded={printing}
-                noGrid
-              />
-            </Box>
-          </Grid>
+        <Grid item xs={printing ? 8 : 12} md={12}>
+          <SkillSection />
         </Grid>
       </Page>
       <Page>
         <Grid container spacing={1}>
           <Portfolio
-            from={printing ? 2 : 3}
-            to={5}
+            from={0}
+            to={2}
             expanded={printing}
-            xs={printing ? 6 : 12}
+            xs={printing ? 12 : 6}
             md={6}
           />
         </Grid>
-        <Grid container sx={{ mt: 3 }} spacing={1}>
-          <Grid item xs={printing ? 6 : 12} md={6}>
-            <ProjectCard
-              project={{
-                name: 'Books',
-                id: 'books',
-                href: 'https://www.goodreads.com/review/list/158325463-moritz-roessler',
-                description: t('descriptions.books'),
-                stack: [],
-              }}
-              desc={t('descriptions.books').split(' ')}
-              toggled={'Books'}
-              setToggled={() => {}}
-            />
-          </Grid>
-          <Grid item xs={printing ? 6 : 12} md={6}>
-            <SocialCard />
-          </Grid>
+      </Page>
+      <Page>
+        <Grid container spacing={1}>
+          <Portfolio
+            from={2}
+            to={4}
+            expanded={printing}
+            xs={printing ? 12 : 6}
+            md={6}
+          />
+        </Grid>
+      </Page>
+      <Page>
+        <Grid container spacing={1}>
+          <Portfolio
+            from={4}
+            to={5}
+            expanded={printing}
+            xs={printing ? 12 : 6}
+            md={6}
+          />
         </Grid>
       </Page>
       <Page last>

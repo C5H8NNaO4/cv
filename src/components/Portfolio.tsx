@@ -26,21 +26,20 @@ export const Portfolio = ({
       <CardHeader
         title={t('Portfolio', {
           from: from + 1,
-          to: printing ? to : data.projects.length,
+          to: to,
         })}
       ></CardHeader>
     </Card>
   );
   return (
     <>
-      {(from === 0 || printing) &&
-        (!noGrid ? (
-          <Grid item xs={12}>
-            {headerCard}
-          </Grid>
-        ) : (
-          headerCard
-        ))}
+      {!noGrid ? (
+        <Grid item xs={12}>
+          {headerCard}
+        </Grid>
+      ) : (
+        headerCard
+      )}
       {/* <Grid item container xs={12} justifyContent={'space-between'}> */}
       <Projects
         projectId={md === 6 ? 'portfolio-2' : undefined}

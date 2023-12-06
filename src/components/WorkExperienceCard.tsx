@@ -4,16 +4,17 @@ import { useTranslation } from 'react-i18next';
 import { WorkExperienceItem } from './WorkExperienceItem';
 import { getYear } from 'date-fns';
 
-export const WorkExperienceCard = () => {
+export const WorkExperienceCard = ({ slice }: { slice: number[] }) => {
   const { t } = useTranslation();
   return (
-    <Card square sx={{ mt: 'auto' }}>
+    <Card square>
       <CardHeader title={t('Work History')} />
       <Box>
         <List>
           {data.workHistory
             .slice()
             .sort((a, b) => a.start.localeCompare(b.start))
+            .slice(...slice)
             .map((entry) => {
               return (
                 <WorkExperienceItem
