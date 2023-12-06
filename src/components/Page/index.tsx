@@ -15,6 +15,7 @@ export const Page = ({
         flexDirection: 'column',
         minHeight: autoHeight && !last ? 297 * 3.75 - 2 * 8 + 'px' : undefined,
         maxHeight: autoHeight ? 297 * 3.75 - 2 * 8 + 'px' : undefined,
+        border: '1px solid white',
         m: 0,
         py: 2,
         px: 4,
