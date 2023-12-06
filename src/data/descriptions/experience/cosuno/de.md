@@ -1,3 +1,3 @@
-* Pflegte eine hochwertige Frontend-Codebasis.
-* Implementierte React-Komponenten basierend auf Benutzerstories.
-* Sammelte Erfahrung durch die Zusammenarbeit mit einem erfahrenen SCRUM-Team.
+- Pflegte eine qualitativ hochwertige Frontend-Codebasis während meiner Arbeit im Entwicklungsteam.
+- Implementierte React-Komponenten basierend auf Benutzerstories, um Funktionalität und Benutzererfahrung zu verbessern.
+- Sammelte wertvolle Erfahrungen durch die Zusammenarbeit in einem erfahrenen SCRUM-Team, trug zur Projektförderung bei und verfeinerte die Ergebnisse für erfolgreiche Ergebnisse bei Cosuno in Braga, Portugal.

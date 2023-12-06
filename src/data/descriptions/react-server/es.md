@@ -1,0 +1,1 @@
+Creé React Server, una innovadora implementación del lado del servidor de React que permite el uso de componentes TSX en el backend. Esto posibilita la creación rápida de servicios avanzados de pila completa al llevar los principios de frontend de React al desarrollo del backend.

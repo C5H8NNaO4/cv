@@ -237,7 +237,7 @@ export const ProjectSummaryEntry = (props: ProjectEntryProps) => {
         {/* <Typography variant="body2">{location}</Typography> */}
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Markdown style={{ maxWidth: '85%' }}>{t(description)}</Markdown>
+        <Markdown style={{ maxWidth: '80%' }}>{t(description)}</Markdown>
         {duration && (
           <Typography variant="body2">{formatDuration(duration)}</Typography>
         )}
@@ -338,7 +338,7 @@ export const WorkSummaryEntry = (props: WorkExperienceItemProps) => {
         <Typography variant="body2">{position}</Typography>
         <Typography variant="body2">{formatInterval(start, end)}</Typography>
       </Box>
-      <Markdown style={{ maxWidth: '85%' }}>
+      <Markdown style={{ maxWidth: '80%' }}>
         {t(`descriptions.${id}.experience`)}
       </Markdown>
     </div>

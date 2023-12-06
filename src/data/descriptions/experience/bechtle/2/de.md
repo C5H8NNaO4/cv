@@ -1,3 +1,3 @@
-* Entwickelte zahlreiche unternehmensweite Lotus Notes-Anwendungen.
-* Erlangte Kompetenz in LotusScript sowie Lotus Domino/Notes.
-* Sammelte Erfahrung in der Arbeitsumgebung agiler Entwicklungsmethoden.
+- Entwickelte mehrere unternehmensweite Lotus Notes-Anwendungen und trug zum Softwareportfolio des Unternehmens bei.
+- Erlangte Kompetenz in LotusScript und Lotus Domino/Notes und nutzte diese Fähigkeiten in Softwareentwicklungsprojekten.
+- Sammelte wertvolle Erfahrungen in einem agilen Entwicklungsumfeld und trug aktiv zu iterativen Softwareentwicklungsmethoden während meiner Zeit bei Bechtle in Freiburg, Deutschland, bei.

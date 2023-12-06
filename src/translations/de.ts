@@ -40,10 +40,14 @@ const translation = {
     'Bonus points for AWS or PSQL': 'Bonus punkte für AWS oder PSQL.',
     'descriptions.maxon':
       'Eine moderne Website für das Unternehmen maxon, um ihre Produkte zu präsentieren und zu verkaufen. Eine weltweite digitale Präsenz, die modernste Technologie nutzt, um die Website zu betreiben. Coremedia als CMS und Salesforce als Commerce-Engine gewährleisten eine skalierbare Backend-Infrastruktur. Next.js und React bieten ein modernes, Headless-Frontend.',
-    'descriptions.react-server':
-      'Ein Open-Source-Framework, das es Ihnen ermöglicht, TSX-Komponenten auf der Backend-Seite zu verwenden. Dies ermöglicht das schnelle Prototyping anspruchsvoller Full-Stack-Services unter Verwendung der Prinzipien von React vom Frontend auf der Backend-Seite.',
-    'descriptions.lists':
-      'Eine einfache Produktivitäts-App, um zu zeigen, was Sie mit React Server erstellen können.',
+    'descriptions.react-server': (
+      await import('@/data/descriptions/react-server/de.md?raw')
+    ).default,
+    'descriptions.lists': (await import('@/data/descriptions/lists/de.md?raw'))
+      .default,
+    'descriptions.reflect': (
+      await import('@/data/descriptions/reflect/de.md?raw')
+    ).default,
     'descriptions.introduction': (
       await import('@/data/descriptions/introduction/de.md?raw')
     ).default,

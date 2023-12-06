@@ -1,3 +1,3 @@
-* Construí numerosas aplicaciones de nivel empresarial en Lotus Notes.
-* Adquirí habilidades en LotusScript y Lotus Domino/Notes.
-* Obtuvé experiencia trabajando en un entorno de desarrollo ágil.
+- Desarrollé múltiples aplicaciones Lotus Notes a nivel empresarial, contribuyendo al portafolio de software de la empresa.
+- Adquirí competencia en LotusScript y Lotus Domino/Notes, aprovechando estas habilidades en iniciativas de desarrollo de software.
+- Obtuvé una valiosa experiencia trabajando en un entorno de desarrollo ágil, contribuyendo activamente a metodologías iterativas de desarrollo de software durante mi tiempo en Bechtle en Freiburg, Alemania.

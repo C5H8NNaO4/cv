@@ -67,12 +67,12 @@ function App() {
         <WorkSummary slice={[-4]} title="(4-7)" />
         <EducationSummary />
         <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
-        <Footer />
+        {/* <Footer /> */}
       </Page>
       <Page>
         <ProjectSummary />
         <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
-        <Footer />
+        {/* <Footer /> */}
       </Page>
       <Box sx={{ mt: !printing ? '100vh' : 0 }} />
       <Page>

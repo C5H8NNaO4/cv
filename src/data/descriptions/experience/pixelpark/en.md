@@ -1,3 +1,3 @@
-* As the main Frontend Developer in an ongoing project at Digitas Pixelpark, contributed to developing a state-of-the-art frontend solution using React on Next.js, and integrating CoreMedia as CMS
-* Translated complex Figma designs into functional, reusable components, ensuring a well-structured codebase adhering to strict ESLint standards
-* Actively engaged within the SCRUM team, driving project progress and enthusiastically participating in sprint reviews to refine and enhance project outcomes, contributing significantly to the success of the project at Digitas Pixelpark
+- As the main Frontend Developer in an ongoing project at Digitas Pixelpark, contributed to developing a state-of-the-art frontend solution using React on Next.js, and integrating CoreMedia as CMS
+- Translated complex Figma designs into functional, reusable components, ensuring a well-structured codebase adhering to strict ESLint standards
+- Actively engaged within the SCRUM team, driving project progress and enthusiastically participating in sprint reviews to refine and enhance project outcomes, contributing significantly to the success of the project at Digitas Pixelpark

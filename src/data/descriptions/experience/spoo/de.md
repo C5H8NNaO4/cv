@@ -1,4 +1,4 @@
-* Pflegte eine JavaScript-Codebasis.
-* Analysierte Echtzeitdaten mit hoher Frequenz.
-* Analysierte und korrelierte Hunderte Millionen Zeilen über verschiedene Datensätze hinweg.
-* Implementierte ein Echtzeitüberwachungs-Dashboard.
+- Pflegte eine JavaScript-Codebasis, um deren Funktionalität und Effizienz sicherzustellen.
+- Analysierte Echtzeitdaten mit hoher Frequenz und verarbeitete umfangreiche Informationsmengen.
+- Führte die Analyse und Korrelation von Hunderten Millionen Zeilen über verschiedene Datensätze hinweg durch.
+- Implementierte erfolgreich ein Echtzeitüberwachungs-Dashboard zur Verbesserung der Datenvisualisierung und -zugänglichkeit für bessere Erkenntnisse und Entscheidungsfindung bei Spoo in Denzlingen, Deutschland.

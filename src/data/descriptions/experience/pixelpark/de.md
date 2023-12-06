@@ -1,5 +1,3 @@
-* Entwickelte eine ausgereifte Frontend-Lösung mit React auf Next.js und nutzte CoreMedia als CMS.
-* Implementierte Komponenten basierend auf bereitgestellten Figma-Dateien.
-* Pflegte eine hochwertige Codebasis mit strengen ESLint-Regeln.
-* Sammelte Erfahrungen durch die Arbeit in einem erfahrenen SCRUM-Team.
-* Präsentierte Ergebnisse in regelmäßigen Sprint-Reviews.
+- Als Haupt-Frontend-Entwickler in einem laufenden Projekt bei Digitas Pixelpark habe ich dazu beigetragen, eine innovative Frontendlösung unter Verwendung von React auf Next.js zu entwickeln und CoreMedia als CMS zu integrieren.
+- Übersetzte komplexe Figma-Designs in funktionale, wiederverwendbare Komponenten, um eine gut strukturierte Codebasis zu gewährleisten, die strengen ESLint-Standards entspricht.
+- War aktiv im SCRUM-Team engagiert, trieb den Projektfortschritt voran und nahm enthusiastisch an Sprint-Reviews teil, um die Projekt­ergebnisse zu verfeinern und zu verbessern. Dadurch trug ich maßgeblich zum Erfolg des Projekts bei Digitas Pixelpark bei.
