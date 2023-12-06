@@ -26,14 +26,14 @@ export const learnings = [
     title: 'Programmatically rename functions',
     so: true,
     description:
-      '[https://stackoverflow.com/q/24853292/1487756](https://stackoverflow.com/q/24853292/1487756)',
+      '[stackoverflow.com/q/24853292/1487756](https://stackoverflow.com/q/24853292/1487756)',
     date: '2014-07-15',
   },
   {
     title: 'Crockfords Top Down Operator Precedence',
     so: true,
     description:
-      '[https://stackoverflow.com/q/18828321/1487756](https://stackoverflow.com/q/18828321/1487756)',
+      '[stackoverflow.com/q/18828321/1487756](https://stackoverflow.com/q/18828321/1487756)',
     date: '2014-07-15',
   },
   {

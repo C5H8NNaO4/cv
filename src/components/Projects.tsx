@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { durStr, duration } from '@/lib/util';
+import { formatDuration, duration } from '@/lib/util';
 import { Project } from '@/types';
 import {
   Accordion,
@@ -19,6 +19,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-markdown';
 import { RecentSkill } from './RecentSkillChip';
+import { formatLink } from '@/lib/format';
 
 export const Projects = ({
   projects,
@@ -100,7 +101,7 @@ export const ProjectCard = ({
     >
       <CardHeader
         title={project.name}
-        subheader={projectDuration ? durStr(projectDuration) : undefined}
+        subheader={projectDuration ? formatDuration(projectDuration) : undefined}
       />
       <Box sx={{ m: 1, gap: 0.5, display: 'flex', flexWrap: 'wrap' }}>
         {project.stack.map((tech: string) => {
@@ -125,7 +126,9 @@ export const ProjectCard = ({
       {project.href && (
         <ListItem dense>
           <ListItemText
-            primary={<Link href={t(project.href)}>{t(project.href)}</Link>}
+            primary={
+              <Link href={t(project.href)}>{t(formatLink(project.href))}</Link>
+            }
             secondary={'Website'}
           />
         </ListItem>
@@ -133,7 +136,9 @@ export const ProjectCard = ({
       {project.repo && (
         <ListItem dense>
           <ListItemText
-            primary={<Link href={project.repo}>{project.repo}</Link>}
+            primary={
+              <Link href={project.repo}>{formatLink(project.repo)}</Link>
+            }
             secondary={'Repo'}
           />
         </ListItem>

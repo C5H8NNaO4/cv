@@ -1,0 +1,1 @@
+Created React Server, an innovative server-side implementation of React that allows using TSX components on the backend. This enables the swift creation of advanced full-stack services by bringing React's frontend principles to backend development.

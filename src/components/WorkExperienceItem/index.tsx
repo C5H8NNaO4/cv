@@ -3,7 +3,7 @@ import { getYear } from 'date-fns';
 import RoomIcon from '@mui/icons-material/Room';
 import { RecentSkill } from '../RecentSkillChip';
 import { useTranslation } from 'react-i18next';
-import { formatDuration } from '@/lib/format';
+import { formatInterval } from '@/lib/format';
 
 export interface WorkExperienceItemProps {
   id: string;
@@ -32,7 +32,7 @@ export const WorkExperienceItem = (props: WorkExperienceItemProps) => {
       }}
     >
       <ListItemText
-        primary={formatDuration(start, end)}
+        primary={formatInterval(start, end)}
         secondary={
           <span>
             <span>

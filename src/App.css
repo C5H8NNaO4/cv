@@ -19,6 +19,14 @@ body {
   margin: 0px;
 }
 
+.MuiLink-root {
+  /* text-decoration: none !important; */
+}
+
+ul {
+  padding-left: 16px;
+}
+
 @page {
   size: A4;
 }

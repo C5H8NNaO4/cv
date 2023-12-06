@@ -1,5 +1,5 @@
 import data from '@/data';
-import { age, durStr } from '@/lib/util';
+import { age, formatDuration } from '@/lib/util';
 import { Skill } from '@/types';
 import { Box, Card, CardHeader, Chip, Tooltip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,7 @@ export const Stack = ({ skills }: { skills: Skill[] }) => {
           return (
             <Tooltip
               key={'stack-chip-' + skill.name}
-              title={durStr(skill.experience || age(skill.start))}
+              title={formatDuration(skill.experience || age(skill.start))}
             >
               <Chip
                 label={skill.name}

@@ -86,7 +86,7 @@ export const map = (
   );
 };
 
-export const durStr = (duration: number, plus?: boolean) => {
+export const formatDuration = (duration: number, plus?: boolean) => {
   const t = i18next.t;
   if (duration > 1)
     return `${Math.round(duration * 2) / 2}${plus ? '+' : ''} ${t('years')}`;

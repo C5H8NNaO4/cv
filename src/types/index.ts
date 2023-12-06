@@ -22,4 +22,5 @@ export type Skill = {
   stack?: boolean;
   start?: string;
   end?: string;
+  href?: string;
 };

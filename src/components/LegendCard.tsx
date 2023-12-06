@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import StarIcon from '@mui/icons-material/Star';
 import WorkIcon from '@mui/icons-material/Work';
 import SurfingIcon from '@mui/icons-material/Surfing';
-import { durStr } from '@/lib/util';
+import { formatDuration } from '@/lib/util';
 
 export const LegendCard = () => {
   const { t } = useTranslation();
@@ -71,7 +71,7 @@ export const LegendCard = () => {
               borderStyle: 'solid',
             }}
           />
-          =<Typography variant="h6">{durStr(3, true)}</Typography>
+          =<Typography variant="h6">{formatDuration(3, true)}</Typography>
         </Grid>
       </Grid>
     </Card>

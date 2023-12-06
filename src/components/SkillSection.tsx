@@ -14,7 +14,7 @@ import data from '@/data';
 import { useTranslation } from 'react-i18next';
 import {
   age,
-  durStr,
+  formatDuration,
   experience,
   getExperienceColor,
   projectExperience,
@@ -120,7 +120,7 @@ export const Skills = ({ skills, tag }: { skills: Skill[]; tag: string }) => {
                         alignItems: 'start',
                       }}
                     >
-                      {durStr(skillExperience)}
+                      {formatDuration(skillExperience)}
                     </Box>
                   }
                 ></ListItemText>

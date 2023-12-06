@@ -11,7 +11,7 @@ import {
 import DownloadIcon from '@mui/icons-material/Download';
 import i18n from 'i18next';
 import { Markdown } from '@/components/Markdown';
-import { age, durStr, map } from '@/lib/util';
+import { age, formatDuration, map } from '@/lib/util';
 import { BIRTHDAY, TRAINING_START } from '@/const';
 import { useTranslation } from 'react-i18next';
 
@@ -23,7 +23,7 @@ export const Description = () => {
         age: Math.floor(age(BIRTHDAY)),
         experience: experienceBySkill,
         consts: map({ BIRTHDAY, TRAINING_START }, (date: string) =>
-          durStr(age(date))
+          formatDuration(age(date))
         ),
         tags: {
           frameworks: data.skills

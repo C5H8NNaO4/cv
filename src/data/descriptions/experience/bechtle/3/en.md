@@ -1,1 +1,1 @@
-* Translated an existing codebase from C# to Perl.
+* Translated an existing codebase from C# to Perl

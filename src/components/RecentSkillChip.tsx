@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import {
-  durStr,
+  formatDuration,
   experience,
   getExperienceColor,
   recentSkill,
@@ -16,7 +16,7 @@ export const RecentSkill = ({ label }: { label: string }) => {
   return (
     <Tooltip
       title={clsx({
-        [durStr(experience(skill(data.skills, label)) || 7, true) + '.']:
+        [formatDuration(experience(skill(data.skills, label)) || 7, true) + '.']:
           experience(skill(data.skills, label)) >= 3,
         [t('Recent experience') + '.']: recentSkill(data.workHistory, label),
         [t('Part of my stack') + '.']: data.skills.find((s) => s.name === label)

@@ -1,3 +1,1 @@
-* Bereitete Mahlzeiten für Hunderte von Hochzeitsgästen vor.
-* Konstruierte verschiedene Strukturen (Umzäunung, Stall, Haus).
-* Habe eine neue Sprache gelernt.
+* Während meines einjährigen Aufenthalts in Arboleda Emaluisa in Chile fungierte ich als Koch im familieneigenen Restaurant und trug aktiv zu verschiedenen Bauprojekten bei. Dies umfasste die Überwachung der kulinarischen Abläufe und die Beteiligung an Bauprojekten wie dem Bau von Umzäunungen und Häusern. Gleichzeitig erlangte ich fließende Spanischkenntnisse und nutzte diese immersive Erfahrung, um Anpassungsfähigkeit und interkulturelle Kommunikationsfähigkeiten zu entwickeln, obwohl es sich von meiner Hauptrolle als Webentwickler unterschied.

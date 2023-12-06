@@ -1,1 +1,1 @@
-      My interactive online CV. - I got tired of using Adobe Illustrator to update my CV. Using a website to generate a CV seems natural as webdev.
+Developed an interactive online CV as a practical solution to the challenges of maintaining and updating CVs in Adobe Illustrator. Utilizing web development expertise and adhering to /r/engineeringresume standards, this project implements the Harvard resume guidelines. It seamlessly renders CVs to PDF format using a web development stack, offering a user-friendly and efficient way to create and update professional resumes.

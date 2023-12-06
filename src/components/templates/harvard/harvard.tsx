@@ -1,14 +1,21 @@
 import { EducationEntry } from '@/App';
 import Markdown from '@/components/Markdown';
 import { WorkExperienceItemProps } from '@/components/WorkExperienceItem';
-import { NAME, SURNAME } from '@/const';
+import {
+  INCLUDE_ADDRESS,
+  INCLUDE_LOCATION,
+  NAME,
+  SURNAME,
+  RELEVANT_SKILLS,
+  NUM_PROJECTS,
+} from '@/const';
 import data, { experienceBySkill } from '@/data';
-import { formatDuration, formatPhoneNr } from '@/lib/format';
-import { Typography, Box, Link } from '@mui/material';
+import { formatInterval, formatLink, formatPhoneNr } from '@/lib/format';
+import { Typography, Box, Link, useMediaQuery } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { capitalCase } from 'change-case';
-import { experience } from '@/lib/util';
+import { experience, formatDuration } from '@/lib/util';
 import { Skill } from '@/types';
 
 export const Name = () => {
@@ -33,21 +40,28 @@ export const Contact = () => {
       }}
     >
       {[
-        data.address,
-        `${data.city}, ${data.country}`,
+        INCLUDE_ADDRESS && data.address,
+        INCLUDE_LOCATION && `${data.city}, ${data.country}`,
         [data.email, 'mailto:' + data.email],
         [formatPhoneNr(data.phone), 'tel:' + data.phone],
-      ].map((data, i) => {
-        return (
-          <li style={{ display: i === 0 ? 'block' : 'list-item' }}>
-            {Array.isArray(data) ? (
-              <Link href={data[1]}>{data[0]}</Link>
-            ) : (
-              <Typography>{Array.isArray(data) ? data[0] : data}</Typography>
-            )}
-          </li>
-        );
-      })}
+      ]
+        .filter(Boolean)
+        .map((data, i) => {
+          return (
+            <li style={{ display: i === 0 ? 'block' : 'list-item' }}>
+              {Array.isArray(data) ? (
+                <Link
+                  href={data[1]}
+                  sx={{ textDecoration: 'none', color: 'black' }}
+                >
+                  {data[0]}
+                </Link>
+              ) : (
+                <Typography>{Array.isArray(data) ? data[0] : data}</Typography>
+              )}
+            </li>
+          );
+        })}
     </ul>
   );
 };
@@ -64,12 +78,12 @@ export const Introduction = () => {
 };
 export const Footer = () => {
   return (
-    <Box >
+    <Box>
       <hr />
       <Typography sx={{ textAlign: 'center' }}>
         <Link
           href={`https://justmycv.com/${i18n.language}`}
-        >{`https://justmycv.com/${i18n.language}`}</Link>
+        >{`justmycv.com/${i18n.language}`}</Link>
         <Link
           href={`https://justmycv.com/${i18n.language}.pdf`}
           sx={{ ml: 1 }}
@@ -81,6 +95,7 @@ export const Footer = () => {
 
 export const SkillsSummary = () => {
   const { t } = useTranslation();
+  const printing = useMediaQuery('print');
   return (
     <>
       <Typography variant="h6" sx={{ textAlign: 'center' }}>
@@ -90,9 +105,18 @@ export const SkillsSummary = () => {
         title="Spoken Languages"
         skills={
           [
-            { name: 'German (C2)' },
-            { name: 'English (C1)' },
-            { name: 'Spanish (B2)' },
+            {
+              name: 'German (C2)',
+              href: 'https://justmycv.com/de' + (printing ? '.pdf' : ''),
+            },
+            {
+              name: 'English (C1)',
+              href: 'https://justmycv.com/en' + (printing ? '.pdf' : ''),
+            },
+            {
+              name: 'Spanish (B2)',
+              href: 'https://justmycv.com/es' + (printing ? '.pdf' : ''),
+            },
           ] as any
         }
       />
@@ -138,7 +162,14 @@ export const SkillEntry = ({
         )}
         &nbsp;
         {filtered
-          .sort((a, b) => experience(b) - experience(a))
+          .sort(
+            (a, b) =>
+              (RELEVANT_SKILLS.indexOf(b.name) -
+                RELEVANT_SKILLS.indexOf(a.name)) *
+                10 +
+              (Number(b.stack || 0) - Number(a.stack || 0)) * 5 +
+              (experience(b) - experience(a))
+          )
           .map((skill, i, arr) => {
             return (
               <>
@@ -146,7 +177,12 @@ export const SkillEntry = ({
                   variant="body2"
                   sx={{ textDecoration: skill.stack ? 'underline' : 'none' }}
                 >
-                  {t(skill.name)}
+                  <Link
+                    href={skill.href}
+                    sx={{ textDecoration: 'none', color: 'black' }}
+                  >
+                    {t(skill.name)}
+                  </Link>
                   {i < arr.length - 1 ? ', ' : ''}
                 </Typography>
                 &nbsp;
@@ -155,6 +191,68 @@ export const SkillEntry = ({
           })}
       </Box>
     </Box>
+  );
+};
+
+export const ProjectSummary = () => {
+  const { t } = useTranslation();
+  return (
+    <>
+      <Typography variant="h6" sx={{ textAlign: 'center' }}>
+        {t('Projects')}
+      </Typography>
+      <div>
+        {data.projects
+          .slice()
+          .filter((project) => !project.company)
+          .sort((a, b) => {
+            return (b.sort || 0) - (a.sort || 0);
+          })
+          .slice(0, NUM_PROJECTS)
+          .map((project) => {
+            return <ProjectSummaryEntry {...project} />;
+          })}
+      </div>
+    </>
+  );
+};
+export type ProjectEntryProps = {
+  stars?: number;
+  sort?: number;
+  repo?: string;
+  name: string;
+  description: string;
+  duration?: number;
+};
+
+export const ProjectSummaryEntry = (props: ProjectEntryProps) => {
+  const { t } = useTranslation();
+  const { repo, stars, name, description, duration } = props;
+  return (
+    <div>
+      <Box sx={{ display: 'flex', justifyContent: 'start' }}>
+        <Typography variant="overline" sx={{ fontWeight: 'bold' }}>
+          {name}
+        </Typography>
+        {/* <Typography variant="body2">{location}</Typography> */}
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Markdown style={{ maxWidth: '85%' }}>{t(description)}</Markdown>
+        {duration && (
+          <Typography variant="body2">{formatDuration(duration)}</Typography>
+        )}
+      </Box>
+      {repo && (
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Link href={repo} target="_blank" rel="noreferrer">
+            {formatLink(repo)}
+          </Link>
+          {stars && (
+            <Typography variant="body2">{stars + ' ' + t('Stars')}</Typography>
+          )}
+        </Box>
+      )}
+    </div>
   );
 };
 export const EducationSummary = () => {
@@ -167,7 +265,7 @@ export const EducationSummary = () => {
       <div>
         {data.education
           .sort((a, b) => {
-            return a.start.localeCompare(b.start);
+            return b.start.localeCompare(a.start);
           })
           .map((entry) => {
             return <EducationSummaryEntry {...entry} />;
@@ -190,7 +288,7 @@ export const EducationSummaryEntry = (props: EducationEntry) => {
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="body2">{t(degree)}</Typography>
-        <Typography variant="body2">{formatDuration(start, end)}</Typography>
+        <Typography variant="body2">{formatInterval(start, end)}</Typography>
       </Box>
     </div>
   );
@@ -238,9 +336,11 @@ export const WorkSummaryEntry = (props: WorkExperienceItemProps) => {
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="body2">{position}</Typography>
-        <Typography variant="body2">{formatDuration(start, end)}</Typography>
+        <Typography variant="body2">{formatInterval(start, end)}</Typography>
       </Box>
-      <Markdown>{t(`descriptions.${id}.experience`)}</Markdown>
+      <Markdown style={{ maxWidth: '85%' }}>
+        {t(`descriptions.${id}.experience`)}
+      </Markdown>
     </div>
   );
 };

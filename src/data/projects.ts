@@ -13,13 +13,16 @@ export const projects = [
   },
   {
     name: 'React Server',
+    sort: 100,
     description: 'descriptions.react-server',
     href: 'https://state-less.cloud',
     repo: 'https://github.com/state-less/clean-starter',
     duration: 1,
+    stars: 9,
     stack: ['TypeScript', 'Node.js', 'React', 'GraphQL'],
   },
   {
+    sort: 10,
     name: 'Lists App',
     description: 'descriptions.lists',
     href: 'https://lists.state-less.cloud',
@@ -28,6 +31,7 @@ export const projects = [
     stack: ['TypeScript', 'Node.js', 'React Server', 'React'],
   },
   {
+    sort: 90,
     name: 'Reflect.js',
     description: 'descriptions.reflect',
     repo: 'https://github.com/C5H8NNaO4/reflect.js',
@@ -35,6 +39,7 @@ export const projects = [
     stack: ['JavaScript'],
   },
   {
+    sort: 20,
     name: 'Online CV',
     description: 'descriptions.mycv',
     href: `https://justmycv.com/`,

@@ -1,3 +1,1 @@
-* Prepared meals for hundres of wedding guests.
-* Constructed various structures (enclosure, stable, house).
-* Learned a new language.
+- Worked as chef in culinary operations, engaged in construction projects constructing enclosures and houses. Achieved fluency in Spanish, fostering adaptability and cross-cultural communication skills alongside web development expertise

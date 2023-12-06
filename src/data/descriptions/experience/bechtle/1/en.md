@@ -1,4 +1,4 @@
-* Built enterprise-level lotus notes applications.
-* Developed Cross-Platform applications with PhoneGap.
-* Attained experience working in an agile development environment.
-* Learned fundamentals of Java and JavaScript
+- Constructed enterprise-level Lotus Notes applications, contributing to the organization's software infrastructure
+- Developed Cross-Platform applications using PhoneGap, broadening the scope of application development projects
+- Gained practical exposure to an agile development environment, actively contributing to iterative development processes
+- Acquired foundational knowledge in Java and JavaScript, enriching skill sets in software development during the tenure at Bechtle in Freiburg, Germany

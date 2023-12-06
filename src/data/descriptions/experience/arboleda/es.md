@@ -1,3 +1,1 @@
-* Preparé comidas para cientos de invitados de bodas.
-* Construí varias estructuras (recinto, establo, casa).
-* Aprendí un nuevo idioma.
+- Durante una estadía de un año en Arboleda Emaluisa en Chile, me desempeñé como chef en el restaurante familiar, mientras contribuía activamente a diversos proyectos de construcción. Esto implicaba supervisar las operaciones culinarias y participar en proyectos de construcción que involucraban la construcción de recintos y viviendas. Al mismo tiempo, adquirí fluidez en español, aprovechando esta experiencia inmersiva para desarrollar habilidades de adaptabilidad y comunicación intercultural, a pesar de ser distintas de mi rol principal como desarrollador web.

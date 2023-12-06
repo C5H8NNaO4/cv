@@ -39,6 +39,7 @@ import {
   Footer,
   Introduction,
   Name,
+  ProjectSummary,
   SkillsSummary,
   WorkSummary,
 } from './components/templates/harvard/harvard';
@@ -56,7 +57,6 @@ function App() {
           <hr />
           <Contact />
           <Introduction />
-          <EducationSummary />
           <WorkSummary slice={[0, -4]} title="(1-3)" />
           <SkillsSummary />
         </Box>
@@ -65,8 +65,13 @@ function App() {
       </Page>
       <Page>
         <WorkSummary slice={[-4]} title="(4-7)" />
+        <EducationSummary />
         <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
-
+        <Footer />
+      </Page>
+      <Page>
+        <ProjectSummary />
+        <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
         <Footer />
       </Page>
       <Box sx={{ mt: !printing ? '100vh' : 0 }} />

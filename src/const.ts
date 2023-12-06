@@ -4,7 +4,16 @@
  */
 
 /**
+ * CV Settings
+ */
+export const INCLUDE_ADDRESS = false;
+export const INCLUDE_LOCATION = false;
+
+export const RELEVANT_SKILLS = ['React', 'TypeScript', 'Vite'];
+export const NUM_PROJECTS = 3;
+/**
  * Personal Information
+ * TODO: Move to data
  */
 export const NAME = 'Moritz';
 export const SURNAME = 'Roessler';
