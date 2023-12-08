@@ -32,7 +32,6 @@ import { useTranslation } from 'react-i18next';
 
 export const Layout = () => {
   const printing = useMediaQuery('print');
-  const { t } = useTranslation();
   return (
     <>
       <Page>
