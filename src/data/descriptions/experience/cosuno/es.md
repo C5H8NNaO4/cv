@@ -1,3 +1,3 @@
-- Mantuve una base de código frontend de alta calidad mientras trabajaba en el equipo de desarrollo.
-- Implementé componentes de React basados en historias de usuario para mejorar la funcionalidad y la experiencia del usuario.
-- Obtuvé una valiosa experiencia colaborando dentro de un equipo senior de SCRUM, contribuyendo al avance del proyecto y refinando los entregables para obtener resultados exitosos en Cosuno en Braga, Portugal.
+- Mantuve una base de código TypeScript de alta calidad, siguiendo las mejores prácticas y estándares de codificación. Asegurando la legibilidad, mantenibilidad y escalabilidad del código
+- Implementé componentes de React basados en historias de usuario
+- Obtuvé valiosa experiencia colaborando dentro de un equipo senior de SCRUM

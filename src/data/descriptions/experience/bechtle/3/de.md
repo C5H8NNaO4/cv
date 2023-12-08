@@ -1,1 +1,2 @@
-* Übersetzte eine bestehende Codebasis von C# nach Perl.
+- Übersetzte eine vorhandene Codebasis von C# nach Perl
+- Entwickelte vor Ort für Kunden in Deutschland

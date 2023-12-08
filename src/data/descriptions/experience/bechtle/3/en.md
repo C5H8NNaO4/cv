@@ -1,1 +1,2 @@
-* Translated an existing codebase from C# to Perl
+- Translated an existing codebase from C# to Perl
+- Developed on-site for customers in Germany

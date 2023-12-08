@@ -13,10 +13,12 @@ export const Page = ({
       sx={{
         display: 'flex',
         flexDirection: 'column',
+        mx: 'auto',
         minHeight: autoHeight && !last ? 297 * 3.75 - 2 * 8 + 'px' : undefined,
         maxHeight: autoHeight ? 297 * 3.75 - 2 * 8 + 'px' : undefined,
+        width: 1 ? 210 * 3.75 - 6 * 8 + 'px' : undefined,
         border: '1px solid white',
-        m: 0,
+        my: 0,
         py: 2,
         px: 4,
         ...sx,

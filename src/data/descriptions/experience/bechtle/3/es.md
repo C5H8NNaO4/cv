@@ -1,1 +1,2 @@
-* Traduje una base de código existente de C# a Perl.
+- Traduje una base de código existente de C# a Perl
+- Desarrollé en las instalaciones de los clientes en Alemania

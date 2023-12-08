@@ -1,3 +1,6 @@
-- Developed multiple enterprise-level Lotus Notes applications, contributing to the company's software portfolio
-- Gained proficiency in LotusScript and Lotus Domino/Notes, leveraging these skills in software development initiatives
-- Acquired valuable experience working within an agile development environment, contributing actively to iterative software development methodologies during the tenure at Bechtle in Freiburg, Germany
+- Developed various Lotus Notes applications for medium sized businesses
+- Gained proficiency in LotusScript and Lotus Domino/Notes
+- Acquired valuable experience working within a team of senior developers
+- Aligned with customers to understand their business requirements
+- Traveled to customer sites for kick-offs, meetings and implementation
+

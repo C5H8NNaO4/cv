@@ -1,4 +1,5 @@
-- Mantuve una base de código en JavaScript, garantizando su funcionalidad y eficiencia.
-- Analicé datos en tiempo real de alta frecuencia, manejando volúmenes sustanciales de información.
-- Realicé análisis y correlación de cientos de millones de filas entre conjuntos de datos disjuntos.
-- Implementé con éxito un panel de monitoreo en tiempo real, mejorando la visualización y accesibilidad de los datos para obtener mejores percepciones y toma de decisiones en Spoo en Denzlingen, Alemania.
+- Mantuve una base de código en JavaScript, asegurando funcionalidad y cualidad
+- Procesé datos en tiempo real, manejando grandes volúmenes de información
+- Analicé cientos de millones puntos de datos disjuntos
+- Implementé conjuntos de reglas complejas para activar acciones basadas en datos, geovallas, umbrales, orquestando 1.5 millones de puntos de datos al día
+- Implementé con éxito un panel de monitoreo en tiempo real, proporcionando insights instantáneos y alertas para una red de transporte público de una ciudad

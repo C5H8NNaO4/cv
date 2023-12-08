@@ -11,12 +11,13 @@ import {
 } from '@/const';
 import data, { experienceBySkill } from '@/data';
 import { formatInterval, formatLink, formatPhoneNr } from '@/lib/format';
-import { Typography, Box, Link, useMediaQuery } from '@mui/material';
+import { Typography, Box, Link, useMediaQuery, Tooltip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { capitalCase } from 'change-case';
 import { experience, formatDuration } from '@/lib/util';
 import { Skill } from '@/types';
+import { Page } from '@/components/Page';
 
 export const Name = () => {
   return (
@@ -172,21 +173,27 @@ export const SkillEntry = ({
           )
           .map((skill, i, arr) => {
             return (
-              <>
-                <Typography
-                  variant="body2"
-                  sx={{ textDecoration: skill.stack ? 'underline' : 'none' }}
+              <Box sx={{ display: 'flex' }}>
+                <Tooltip
+                  title={
+                    experience(skill) ? formatDuration(experience(skill)) : ''
+                  }
                 >
-                  <Link
-                    href={skill.href}
-                    sx={{ textDecoration: 'none', color: 'black' }}
+                  <Typography
+                    variant="body2"
+                    sx={{ textDecoration: skill.stack ? 'underline' : 'none' }}
                   >
-                    {t(skill.name)}
-                  </Link>
-                  {i < arr.length - 1 ? ', ' : ''}
-                </Typography>
+                    <Link
+                      href={skill.href}
+                      sx={{ textDecoration: 'none', color: 'black' }}
+                    >
+                      {t(skill.name)}
+                    </Link>
+                    {i < arr.length - 1 ? ', ' : ''}
+                  </Typography>
+                </Tooltip>
                 &nbsp;
-              </>
+              </Box>
             );
           })}
       </Box>
@@ -342,5 +349,35 @@ export const WorkSummaryEntry = (props: WorkExperienceItemProps) => {
         {t(`descriptions.${id}.experience`)}
       </Markdown>
     </div>
+  );
+};
+
+export const Layout = () => {
+  return (
+    <>
+      <Page sx={{ w: '100%' }}>
+        <Box>
+          <Name />
+          <hr />
+          <Contact />
+          <Introduction />
+          <WorkSummary slice={[0, -4]} title="(1-3)" />
+          <SkillsSummary />
+        </Box>
+        <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
+        <Footer />
+      </Page>
+      <Page>
+        <WorkSummary slice={[-4]} title="(4-7)" />
+        <EducationSummary />
+        <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
+        {/* <Footer /> */}
+      </Page>
+      <Page>
+        <ProjectSummary />
+        <Box sx={{ flexGrow: 1, height: 'calc(100% - 64px)' }} />
+        {/* <Footer /> */}
+      </Page>
+    </>
   );
 };

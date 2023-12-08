@@ -1,4 +1,5 @@
 - Maintained a JavaScript codebase, ensuring its functionality and efficiency
-- Analyzed high-frequency real-time data, handling substantial volumes of information
-- Conducted analysis and correlation of hundreds of millions of rows across disjoint datasets
-- Successfully implemented a real-time monitoring dashboard, enhancing data visualization and accessibility for improved insights and decision-making at Spoo in Denzlingen, Germany
+- Processed high-frequency real-time data, handling large volumes of information
+- Analyzed and correlated hundreds of millions of rows across disjoint datasets
+- Implemented complex rulesets to trigger actions based on data patterns, geofences, thresholds, orchestrating 1.5M data points per day
+- Successfully implemented a real-time monitoring dashboard, providing instant insights and alerts for a city wide publc transportation network

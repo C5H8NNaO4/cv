@@ -1,1 +1,3 @@
-- Trabajé como chef en operaciones culinarias, participé en proyectos de construcción construyendo recintos y casas. Logré fluidez en español, fomentando habilidades de adaptabilidad y comunicación intercultural junto con mi experiencia en desarrollo web.
+- Cociné en un restaurante familiar, preparando comidas para cientos de invitados
+- Construí recintos, establos y casas para animales y personas
+- Alcanzé fluidez en español, fomentando habilidades de comunicación 

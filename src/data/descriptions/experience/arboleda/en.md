@@ -1,1 +1,3 @@
-- Worked as chef in culinary operations, engaged in construction projects constructing enclosures and houses. Achieved fluency in Spanish, fostering adaptability and cross-cultural communication skills alongside web development expertise
+- Cooked in a family owned restaurant, preparing meals for hundreds of guests
+- Constructed enclosures, stables and houses for animals and people
+- Achieved fluency in Spanish, fostering international communication skills 

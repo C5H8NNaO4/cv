@@ -1,4 +1,4 @@
-- Konstruierte unternehmensweite Lotus Notes-Anwendungen und trug zur Softwareinfrastruktur der Organisation bei.
-- Entwickelte plattformübergreifende Anwendungen mit PhoneGap und erweiterte dadurch das Spektrum der Anwendungs­entwicklungsprojekte.
-- Sammelte praktische Erfahrungen in einer agilen Entwicklungsumgebung und trug aktiv zu iterativen Entwicklungsprozessen bei.
-- Erlangte grundlegende Kenntnisse in Java und JavaScript und erweiterte während meiner Tätigkeit bei Bechtle in Freiburg, Deutschland, meine Fähigkeiten im Softwareentwicklungsbereich.
+- Entwickelte Lotus Notes-Anwendungen für mittelständische Unternehmen
+- Entwickelte plattformübergreifende Anwendungen mit PhoneGap
+- Erwarb tiefgreifendes Wissen über JavaScript
+- Verbesserte und refaktorierte LotusScript-Codebasen

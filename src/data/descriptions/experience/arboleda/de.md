@@ -1,1 +1,3 @@
-- Arbeitete als Koch in kulinarischen Betrieben, war an Bauvorhaben beteiligt und baute Umzäunungen und Häuser. Erlangte fließende Spanischkenntnisse, förderte Anpassungsfähigkeit und interkulturelle Kommunikationsfähigkeiten neben meiner Expertise in der Webentwicklung.
+- Kochte in einem familiengeführten Restaurant und bereitete Mahlzeiten für Hunderte von Hochzeitsgästen zu
+- Baute Gehege, Ställe und Häuser für Tiere und Menschen
+- Erlangte fließende Spanischkenntnisse und förderte Kommunikationsfähigkeiten

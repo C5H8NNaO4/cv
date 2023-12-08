@@ -1,4 +1,4 @@
-- Construí aplicaciones Lotus Notes a nivel empresarial, contribuyendo a la infraestructura de software de la organización.
-- Desarrollé aplicaciones multiplataforma utilizando PhoneGap, ampliando el alcance de los proyectos de desarrollo de aplicaciones.
-- Obtuvé exposición práctica a un entorno de desarrollo ágil, contribuyendo activamente a procesos de desarrollo iterativos.
-- Adquirí conocimientos fundamentales en Java y JavaScript, enriqueciendo conjuntos de habilidades en el desarrollo de software durante mi tiempo en Bechtle en Freiburg, Alemania.
+- Desarrollé aplicaciones reales de Lotus Notes para medianas empresas
+- Desarrollé aplicaciones multiplataforma utilizando PhoneGap
+- Adquirí un conocimiento profundo de JavaScript
+- Mejoré y refactoricé bases de código de LotusScript

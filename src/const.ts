@@ -3,6 +3,8 @@
  * You can change these constants to suit your needs.
  */
 
+import { AvailableTemplates } from './lib/templates';
+
 /**
  * CV Settings
  */
@@ -11,6 +13,8 @@ export const INCLUDE_LOCATION = false;
 
 export const RELEVANT_SKILLS = ['React', 'TypeScript', 'Vite'];
 export const NUM_PROJECTS = 3;
+
+export const TEMPLATE: AvailableTemplates = 'Harvard';
 /**
  * Personal Information
  * TODO: Move to data
