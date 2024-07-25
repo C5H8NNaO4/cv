@@ -5,7 +5,6 @@ import {
   Card,
   CardHeader,
   Grid,
-  useMediaQuery,
   Link,
   ListItem,
   ListItemIcon,
@@ -17,7 +16,7 @@ import { Templates } from './lib/templates';
 import { TEMPLATE } from './const';
 
 function App() {
-  const printing = useMediaQuery('print');
+  // const printing = useMediaQuery('print');
   const Layout = Templates[TEMPLATE].Layout;
 
   return (
