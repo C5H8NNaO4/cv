@@ -13,8 +13,6 @@ import {
 } from '@mui/material';
 import data from './data';
 import { useTranslation } from 'react-i18next';
-import { AchievementsCard } from './components/templates/experimental';
-import { Page } from './components/Page';
 import { Templates } from './lib/templates';
 import { TEMPLATE } from './const';
 
@@ -25,10 +23,10 @@ function App() {
   return (
     <div id="root">
       <Layout />
-      <Box sx={{ mt: !printing ? '100vh' : 0 }} />
+      {/* <Box sx={{ mt: !printing ? '100vh' : 0 }} />
       <Page>
         <AchievementsCard />
-      </Page>
+      </Page> */}
     </div>
   );
 }

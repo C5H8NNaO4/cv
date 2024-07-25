@@ -1,7 +1,7 @@
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { Mode, plugin } from 'vite-plugin-markdown';
+import viteCompression from 'vite-plugin-compression';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,5 +9,5 @@ export default defineConfig({
     target: 'esnext',
   },
   assetsInclude: ['**/*.md'],
-  plugins: [react(), tsconfigPaths()],
+  plugins: [react(), tsconfigPaths(), viteCompression()],
 });
