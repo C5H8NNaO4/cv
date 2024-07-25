@@ -1,11 +1,11 @@
 import './App.css';
 import './lib/i18n';
-import { Templates } from './lib/templates';
-import { TEMPLATE } from './const';
+import * as Harvard from '@/components/templates/harvard/harvard';
+
 
 function App() {
   // const printing = useMediaQuery('print');
-  const Layout = Templates[TEMPLATE].Layout;
+  const { Layout } = Harvard;
 
   return (
     <div id="root">
