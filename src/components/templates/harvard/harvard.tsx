@@ -1,4 +1,3 @@
-import { EducationEntry } from '@/App';
 import Markdown from '@/components/Markdown';
 import { WorkExperienceItemProps } from '@/components/WorkExperienceItem';
 import {
@@ -16,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { capitalCase } from 'change-case';
 import { experience, formatDuration } from '@/lib/util';
-import { Skill } from '@/types';
+import { EducationEntryProps, Skill } from '@/types';
 import { Page } from '@/components/Page';
 
 export const Name = () => {
@@ -167,7 +166,7 @@ export const SkillEntry = ({
             (a, b) =>
               (RELEVANT_SKILLS.indexOf(b.name) -
                 RELEVANT_SKILLS.indexOf(a.name)) *
-                10 +
+              10 +
               (Number(b.stack || 0) - Number(a.stack || 0)) * 5 +
               (experience(b) - experience(a))
           )
@@ -282,7 +281,7 @@ export const EducationSummary = () => {
   );
 };
 
-export const EducationSummaryEntry = (props: EducationEntry) => {
+export const EducationSummaryEntry = (props: EducationEntryProps) => {
   const { t } = useTranslation();
   const { school, degree, location, end, start } = props;
   return (

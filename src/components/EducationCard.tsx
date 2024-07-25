@@ -1,7 +1,7 @@
-import { EducationEntry } from '@/App';
 import data from '@/data';
 import { Card, CardHeader, List } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { EducationEntry } from './EducationEntry';
 
 export const EducationCard = () => {
   const { t } = useTranslation();

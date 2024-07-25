@@ -24,3 +24,11 @@ export type Skill = {
   end?: string;
   href?: string;
 };
+
+export interface EducationEntryProps {
+  school: string;
+  degree: string;
+  start: string;
+  end: string;
+  location: string;
+}
