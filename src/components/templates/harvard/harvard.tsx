@@ -10,7 +10,11 @@ import {
 } from '@/const';
 import data, { experienceBySkill } from '@/data';
 import { formatInterval, formatLink, formatPhoneNr } from '@/lib/format';
-import { Typography, Box, Link, useMediaQuery, Tooltip } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { capitalCase } from 'change-case';

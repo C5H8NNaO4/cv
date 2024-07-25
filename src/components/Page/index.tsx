@@ -1,4 +1,7 @@
-import { Paper, useMediaQuery, BoxProps } from '@mui/material';
+import { BoxProps } from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 import { PropsWithChildren } from 'react';
 
 export const Page = ({
