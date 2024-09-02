@@ -1,6 +1,7 @@
 - Developed a state-of-the-art frontend solution as a Frontend Developer in an ongoing project at Digitas Pixelpark, using React, Next.js, and CoreMedia as CMS
-- Translated complex Figma designs into functional, reusable components, ensuring a well-structured TypeScript codebase adhering to strict ESLint standards
-- Actively engaged in SCRUM events, providing valuable feedback and suggestions to improve the overall quality of the codebase
-- Presented results professionally in regular sprint reviews, sharing progress, challenges, and learnings with the customer
-- Maintained a high-quality TypeScript codebase in a collaboration effort, conducting thorough code reviews providing constructive feedback
+- Translated complex Figma designs into functional, reusable components, ensuring a well-structured TypeScript codebase adhering to strict quality requirements
+- Actively engaged in SCRUM events, providing valuable feedback and suggestions to improve the collaboration and efficiency of the team
+- Presented results professionally in regular sprint reviews, sharing progress, challenges, and learnings with clients
+- Maintained a high-quality TypeScript codebase with a team of experienced senior devs, conducting thorough code reviews and ensuring code quality
 - Managed PRs, branching, releases, deployments and infrastructure configuration
+- Solved complex technical challenges such as multi faceted filtering functionality for a B2B E-Commerce Shop with thousands of products

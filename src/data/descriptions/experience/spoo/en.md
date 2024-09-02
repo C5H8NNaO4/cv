@@ -1,5 +1,5 @@
-- Maintained a JavaScript codebase, ensuring its functionality and efficiency
-- Processed high-frequency real-time data, handling large volumes of information
-- Analyzed and correlated hundreds of millions of rows across disjoint datasets
-- Implemented complex rulesets to trigger actions based on data patterns, geofences, thresholds, orchestrating 1.5M data points per day
-- Successfully implemented a real-time monitoring dashboard, providing instant insights and alerts for a city wide publc transportation network
+- Maintained a robust JavaScript codebase, ensuring functionality and efficiency.
+- Processed billions of rows, efficiently handling large volumes of information.
+- Analyzed and correlated hundreds of millions of rows from disjoint datasets.
+- Implemented rulesets for data-driven actions, orchestrating 1.5M data points daily.
+- Developed a real-time monitoring dashboard for a citywide public transportation network, enabling instant insights and alerts.

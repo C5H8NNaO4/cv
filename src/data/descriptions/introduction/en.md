@@ -1,1 +1,4 @@
-I have <mark>{{experience.JavaScript}} years</mark> of experience in <mark>JavaScript</mark> and have written a fully working optimizing compiler for it. I'm proficient in <mark>TypeScript</mark> and on a senior level in all things web development including in-depth knowledge of <mark>React</mark>. I have a keen eye for detail and a proven ability to deliver quality work on time. I have experience in both front-end and back-end development and am used to working in agile environments.
+I'm Moritz Roessler, a senior TypeScript developer with over <mark>{{experience.JavaScript}} years</mark> of experience
+in web and full-stack development. I specialize in <mark>JavaScript, TypeScript, React, and GraphQL</mark>,
+focusing on code quality and optimal tooling.
+My work includes delivering complex projects for large clients, utilizing agile frameworks like Scrum.

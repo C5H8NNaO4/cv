@@ -170,7 +170,7 @@ export const SkillEntry = ({
             (a, b) =>
               (RELEVANT_SKILLS.indexOf(b.name) -
                 RELEVANT_SKILLS.indexOf(a.name)) *
-              10 +
+                10 +
               (Number(b.stack || 0) - Number(a.stack || 0)) * 5 +
               (experience(b) - experience(a))
           )
@@ -240,7 +240,7 @@ export const ProjectSummaryEntry = (props: ProjectEntryProps) => {
   const { repo, stars, name, description, duration } = props;
   return (
     <div>
-      <Box sx={{ display: 'flex', justifyContent: 'start' }}>
+      <Box component={'span'} sx={{ display: 'flex', justifyContent: 'start' }}>
         <Typography variant="overline" sx={{ fontWeight: 'bold' }}>
           {name}
         </Typography>
@@ -254,9 +254,11 @@ export const ProjectSummaryEntry = (props: ProjectEntryProps) => {
       </Box>
       {repo && (
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Link href={repo} target="_blank" rel="noreferrer">
-            {formatLink(repo)}
-          </Link>
+          <p>
+            <Link href={repo} target="_blank" rel="noreferrer">
+              {formatLink(repo)}
+            </Link>
+          </p>
           {stars && (
             <Typography variant="body2">{stars + ' ' + t('Stars')}</Typography>
           )}

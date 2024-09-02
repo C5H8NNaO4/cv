@@ -1,3 +1,1 @@
-- Cooked in a family owned restaurant, preparing meals for hundreds of guests
-- Constructed enclosures, stables and houses for animals and people
 - Achieved fluency in Spanish, fostering international communication skills 

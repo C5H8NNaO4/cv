@@ -23,6 +23,9 @@ const translation = {
     'descriptions.react-server': (
       await import('@/data/descriptions/react-server/en.md?raw')
     ).default,
+    'descriptions.javascript.moe': (
+      await import('@/data/descriptions/javascript.moe/en.md?raw')
+    ).default,
     'descriptions.lists': (await import('@/data/descriptions/lists/en.md?raw'))
       .default,
     'descriptions.introduction': (

@@ -3,6 +3,16 @@ import { age } from '@/lib/util';
 
 export const projects = [
   {
+    name: 'javascript.moe',
+    sort: 100,
+    description: 'descriptions.javascript.moe',
+    href: 'https://javascript.moe',
+    repo: 'https://github.com/C5H8NNaO4/javascript.moe',
+    duration: 14 / 365,
+    // stars: 0,
+    stack: ['TypeScript', 'Node.js', 'React', 'GraphQL'],
+  },
+  {
     name: 'Maxon Online Presence',
     description: 'descriptions.maxon',
     company: 'Digitas Pixelpark',
@@ -18,6 +28,7 @@ export const projects = [
     href: 'https://state-less.cloud',
     repo: 'https://github.com/state-less/clean-starter',
     duration: 1,
+    company: 'state-less',
     stars: 9,
     stack: ['TypeScript', 'Node.js', 'React', 'GraphQL'],
   },

@@ -1,3 +1,4 @@
-- Maintained a high-quality TypeScript codebase, following best practices and coding standards. Ensuring code readability, maintainability, and scalability.
-- Implemented React components based on user stories
-- Gained valuable experience collaborating within a senior SCRUM team at Cosuno 
+- Optimized a TypeScript codebase, ensuring readability, maintainability, and scalability.
+- Delivered high-performance React components aligned with user stories.
+- Collaborated with senior developers to meet key project milestones.
+- Enhanced SCRUM practices, improving team velocity and productivity.
